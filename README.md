@@ -4,9 +4,7 @@
 
 [SPKita](http://spkita.my.id) merupakan sebuah website yang dikembangkan secara bersama-sama dengan tujuan untuk membantu mengambil suatu keputusan dengan metode tertentu. Website ini dikembangkan menggunakan bahasa pemrograman PHP dengan framework CodeIgniter 4.
 
-Website ini merupakan website open source, yang dikembangkan bersama-sama.
-Untuk dapat mengetahui repositori dari web ini dapat melihat di
-[SPKita Repositor](https://github.com/whywidodo/spkita).
+Website ini merupakan website open source, dan dapat dilihat melalui github repositori [SPKita Repositori](https://github.com/whywidodo/spkita).
 
 
 ## Kritik dan Saran
