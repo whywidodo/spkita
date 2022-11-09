@@ -1,0 +1,9 @@
+.bg-nav {
+    background-color: #1E88E5;
+}
+.nav-color-white {
+    color: #F3F3F3;
+}
+.nav-color-white:hover {
+    color: #FFFFFF;
+}
