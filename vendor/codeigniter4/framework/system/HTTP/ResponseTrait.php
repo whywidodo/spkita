@@ -17,7 +17,6 @@ use CodeIgniter\Cookie\Exceptions\CookieException;
 use CodeIgniter\HTTP\Exceptions\HTTPException;
 use CodeIgniter\Pager\PagerInterface;
 use CodeIgniter\Security\Exceptions\SecurityException;
-use Config\Cookie as CookieConfig;
 use Config\Services;
 use DateTime;
 use DateTimeZone;
@@ -143,9 +142,9 @@ trait ResponseTrait
      *                       provided status code; if none is provided, will
      *                       default to the IANA name.
      *
-     * @return $this
-     *
      * @throws HTTPException For invalid status code arguments.
+     *
+     * @return $this
      */
     public function setStatusCode(int $code, string $reason = '')
     {
@@ -166,9 +165,9 @@ trait ResponseTrait
         return $this;
     }
 
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
     // Convenience Methods
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
 
     /**
      * Sets the date header
@@ -252,9 +251,9 @@ trait ResponseTrait
     /**
      * Returns the current body, converted to JSON is it isn't already.
      *
-     * @return string|null
-     *
      * @throws InvalidArgumentException If the body property is not array.
+     *
+     * @return mixed|string
      */
     public function getJSON()
     {
@@ -284,9 +283,9 @@ trait ResponseTrait
     /**
      * Retrieves the current body into XML and returns it.
      *
-     * @return mixed|string
-     *
      * @throws InvalidArgumentException If the body property is not array.
+     *
+     * @return mixed|string
      */
     public function getXML()
     {
@@ -300,15 +299,15 @@ trait ResponseTrait
     }
 
     /**
-     * Handles conversion of the data into the appropriate format,
+     * Handles conversion of the of the data into the appropriate format,
      * and sets the correct Content-Type header for our response.
      *
      * @param array|string $body
      * @param string       $format Valid: json, xml
      *
-     * @return mixed
-     *
      * @throws InvalidArgumentException If the body property is not string or array.
+     *
+     * @return mixed
      */
     protected function formatBody($body, string $format)
     {
@@ -324,11 +323,11 @@ trait ResponseTrait
         return $body;
     }
 
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
     // Cache Control Methods
     //
     // http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
 
     /**
      * Sets the appropriate headers to ensure this response
@@ -423,9 +422,9 @@ trait ResponseTrait
         return $this;
     }
 
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
     // Output Methods
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
 
     /**
      * Sends the output to the browser.
@@ -471,7 +470,7 @@ trait ResponseTrait
         header(sprintf('HTTP/%s %s %s', $this->getProtocolVersion(), $this->getStatusCode(), $this->getReasonPhrase()), true, $this->getStatusCode());
 
         // Send all of our headers
-        foreach (array_keys($this->headers()) as $name) {
+        foreach (array_keys($this->getHeaders()) as $name) {
             header($name . ': ' . $this->getHeaderLine($name), false, $this->getStatusCode());
         }
 
@@ -496,9 +495,9 @@ trait ResponseTrait
      * @param string $uri  The URI to redirect to
      * @param int    $code The type of redirection, defaults to 302
      *
-     * @return $this
-     *
      * @throws HTTPException For invalid status code.
+     *
+     * @return $this
      */
     public function redirect(string $uri, string $method = 'auto', ?int $code = null)
     {
@@ -545,8 +544,8 @@ trait ResponseTrait
      * @param string              $domain   Cookie domain (e.g.: '.yourdomain.com')
      * @param string              $path     Cookie path (default: '/')
      * @param string              $prefix   Cookie name prefix ('': the default prefix)
-     * @param bool|null           $secure   Whether to only transfer cookies via SSL
-     * @param bool|null           $httponly Whether only make the cookie accessible via HTTP (no javascript)
+     * @param bool                $secure   Whether to only transfer cookies via SSL
+     * @param bool                $httponly Whether only make the cookie accessible via HTTP (no javascript)
      * @param string|null         $samesite
      *
      * @return $this
@@ -558,8 +557,8 @@ trait ResponseTrait
         $domain = '',
         $path = '/',
         $prefix = '',
-        $secure = null,
-        $httponly = null,
+        $secure = false,
+        $httponly = false,
         $samesite = null
     ) {
         if ($name instanceof Cookie) {
@@ -568,17 +567,8 @@ trait ResponseTrait
             return $this;
         }
 
-        /** @var CookieConfig|null $cookieConfig */
-        $cookieConfig = config('Cookie');
-
-        if ($cookieConfig instanceof CookieConfig) {
-            $secure ??= $cookieConfig->secure;
-            $httponly ??= $cookieConfig->httponly;
-            $samesite ??= $cookieConfig->samesite;
-        }
-
         if (is_array($name)) {
-            // always leave 'name' in last place, as the loop will break otherwise, due to ${$item}
+            // always leave 'name' in last place, as the loop will break otherwise, due to $$item
             foreach (['samesite', 'value', 'expire', 'domain', 'path', 'prefix', 'secure', 'httponly', 'name'] as $item) {
                 if (isset($name[$item])) {
                     ${$item} = $name[$item];
@@ -644,7 +634,7 @@ trait ResponseTrait
 
             return $this->cookieStore->get($name, $prefix);
         } catch (CookieException $e) {
-            log_message('error', (string) $e);
+            log_message('error', $e->getMessage());
 
             return null;
         }
@@ -667,7 +657,6 @@ trait ResponseTrait
         $store    = $this->cookieStore;
         $found    = false;
 
-        /** @var Cookie $cookie */
         foreach ($store as $cookie) {
             if ($cookie->getPrefixedName() === $prefixed) {
                 if ($domain !== $cookie->getDomain()) {
@@ -765,9 +754,8 @@ trait ResponseTrait
      * Generates the headers that force a download to happen. And
      * sends the file to the browser.
      *
-     * @param string      $filename The name you want the downloaded file to be named
-     *                              or the path to the file to send
-     * @param string|null $data     The data to be downloaded. Set null if the $filename is the file path
+     * @param string      $filename The path to the file to send
+     * @param string|null $data     The data to be downloaded
      * @param bool        $setMime  Whether to try and send the actual MIME type
      *
      * @return DownloadResponse|null

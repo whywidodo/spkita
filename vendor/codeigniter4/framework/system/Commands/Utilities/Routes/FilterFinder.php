@@ -11,7 +11,6 @@
 
 namespace CodeIgniter\Commands\Utilities\Routes;
 
-use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\Filters\Filters;
 use CodeIgniter\Router\Exceptions\RedirectException;
 use CodeIgniter\Router\Router;
@@ -67,11 +66,6 @@ final class FilterFinder
             return [
                 'before' => [],
                 'after'  => [],
-            ];
-        } catch (PageNotFoundException $e) {
-            return [
-                'before' => ['<unknown>'],
-                'after'  => ['<unknown>'],
             ];
         }
     }

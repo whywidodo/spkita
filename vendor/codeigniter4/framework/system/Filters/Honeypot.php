@@ -12,7 +12,6 @@
 namespace CodeIgniter\Filters;
 
 use CodeIgniter\Honeypot\Exceptions\HoneypotException;
-use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Config\Services;
@@ -32,10 +31,6 @@ class Honeypot implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (! $request instanceof IncomingRequest) {
-            return;
-        }
-
         if (Services::honeypot()->hasContent($request)) {
             throw HoneypotException::isBot();
         }

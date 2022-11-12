@@ -20,5 +20,5 @@ class DatabaseException extends Error implements ExceptionInterface
      *
      * @var int
      */
-    protected $code = EXIT_DATABASE;
+    protected $code = 8;
 }

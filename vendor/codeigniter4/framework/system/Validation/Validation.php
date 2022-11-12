@@ -147,9 +147,7 @@ class Validation implements ValidationInterface
 
             if (strpos($field, '*') !== false) {
                 $values = array_filter(array_flatten_with_dots($data), static fn ($key) => preg_match(
-                    '/^'
-                    . str_replace(['\.\*', '\*\.'], ['\..+', '.+\.'], preg_quote($field, '/'))
-                    . '$/',
+                    '/^' . str_replace('\.\*', '\..+', preg_quote($field, '/')) . '$/',
                     $key
                 ), ARRAY_FILTER_USE_KEY);
                 // if keys not found
@@ -168,7 +166,7 @@ class Validation implements ValidationInterface
             if (strpos($field, '*') !== false) {
                 // Process multiple fields
                 foreach ($values as $dotField => $value) {
-                    $this->processRules($dotField, $setup['label'] ?? $field, $value, $rules, $data, $field);
+                    $this->processRules($dotField, $setup['label'] ?? $field, $value, $rules, $data);
                 }
             } else {
                 // Process single field
@@ -183,8 +181,8 @@ class Validation implements ValidationInterface
      * Runs the validation process, returning true or false
      * determining whether validation was successful or not.
      *
-     * @param array|bool|float|int|object|string|null $value
-     * @param string[]                                $errors
+     * @param mixed    $value
+     * @param string[] $errors
      */
     public function check($value, string $rule, array $errors = []): bool
     {
@@ -201,17 +199,10 @@ class Validation implements ValidationInterface
      *
      * @param array|string $value
      * @param array|null   $rules
-     * @param array        $data          The array of data to validate, with `DBGroup`.
-     * @param string|null  $originalField The original asterisk field name like "foo.*.bar".
+     * @param array        $data
      */
-    protected function processRules(
-        string $field,
-        ?string $label,
-        $value,
-        $rules = null,
-        ?array $data = null,
-        ?string $originalField = null
-    ): bool {
+    protected function processRules(string $field, ?string $label, $value, $rules = null, ?array $data = null): bool
+    {
         if ($data === null) {
             throw new InvalidArgumentException('You must supply the parameter: data.');
         }
@@ -312,7 +303,7 @@ class Validation implements ValidationInterface
                     $found  = true;
                     $passed = $param === false
                         ? $set->{$rule}($value, $error)
-                        : $set->{$rule}($value, $param, $data, $error, $field);
+                        : $set->{$rule}($value, $param, $data, $error);
 
                     break;
                 }
@@ -328,9 +319,7 @@ class Validation implements ValidationInterface
             if ($passed === false) {
                 // if the $value is an array, convert it to as string representation
                 if (is_array($value)) {
-                    $value = $this->isStringList($value)
-                        ? '[' . implode(', ', $value) . ']'
-                        : json_encode($value);
+                    $value = '[' . implode(', ', $value) . ']';
                 } elseif (is_object($value)) {
                     $value = json_encode($value);
                 }
@@ -342,36 +331,9 @@ class Validation implements ValidationInterface
                     $field,
                     $label,
                     $param,
-                    (string) $value,
-                    $originalField
+                    (string) $value
                 );
 
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    /**
-     * Is the array a string list `list<string>`?
-     */
-    private function isStringList(array $array): bool
-    {
-        $expectedKey = 0;
-
-        foreach ($array as $key => $val) {
-            // Note: also covers PHP array key conversion, e.g. '5' and 5.1 both become 5
-            if (! is_int($key)) {
-                return false;
-            }
-
-            if ($key !== $expectedKey) {
-                return false;
-            }
-            $expectedKey++;
-
-            if (! is_string($val)) {
                 return false;
             }
         }
@@ -416,9 +378,9 @@ class Validation implements ValidationInterface
      *
      * @param array|string $rules
      *
-     * @return $this
-     *
      * @throws TypeError
+     *
+     * @return $this
      */
     public function setRule(string $field, ?string $label, $rules, array $errors = [])
     {
@@ -437,7 +399,7 @@ class Validation implements ValidationInterface
             $ruleSet[$field]['errors'] = $errors;
         }
 
-        $this->setRules($ruleSet + $this->getRules(), $this->customErrors);
+        $this->setRules($ruleSet + $this->getRules());
 
         return $this;
     }
@@ -505,9 +467,9 @@ class Validation implements ValidationInterface
      *
      * @param string $group Group.
      *
-     * @return string[] Rule group.
-     *
      * @throws InvalidArgumentException If group not found.
+     *
+     * @return string[] Rule group.
      */
     public function getRuleGroup(string $group): array
     {
@@ -695,7 +657,7 @@ class Validation implements ValidationInterface
         }
 
         $errors = array_filter($this->getErrors(), static fn ($key) => preg_match(
-            '/^' . str_replace(['\.\*', '\*\.'], ['\..+', '.+\.'], preg_quote($field, '/')) . '$/',
+            '/^' . str_replace('\.\*', '\..+', preg_quote($field, '/')) . '$/',
             $key
         ), ARRAY_FILTER_USE_KEY);
 
@@ -742,21 +704,13 @@ class Validation implements ValidationInterface
      *
      * @param string|null $value The value that caused the validation to fail.
      */
-    protected function getErrorMessage(
-        string $rule,
-        string $field,
-        ?string $label = null,
-        ?string $param = null,
-        ?string $value = null,
-        ?string $originalField = null
-    ): string {
+    protected function getErrorMessage(string $rule, string $field, ?string $label = null, ?string $param = null, ?string $value = null): string
+    {
         $param ??= '';
 
         // Check if custom message has been defined by user
         if (isset($this->customErrors[$field][$rule])) {
             $message = lang($this->customErrors[$field][$rule]);
-        } elseif (null !== $originalField && isset($this->customErrors[$originalField][$rule])) {
-            $message = lang($this->customErrors[$originalField][$rule]);
         } else {
             // Try to grab a localized version of the message...
             // lang() will return the rule name back if not found,

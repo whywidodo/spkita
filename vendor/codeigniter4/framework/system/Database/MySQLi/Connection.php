@@ -72,9 +72,9 @@ class Connection extends BaseConnection
     /**
      * Connect to the database.
      *
-     * @return mixed
-     *
      * @throws DatabaseException
+     *
+     * @return mixed
      */
     public function connect(bool $persistent = false)
     {
@@ -277,7 +277,7 @@ class Connection extends BaseConnection
     /**
      * Executes the query against the database.
      *
-     * @return bool|object
+     * @return mixed
      */
     protected function execute(string $sql)
     {
@@ -291,7 +291,7 @@ class Connection extends BaseConnection
         try {
             return $this->connID->query($this->prepQuery($sql), $this->resultMode);
         } catch (mysqli_sql_exception $e) {
-            log_message('error', (string) $e);
+            log_message('error', $e->getMessage());
 
             if ($this->DBDebug) {
                 throw $e;
@@ -360,7 +360,7 @@ class Connection extends BaseConnection
         // Escape LIKE condition wildcards
         return str_replace(
             [$this->likeEscapeChar, '%', '_'],
-            ['\\' . $this->likeEscapeChar, '\\%', '\\_'],
+            ['\\' . $this->likeEscapeChar, '\\' . '%', '\\' . '_'],
             $str
         );
     }
@@ -368,16 +368,10 @@ class Connection extends BaseConnection
     /**
      * Generates the SQL for listing tables in a platform-dependent manner.
      * Uses escapeLikeStringDirect().
-     *
-     * @param string|null $tableName If $tableName is provided will return only this table if exists.
      */
-    protected function _listTables(bool $prefixLimit = false, ?string $tableName = null): string
+    protected function _listTables(bool $prefixLimit = false): string
     {
         $sql = 'SHOW TABLES FROM ' . $this->escapeIdentifiers($this->database);
-
-        if ($tableName !== null) {
-            return $sql . ' LIKE ' . $this->escape($tableName);
-        }
 
         if ($prefixLimit !== false && $this->DBPrefix !== '') {
             return $sql . " LIKE '" . $this->escapeLikeStringDirect($this->DBPrefix) . "%'";
@@ -397,9 +391,9 @@ class Connection extends BaseConnection
     /**
      * Returns an array of objects with field data
      *
-     * @return stdClass[]
-     *
      * @throws DatabaseException
+     *
+     * @return stdClass[]
      */
     protected function _fieldData(string $table): array
     {
@@ -429,10 +423,10 @@ class Connection extends BaseConnection
     /**
      * Returns an array of objects with index data
      *
-     * @return stdClass[]
-     *
      * @throws DatabaseException
      * @throws LogicException
+     *
+     * @return stdClass[]
      */
     protected function _indexData(string $table): array
     {
@@ -475,9 +469,9 @@ class Connection extends BaseConnection
     /**
      * Returns an array of objects with Foreign key data
      *
-     * @return stdClass[]
-     *
      * @throws DatabaseException
+     *
+     * @return stdClass[]
      */
     protected function _foreignKeyData(string $table): array
     {

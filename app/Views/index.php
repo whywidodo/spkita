@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SPKita - Sistem Beasiswa Amikom</title>
-  <link rel="stylesheet" href="<?php base_url(); ?>/assets/style/css/bootstrap.css">
-  <link rel="stylesheet" href="<?php base_url(); ?>/assets/style/css/custom.css">
-  <link rel="stylesheet" href="<?php base_url(); ?>/assets/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="<?= base_url(); ?>/assets/style/css/bootstrap.css">
+  <link rel="stylesheet" href="<?= base_url(); ?>/assets/style/css/custom.css">
+  <link rel="stylesheet" href="<?= base_url(); ?>/assets/fontawesome/css/all.min.css">
 </head>
 
 <body>
@@ -18,7 +18,8 @@
         <div class="container">
           <a class="navbar-brand" href="#"><i class="fa-solid fa-graduation-cap"></i> SPKita Solusi
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -27,13 +28,16 @@
                 <a class="nav-link active" aria-current="page" href="#beranda">Beranda</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#tentang">Tentang</a>
+                <a class="nav-link" href="#tentang">Informasi</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Timeline</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Daftar</a>
+                <a class="nav-link" href="#tentang">Tentang</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?= base_url(); ?>/login">Daftar</a>
               </li>
             </ul>
           </div>
@@ -94,8 +98,8 @@
       </div>
     </section>
   </div>
-  <script src="<?php base_url(); ?>/assets/style/js/bootstrap.bundle.min.js"></script>
-  <script src="<?php base_url(); ?>/assets/fontawesome/js/all.min.js"></script>
+  <script src="<?= base_url(); ?>/assets/style/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= base_url(); ?>/assets/fontawesome/js/all.min.js"></script>
   <script>
     $('.carousel').carousel({
       interval: 2000

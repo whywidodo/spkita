@@ -661,8 +661,10 @@ class URI
      */
     public function setScheme(string $str)
     {
-        $str          = strtolower($str);
-        $this->scheme = preg_replace('#:(//)?$#', '', $str);
+        $str = strtolower($str);
+        $str = preg_replace('#:(//)?$#', '', $str);
+
+        $this->scheme = $str;
 
         return $this;
     }
@@ -930,7 +932,8 @@ class URI
         // Port
         if (isset($parts['port']) && $parts['port'] !== null) {
             // Valid port numbers are enforced by earlier parse_url or setPort()
-            $this->port = $parts['port'];
+            $port       = $parts['port'];
+            $this->port = $port;
         }
 
         if (isset($parts['pass'])) {

@@ -255,13 +255,7 @@ class Builder extends BaseBuilder
 
         $sql = $this->_update($this->QBFrom[0], $values);
 
-        if (! $this->testMode) {
-            $this->resetWrite();
-
-            return $this->db->query($sql, $this->binds, false);
-        }
-
-        return true;
+        return $this->db->query($sql, $this->binds, false);
     }
 
     /**
@@ -281,13 +275,7 @@ class Builder extends BaseBuilder
 
         $sql = $this->_update($this->QBFrom[0], $values);
 
-        if (! $this->testMode) {
-            $this->resetWrite();
-
-            return $this->db->query($sql, $this->binds, false);
-        }
-
-        return true;
+        return $this->db->query($sql, $this->binds, false);
     }
 
     /**
@@ -339,9 +327,9 @@ class Builder extends BaseBuilder
     /**
      * Compiles a replace into string and runs the query
      *
-     * @return mixed
-     *
      * @throws DatabaseException
+     *
+     * @return mixed
      */
     public function replace(?array $set = null)
     {
@@ -519,9 +507,9 @@ class Builder extends BaseBuilder
      *
      * @param mixed $where
      *
-     * @return mixed
-     *
      * @throws DatabaseException
+     *
+     * @return mixed
      */
     public function delete($where = '', ?int $limit = null, bool $resetData = true)
     {

@@ -45,7 +45,9 @@ class MemcachedHandler extends BaseHandler
     {
         $this->prefix = $config->prefix;
 
-        $this->config = array_merge($this->config, $config->memcached);
+        if (! empty($config)) {
+            $this->config = array_merge($this->config, $config->memcached);
+        }
     }
 
     /**

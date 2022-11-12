@@ -86,9 +86,9 @@ class Builder extends BaseBuilder
     /**
      * Increments a numeric column by the specified value.
      *
-     * @return mixed
-     *
      * @throws DatabaseException
+     *
+     * @return mixed
      */
     public function increment(string $column, int $value = 1)
     {
@@ -96,21 +96,15 @@ class Builder extends BaseBuilder
 
         $sql = $this->_update($this->QBFrom[0], [$column => "to_number({$column}, '9999999') + {$value}"]);
 
-        if (! $this->testMode) {
-            $this->resetWrite();
-
-            return $this->db->query($sql, $this->binds, false);
-        }
-
-        return true;
+        return $this->db->query($sql, $this->binds, false);
     }
 
     /**
      * Decrements a numeric column by the specified value.
      *
-     * @return mixed
-     *
      * @throws DatabaseException
+     *
+     * @return mixed
      */
     public function decrement(string $column, int $value = 1)
     {
@@ -118,13 +112,7 @@ class Builder extends BaseBuilder
 
         $sql = $this->_update($this->QBFrom[0], [$column => "to_number({$column}, '9999999') - {$value}"]);
 
-        if (! $this->testMode) {
-            $this->resetWrite();
-
-            return $this->db->query($sql, $this->binds, false);
-        }
-
-        return true;
+        return $this->db->query($sql, $this->binds, false);
     }
 
     /**
@@ -135,9 +123,9 @@ class Builder extends BaseBuilder
      *
      * @param array|null $set An associative array of insert values
      *
-     * @return mixed
-     *
      * @throws DatabaseException
+     *
+     * @return mixed
      */
     public function replace(?array $set = null)
     {
@@ -179,7 +167,6 @@ class Builder extends BaseBuilder
 
         unset($builder);
         $this->resetWrite();
-        $this->binds = [];
 
         return $result;
     }
@@ -205,9 +192,9 @@ class Builder extends BaseBuilder
      *
      * @param mixed $where
      *
-     * @return mixed
-     *
      * @throws DatabaseException
+     *
+     * @return mixed
      */
     public function delete($where = '', ?int $limit = null, bool $resetData = true)
     {

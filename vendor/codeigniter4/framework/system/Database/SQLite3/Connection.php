@@ -16,7 +16,6 @@ use CodeIgniter\Database\Exceptions\DatabaseException;
 use ErrorException;
 use Exception;
 use SQLite3;
-use SQLite3Result;
 use stdClass;
 
 /**
@@ -55,9 +54,9 @@ class Connection extends BaseConnection
     /**
      * Connect to the database.
      *
-     * @return mixed
-     *
      * @throws DatabaseException
+     *
+     * @return mixed
      */
     public function connect(bool $persistent = false)
     {
@@ -121,7 +120,7 @@ class Connection extends BaseConnection
     /**
      * Execute the query
      *
-     * @return bool|SQLite3Result
+     * @return mixed \SQLite3Result object or bool
      */
     protected function execute(string $sql)
     {
@@ -130,7 +129,7 @@ class Connection extends BaseConnection
                 ? $this->connID->exec($sql)
                 : $this->connID->query($sql);
         } catch (ErrorException $e) {
-            log_message('error', (string) $e);
+            log_message('error', $e);
             if ($this->DBDebug) {
                 throw $e;
             }
@@ -152,26 +151,14 @@ class Connection extends BaseConnection
      */
     protected function _escapeString(string $str): string
     {
-        if (! $this->connID) {
-            $this->initialize();
-        }
-
         return $this->connID->escapeString($str);
     }
 
     /**
      * Generates the SQL for listing tables in a platform-dependent manner.
-     *
-     * @param string|null $tableName If $tableName is provided will return only this table if exists.
      */
-    protected function _listTables(bool $prefixLimit = false, ?string $tableName = null): string
+    protected function _listTables(bool $prefixLimit = false): string
     {
-        if ($tableName !== null) {
-            return 'SELECT "NAME" FROM "SQLITE_MASTER" WHERE "TYPE" = \'table\''
-                   . ' AND "NAME" NOT LIKE \'sqlite!_%\' ESCAPE \'!\''
-                   . ' AND "NAME" LIKE ' . $this->escape($tableName);
-        }
-
         return 'SELECT "NAME" FROM "SQLITE_MASTER" WHERE "TYPE" = \'table\''
                . ' AND "NAME" NOT LIKE \'sqlite!_%\' ESCAPE \'!\''
                . (($prefixLimit !== false && $this->DBPrefix !== '')
@@ -188,9 +175,9 @@ class Connection extends BaseConnection
     }
 
     /**
-     * @return array|false
-     *
      * @throws DatabaseException
+     *
+     * @return array|false
      */
     public function getFieldNames(string $table)
     {
@@ -232,9 +219,9 @@ class Connection extends BaseConnection
     /**
      * Returns an array of objects with field data
      *
-     * @return stdClass[]
-     *
      * @throws DatabaseException
+     *
+     * @return stdClass[]
      */
     protected function _fieldData(string $table): array
     {
@@ -267,9 +254,9 @@ class Connection extends BaseConnection
     /**
      * Returns an array of objects with index data
      *
-     * @return stdClass[]
-     *
      * @throws DatabaseException
+     *
+     * @return stdClass[]
      */
     protected function _indexData(string $table): array
     {

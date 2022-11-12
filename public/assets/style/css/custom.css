@@ -1,9 +1,63 @@
 .bg-nav {
-    background-color: #1E88E5;
+    background-image: -webkit-linear-gradient(left, #1a7ab9, #8928af);
 }
+
 .nav-color-white {
     color: #F3F3F3;
 }
+
 .nav-color-white:hover {
     color: #FFFFFF;
 }
+
+
+/* style login-start */
+.bgLogin {
+    background-image: url('../../images/bgLogin.jpg');
+}
+
+.card {
+    box-shadow: 0 3px 20px black;
+}
+
+.buttonlogin {
+    width: 100%;
+    border-radius: 5%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-image: -webkit-linear-gradient(right, #1a7ab9, #8928af);
+}
+
+.buttonlogin:hover {
+    box-shadow: 0 0 5pt 0.5pt white;
+}
+
+.inputlogin {
+    border: solid 1.5px white;
+}
+
+.inputlogin:hover {
+    box-shadow: 0 0 5pt 0.5pt white;
+}
+
+.inputlogin:focus {
+    box-shadow: 0 0 5pt 2pt white;
+    outline-width: 0px;
+}
+
+.inforeg {
+    color: black;
+    font-size: 14px;
+}
+
+.inforeg a {
+    color: rgb(28, 28, 197);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.txtLabel{
+    font-size: 14px;
+}
+
+/* style login-end */

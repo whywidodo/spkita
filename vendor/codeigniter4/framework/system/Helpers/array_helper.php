@@ -16,7 +16,7 @@ if (! function_exists('dot_array_search')) {
      * Searches an array through dot syntax. Supports
      * wildcard searches, like foo.*.bar
      *
-     * @return array|bool|int|object|string|null
+     * @return mixed
      */
     function dot_array_search(string $index, array $array)
     {
@@ -45,15 +45,10 @@ if (! function_exists('_array_search_dot')) {
      */
     function _array_search_dot(array $indexes, array $array)
     {
-        // If index is empty, returns null.
-        if ($indexes === []) {
-            return null;
-        }
-
         // Grab the current index
-        $currentIndex = array_shift($indexes);
+        $currentIndex = $indexes ? array_shift($indexes) : null;
 
-        if (! isset($array[$currentIndex]) && $currentIndex !== '*') {
+        if ((empty($currentIndex) && (int) $currentIndex !== 0) || (! isset($array[$currentIndex]) && $currentIndex !== '*')) {
             return null;
         }
 

@@ -23,8 +23,6 @@ class DatetimeCast extends BaseCast
     /**
      * {@inheritDoc}
      *
-     * @return Time
-     *
      * @throws Exception
      */
     public static function get($value, array $params = [])

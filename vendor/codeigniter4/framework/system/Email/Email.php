@@ -289,13 +289,6 @@ class Email
     protected $debugMessage = [];
 
     /**
-     * Raw debug messages
-     *
-     * @var string[]
-     */
-    private array $debugMessageRaw = [];
-
-    /**
      * Recipients
      *
      * @var array|string
@@ -441,17 +434,16 @@ class Email
      */
     public function clear($clearAttachments = false)
     {
-        $this->subject         = '';
-        $this->body            = '';
-        $this->finalBody       = '';
-        $this->headerStr       = '';
-        $this->replyToFlag     = false;
-        $this->recipients      = [];
-        $this->CCArray         = [];
-        $this->BCCArray        = [];
-        $this->headers         = [];
-        $this->debugMessage    = [];
-        $this->debugMessageRaw = [];
+        $this->subject      = '';
+        $this->body         = '';
+        $this->finalBody    = '';
+        $this->headerStr    = '';
+        $this->replyToFlag  = false;
+        $this->recipients   = [];
+        $this->CCArray      = [];
+        $this->BCCArray     = [];
+        $this->headers      = [];
+        $this->debugMessage = [];
 
         $this->setHeader('Date', $this->setDate());
 
@@ -1662,16 +1654,11 @@ class Email
             $success = $this->{$method}();
         } catch (ErrorException $e) {
             $success = false;
-            log_message('error', 'Email: ' . $method . ' throwed ' . $e);
+            log_message('error', 'Email: ' . $method . ' throwed ' . $e->getMessage());
         }
 
         if (! $success) {
-            $message = lang('Email.sendFailure' . ($protocol === 'mail' ? 'PHPMail' : ucfirst($protocol)));
-
-            log_message('error', 'Email: ' . $message);
-            log_message('error', $this->printDebuggerRaw());
-
-            $this->setErrorMessage($message);
+            $this->setErrorMessage(lang('Email.sendFailure' . ($protocol === 'mail' ? 'PHPMail' : ucfirst($protocol))));
 
             return false;
         }
@@ -1950,8 +1937,7 @@ class Email
 
         $reply = $this->getSMTPData();
 
-        $this->debugMessage[]    = '<pre>' . $cmd . ': ' . $reply . '</pre>';
-        $this->debugMessageRaw[] = $cmd . ': ' . $reply;
+        $this->debugMessage[] = '<pre>' . $cmd . ': ' . $reply . '</pre>';
 
         if ($resp === null || ((int) static::substr($reply, 0, 3) !== $resp)) {
             $this->setErrorMessage(lang('Email.SMTPError', [$reply]));
@@ -2104,8 +2090,8 @@ class Email
     }
 
     /**
-     * @param array|string $include List of raw data chunks to include in the output
-     *                              Valid options are: 'headers', 'subject', 'body'
+     * @param array $include List of raw data chunks to include in the output
+     *                       Valid options are: 'headers', 'subject', 'body'
      *
      * @return string
      */
@@ -2134,20 +2120,11 @@ class Email
     }
 
     /**
-     * Returns raw debug messages
-     */
-    private function printDebuggerRaw(): string
-    {
-        return implode("\n", $this->debugMessageRaw);
-    }
-
-    /**
      * @param string $msg
      */
     protected function setErrorMessage($msg)
     {
-        $this->debugMessage[]    = $msg . '<br />';
-        $this->debugMessageRaw[] = $msg;
+        $this->debugMessage[] = $msg . '<br />';
     }
 
     /**
@@ -2167,13 +2144,7 @@ class Email
     public function __destruct()
     {
         if (is_resource($this->SMTPConnect)) {
-            try {
-                $this->sendCommand('quit');
-            } catch (ErrorException $e) {
-                $protocol = $this->getProtocol();
-                $method   = 'sendWith' . ucfirst($protocol);
-                log_message('error', 'Email: ' . $method . ' throwed ' . $e);
-            }
+            $this->sendCommand('quit');
         }
     }
 

@@ -11,7 +11,6 @@
 
 namespace CodeIgniter\Filters;
 
-use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Security\Exceptions\SecurityException;
@@ -49,7 +48,7 @@ class InvalidChars implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (! $request instanceof IncomingRequest) {
+        if ($request->isCLI()) {
             return;
         }
 

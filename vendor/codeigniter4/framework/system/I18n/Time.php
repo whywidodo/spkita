@@ -62,9 +62,9 @@ class Time extends DateTime
      */
     protected static $testNow;
 
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
     // Constructors
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
 
     /**
      * Time constructor.
@@ -105,9 +105,9 @@ class Time extends DateTime
      *
      * @param DateTimeZone|string|null $timezone
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     public static function now($timezone = null, ?string $locale = null)
     {
@@ -122,9 +122,9 @@ class Time extends DateTime
      *
      * @param DateTimeZone|string|null $timezone
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     public static function parse(string $datetime, $timezone = null, ?string $locale = null)
     {
@@ -136,9 +136,9 @@ class Time extends DateTime
      *
      * @param DateTimeZone|string|null $timezone
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     public static function today($timezone = null, ?string $locale = null)
     {
@@ -150,9 +150,9 @@ class Time extends DateTime
      *
      * @param DateTimeZone|string|null $timezone
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     public static function yesterday($timezone = null, ?string $locale = null)
     {
@@ -164,9 +164,9 @@ class Time extends DateTime
      *
      * @param DateTimeZone|string|null $timezone
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     public static function tomorrow($timezone = null, ?string $locale = null)
     {
@@ -179,9 +179,9 @@ class Time extends DateTime
      *
      * @param DateTimeZone|string|null $timezone
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     public static function createFromDate(?int $year = null, ?int $month = null, ?int $day = null, $timezone = null, ?string $locale = null)
     {
@@ -193,9 +193,9 @@ class Time extends DateTime
      *
      * @param DateTimeZone|string|null $timezone
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     public static function createFromTime(?int $hour = null, ?int $minutes = null, ?int $seconds = null, $timezone = null, ?string $locale = null)
     {
@@ -207,9 +207,9 @@ class Time extends DateTime
      *
      * @param DateTimeZone|string|null $timezone
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     public static function create(?int $year = null, ?int $month = null, ?int $day = null, ?int $hour = null, ?int $minutes = null, ?int $seconds = null, $timezone = null, ?string $locale = null)
     {
@@ -231,9 +231,9 @@ class Time extends DateTime
      * @param string                   $datetime
      * @param DateTimeZone|string|null $timezone
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     #[ReturnTypeWillChange]
     public static function createFromFormat($format, $datetime, $timezone = null)
@@ -250,9 +250,9 @@ class Time extends DateTime
      *
      * @param DateTimeZone|string|null $timezone
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     public static function createFromTimestamp(int $timestamp, $timezone = null, ?string $locale = null)
     {
@@ -265,9 +265,9 @@ class Time extends DateTime
     /**
      * Takes an instance of DateTimeInterface and returns an instance of Time with it's same values.
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     public static function createFromInstance(DateTimeInterface $dateTime, ?string $locale = null)
     {
@@ -280,12 +280,11 @@ class Time extends DateTime
     /**
      * Takes an instance of DateTime and returns an instance of Time with it's same values.
      *
-     * @return Time
-     *
      * @throws Exception
      *
-     * @deprecated         Use createFromInstance() instead
+     * @return Time
      *
+     * @deprecated         Use createFromInstance() instead
      * @codeCoverageIgnore
      */
     public static function instance(DateTime $dateTime, ?string $locale = null)
@@ -296,9 +295,9 @@ class Time extends DateTime
     /**
      * Converts the current instance to a mutable DateTime object.
      *
-     * @return DateTime
-     *
      * @throws Exception
+     *
+     * @return DateTime
      */
     public function toDateTime()
     {
@@ -308,9 +307,9 @@ class Time extends DateTime
         return $dateTime;
     }
 
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
     // For Testing
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
 
     /**
      * Creates an instance of Time that will be returned during testing
@@ -348,9 +347,9 @@ class Time extends DateTime
         return static::$testNow !== null;
     }
 
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
     // Getters
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
 
     /**
      * Returns the localized Year
@@ -453,16 +452,19 @@ class Time extends DateTime
     }
 
     /**
-     * Returns the age in years from the date and 'now'
-     *
-     * @return int
+     * Returns the age in years from the "current" date and 'now'
      *
      * @throws Exception
+     *
+     * @return int
      */
     public function getAge()
     {
+        $now  = self::now()->getTimestamp();
+        $time = $this->getTimestamp();
+
         // future dates have no age
-        return max(0, $this->difference(self::now())->getYears());
+        return max(0, date('Y', $now) - date('Y', $time));
     }
 
     /**
@@ -510,18 +512,18 @@ class Time extends DateTime
         return $this->timezone->getName();
     }
 
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
     // Setters
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
 
     /**
      * Sets the current year for this instance.
      *
      * @param int|string $value
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     public function setYear($value)
     {
@@ -533,9 +535,9 @@ class Time extends DateTime
      *
      * @param int|string $value
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     public function setMonth($value)
     {
@@ -555,9 +557,9 @@ class Time extends DateTime
      *
      * @param int|string $value
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     public function setDay($value)
     {
@@ -579,9 +581,9 @@ class Time extends DateTime
      *
      * @param int|string $value
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     public function setHour($value)
     {
@@ -597,9 +599,9 @@ class Time extends DateTime
      *
      * @param int|string $value
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     public function setMinute($value)
     {
@@ -615,9 +617,9 @@ class Time extends DateTime
      *
      * @param int|string $value
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     public function setSecond($value)
     {
@@ -633,9 +635,9 @@ class Time extends DateTime
      *
      * @param int $value
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     protected function setValue(string $name, $value)
     {
@@ -660,9 +662,9 @@ class Time extends DateTime
      *
      * @param DateTimeZone|string $timezone
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     #[ReturnTypeWillChange]
     public function setTimezone($timezone)
@@ -677,9 +679,9 @@ class Time extends DateTime
      *
      * @param int $timestamp
      *
-     * @return Time
-     *
      * @throws Exception
+     *
+     * @return Time
      */
     #[ReturnTypeWillChange]
     public function setTimestamp($timestamp)
@@ -689,9 +691,9 @@ class Time extends DateTime
         return self::parse($time, $this->timezone, $this->locale);
     }
 
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
     // Add/Subtract
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
 
     /**
      * Returns a new Time instance with $seconds added to the time.
@@ -837,9 +839,9 @@ class Time extends DateTime
         return $time->sub(DateInterval::createFromDateString("{$years} years"));
     }
 
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
     // Formatters
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
 
     /**
      * Returns the localized value of the date in the format 'Y-m-d H:i:s'
@@ -854,9 +856,9 @@ class Time extends DateTime
     /**
      * Returns a localized version of the date in Y-m-d format.
      *
-     * @return string
-     *
      * @throws Exception
+     *
+     * @return string
      */
     public function toDateString()
     {
@@ -868,9 +870,9 @@ class Time extends DateTime
      *
      *  i.e. Apr 1, 2017
      *
-     * @return string
-     *
      * @throws Exception
+     *
+     * @return string
      */
     public function toFormattedDateString()
     {
@@ -882,9 +884,9 @@ class Time extends DateTime
      *
      *  i.e. 13:20:33
      *
-     * @return string
-     *
      * @throws Exception
+     *
+     * @return string
      */
     public function toTimeString()
     {
@@ -894,9 +896,9 @@ class Time extends DateTime
     /**
      * Returns the localized value of this instance in $format.
      *
-     * @return bool|string
-     *
      * @throws Exception
+     *
+     * @return bool|string
      */
     public function toLocalizedString(?string $format = null)
     {
@@ -905,9 +907,9 @@ class Time extends DateTime
         return IntlDateFormatter::formatObject($this->toDateTime(), $format, $this->locale);
     }
 
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
     // Comparison
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
 
     /**
      * Determines if the datetime passed in is equal to the current instance.
@@ -985,9 +987,9 @@ class Time extends DateTime
         return $ourTime > $testTime;
     }
 
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
     // Differences
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
 
     /**
      * Returns a text string that is easily readable that describes
@@ -997,9 +999,9 @@ class Time extends DateTime
      *  - in 4 days
      *  - 6 hours ago
      *
-     * @return mixed
-     *
      * @throws Exception
+     *
+     * @return mixed
      */
     public function humanize()
     {
@@ -1049,9 +1051,9 @@ class Time extends DateTime
     /**
      * @param mixed $testTime
      *
-     * @return TimeDifference
-     *
      * @throws Exception
+     *
+     * @return TimeDifference
      */
     public function difference($testTime, ?string $timezone = null)
     {
@@ -1061,18 +1063,18 @@ class Time extends DateTime
         return new TimeDifference($ourTime, $testTime);
     }
 
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
     // Utilities
-    // --------------------------------------------------------------------
+    //--------------------------------------------------------------------
 
     /**
      * Returns a Time instance with the timezone converted to UTC.
      *
      * @param mixed $time
      *
-     * @return DateTime|static
-     *
      * @throws Exception
+     *
+     * @return DateTime|static
      */
     public function getUTCObject($time, ?string $timezone = null)
     {
@@ -1098,9 +1100,9 @@ class Time extends DateTime
      * Primarily used internally to provide the difference and comparison functions,
      * but available for public consumption if they need it.
      *
-     * @return IntlCalendar
-     *
      * @throws Exception
+     *
+     * @return IntlCalendar
      */
     public function getCalendar()
     {
@@ -1122,11 +1124,12 @@ class Time extends DateTime
 
     /**
      * Outputs a short format version of the datetime.
-     * The output is NOT localized intentionally.
+     *
+     * @throws Exception
      */
     public function __toString(): string
     {
-        return $this->format('Y-m-d H:i:s');
+        return IntlDateFormatter::formatObject($this->toDateTime(), $this->toStringFormat, $this->locale);
     }
 
     /**

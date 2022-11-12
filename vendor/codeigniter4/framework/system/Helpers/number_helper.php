@@ -9,6 +9,8 @@
  * the LICENSE file that was distributed with this source code.
  */
 
+use Config\Services;
+
 // CodeIgniter Number Helpers
 
 if (! function_exists('number_to_size')) {
@@ -127,9 +129,8 @@ if (! function_exists('format_number')) {
      */
     function format_number(float $num, int $precision = 1, ?string $locale = null, array $options = []): string
     {
-        // If locale is not passed, get from the default locale that is set from our config file
-        // or set by HTTP content negotiation.
-        $locale ??= Locale::getDefault();
+        // Locale is either passed in here, negotiated with client, or grabbed from our config file.
+        $locale ??= Services::request()->getLocale();
 
         // Type can be any of the NumberFormatter options, but provide a default.
         $type = (int) ($options['type'] ?? NumberFormatter::DECIMAL);

@@ -37,7 +37,7 @@ interface MessageInterface
     public function appendBody($data);
 
     /**
-     * Populates the $headers array with any headers the server knows about.
+     * Populates the $headers array with any headers the getServer knows about.
      */
     public function populateHeaders(): void;
 
@@ -93,9 +93,9 @@ interface MessageInterface
     /**
      * Sets the HTTP protocol version.
      *
-     * @return $this
-     *
      * @throws HTTPException For invalid protocols
+     *
+     * @return $this
      */
     public function setProtocolVersion(string $version);
 }

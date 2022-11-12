@@ -19,7 +19,6 @@ use CodeIgniter\Database\ConnectionInterface;
 use CodeIgniter\Debug\Timer;
 use CodeIgniter\Files\Exceptions\FileNotFoundException;
 use CodeIgniter\HTTP\Exceptions\HTTPException;
-use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RedirectResponse;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
@@ -45,7 +44,6 @@ if (! function_exists('app_timezone')) {
      */
     function app_timezone(): string
     {
-        /** @var App $config */
         $config = config(App::class);
 
         return $config->appTimezone;
@@ -145,10 +143,7 @@ if (! function_exists('command')) {
                 $args[] = stripcslashes($match[1]);
             } else {
                 // @codeCoverageIgnoreStart
-                throw new InvalidArgumentException(sprintf(
-                    'Unable to parse input near "... %s ...".',
-                    substr($command, $cursor, 10)
-                ));
+                throw new InvalidArgumentException(sprintf('Unable to parse input near "... %s ...".', substr($command, $cursor, 10)));
                 // @codeCoverageIgnoreEnd
             }
 
@@ -360,10 +355,12 @@ if (! function_exists('dd')) {
      */
     function dd(...$vars)
     {
+        // @codeCoverageIgnoreStart
         Kint::$aliases[] = 'dd';
         Kint::dump(...$vars);
 
         exit;
+        // @codeCoverageIgnoreEnd
     }
 }
 
@@ -415,15 +412,14 @@ if (! function_exists('esc')) {
      * If $data is an array, then it loops over it, escaping each
      * 'value' of the key/value pairs.
      *
-     * @param array|string $data
-     * @phpstan-param 'html'|'js'|'css'|'url'|'attr'|'raw' $context
-     * @param string|null $encoding Current encoding for escaping.
-     *                              If not UTF-8, we convert strings from this encoding
-     *                              pre-escaping and back to this encoding post-escaping.
+     * Valid context values: html, js, css, url, attr, raw
      *
-     * @return array|string
+     * @param array|string $data
+     * @param string       $encoding
      *
      * @throws InvalidArgumentException
+     *
+     * @return array|string
      */
     function esc($data, string $context = 'html', ?string $encoding = null)
     {
@@ -439,7 +435,7 @@ if (! function_exists('esc')) {
             // Provide a way to NOT escape data since
             // this could be called automatically by
             // the View library.
-            if ($context === 'raw') {
+            if (empty($context) || $context === 'raw') {
                 return $data;
             }
 
@@ -490,18 +486,19 @@ if (! function_exists('force_https')) {
             $response = Services::response(null, true);
         }
 
-        if (! $request instanceof IncomingRequest) {
-            return;
-        }
-
         if ((ENVIRONMENT !== 'testing' && (is_cli() || $request->isSecure())) || (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'test')) {
-            return; // @codeCoverageIgnore
+            // @codeCoverageIgnoreStart
+            return;
+            // @codeCoverageIgnoreEnd
         }
 
         // If the session status is active, we should regenerate
         // the session ID for safety sake.
         if (ENVIRONMENT !== 'testing' && session_status() === PHP_SESSION_ACTIVE) {
-            Services::session(null, true)->regenerate(); // @codeCoverageIgnore
+            // @codeCoverageIgnoreStart
+            Services::session(null, true)
+                ->regenerate();
+            // @codeCoverageIgnoreEnd
         }
 
         $baseURL = config(App::class)->baseURL;
@@ -526,7 +523,9 @@ if (! function_exists('force_https')) {
         $response->sendHeaders();
 
         if (ENVIRONMENT !== 'testing') {
-            exit(); // @codeCoverageIgnore
+            // @codeCoverageIgnoreStart
+            exit();
+            // @codeCoverageIgnoreEnd
         }
     }
 }
@@ -777,7 +776,7 @@ if (! function_exists('log_message')) {
      *  - info
      *  - debug
      *
-     * @return bool
+     * @return mixed
      */
     function log_message(string $level, string $message, array $context = [])
     {
@@ -790,7 +789,10 @@ if (! function_exists('log_message')) {
             return $logger->log($level, $message, $context);
         }
 
-        return Services::logger(true)->log($level, $message, $context); // @codeCoverageIgnore
+        // @codeCoverageIgnoreStart
+        return Services::logger(true)
+            ->log($level, $message, $context);
+        // @codeCoverageIgnoreEnd
     }
 }
 
@@ -815,17 +817,18 @@ if (! function_exists('old')) {
      * Provides access to "old input" that was set in the session
      * during a redirect()->withInput().
      *
-     * @param string|null  $default
-     * @param false|string $escape
-     * @phpstan-param false|'attr'|'css'|'html'|'js'|'raw'|'url' $escape
+     * @param null        $default
+     * @param bool|string $escape
      *
-     * @return array|string|null
+     * @return mixed|null
      */
     function old(string $key, $default = null, $escape = 'html')
     {
         // Ensure the session is loaded
         if (session_status() === PHP_SESSION_NONE && ENVIRONMENT !== 'testing') {
-            session(); // @codeCoverageIgnore
+            // @codeCoverageIgnoreStart
+            session();
+            // @codeCoverageIgnoreEnd
         }
 
         $request = Services::request();
@@ -901,8 +904,7 @@ if (! function_exists('route_to')) {
      * NOTE: This requires the controller/method to
      * have a route defined in the routes Config file.
      *
-     * @param string     $method    Named route or Controller::method
-     * @param int|string ...$params One or more parameters to be passed to the route
+     * @param mixed ...$params
      *
      * @return false|string
      */
@@ -923,8 +925,7 @@ if (! function_exists('session')) {
      *
      * @param string $val
      *
-     * @return array|bool|float|int|object|Session|string|null
-     * @phpstan-return ($val is null ? Session : array|bool|float|int|object|string|null)
+     * @return mixed|Session|null
      */
     function session(?string $val = null)
     {
@@ -1046,7 +1047,7 @@ if (! function_exists('stringify_attributes')) {
      * Helper function used to convert a string, array, or object
      * of attributes to a string.
      *
-     * @param array|object|string $attributes string, array, object that can be cast to array
+     * @param mixed $attributes string, array, object
      */
     function stringify_attributes($attributes, bool $js = false): string
     {
@@ -1115,16 +1116,16 @@ if (! function_exists('view')) {
      * NOTE: Does not provide any escaping of the data, so that must
      * all be handled manually by the developer.
      *
-     * @param array $options Options for saveData or third-party extensions.
+     * @param array $options Unused - reserved for third-party extensions.
      */
     function view(string $name, array $data = [], array $options = []): string
     {
-        /** @var CodeIgniter\View\View $renderer */
+        /**
+         * @var CodeIgniter\View\View $renderer
+         */
         $renderer = Services::renderer();
 
-        /** @var \CodeIgniter\Config\View $config */
-        $config   = config(View::class);
-        $saveData = $config->saveData;
+        $saveData = config(View::class)->saveData;
 
         if (array_key_exists('saveData', $options)) {
             $saveData = (bool) $options['saveData'];

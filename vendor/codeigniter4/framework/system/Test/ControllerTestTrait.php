@@ -126,7 +126,7 @@ trait ControllerTestTrait
     /**
      * Loads the specified controller, and generates any needed dependencies.
      *
-     * @return $this
+     * @return mixed
      */
     public function controller(string $name)
     {
@@ -145,9 +145,9 @@ trait ControllerTestTrait
      *
      * @param array $params
      *
-     * @return TestResponse
-     *
      * @throws InvalidArgumentException
+     *
+     * @return TestResponse
      */
     public function execute(string $method, ...$params)
     {
@@ -215,7 +215,7 @@ trait ControllerTestTrait
      *
      * @param mixed $appConfig
      *
-     * @return $this
+     * @return mixed
      */
     public function withConfig($appConfig)
     {
@@ -229,7 +229,7 @@ trait ControllerTestTrait
      *
      * @param mixed $request
      *
-     * @return $this
+     * @return mixed
      */
     public function withRequest($request)
     {
@@ -246,7 +246,7 @@ trait ControllerTestTrait
      *
      * @param mixed $response
      *
-     * @return $this
+     * @return mixed
      */
     public function withResponse($response)
     {
@@ -260,7 +260,7 @@ trait ControllerTestTrait
      *
      * @param mixed $logger
      *
-     * @return $this
+     * @return mixed
      */
     public function withLogger($logger)
     {
@@ -272,7 +272,7 @@ trait ControllerTestTrait
     /**
      * Set the controller's URI, with method chaining.
      *
-     * @return $this
+     * @return mixed
      */
     public function withUri(string $uri)
     {
@@ -286,7 +286,7 @@ trait ControllerTestTrait
      *
      * @param string|null $body
      *
-     * @return $this
+     * @return mixed
      */
     public function withBody($body)
     {

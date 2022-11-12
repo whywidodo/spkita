@@ -45,7 +45,9 @@ class RedisHandler extends BaseHandler
     {
         $this->prefix = $config->prefix;
 
-        $this->config = array_merge($this->config, $config->redis);
+        if (! empty($config)) {
+            $this->config = array_merge($this->config, $config->redis);
+        }
     }
 
     /**
@@ -200,7 +202,7 @@ class RedisHandler extends BaseHandler
     {
         $key = static::validateKey($key, $this->prefix);
 
-        return $this->redis->hIncrBy($key, '__ci_value', $offset);
+        return $this->redis->hIncrBy($key, 'data', $offset);
     }
 
     /**
@@ -208,7 +210,9 @@ class RedisHandler extends BaseHandler
      */
     public function decrement(string $key, int $offset = 1)
     {
-        return $this->increment($key, -$offset);
+        $key = static::validateKey($key, $this->prefix);
+
+        return $this->redis->hIncrBy($key, 'data', -$offset);
     }
 
     /**
