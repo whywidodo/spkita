@@ -28,10 +28,10 @@
                 <a class="nav-link active" aria-current="page" href="#beranda">Beranda</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#tentang">Informasi</a>
+                <a class="nav-link" href="#informasi">Informasi</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Timeline</a>
+                <a class="nav-link" href="#timeline">Timeline</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#tentang">Tentang</a>
@@ -64,6 +64,74 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+
+    <section id="informasi">
+      <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section id="timeline">
+      <div class="timeline">
+        <h3 class="heading">Timeline Beasiswa 2023</h3>
+        <div class="stytimeline">
+          <ul>
+            <li>
+              <h4 class="title">Sosialisasi Beasiswa</h4>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In quod qui dolorem, eligendi magni</p>
+              <span class="circle"></span>
+              <span class="date">Desember 2022</span>
+            </li>
+            <li>
+              <h4 class="title">Pendaftaran Beasiswa</h4>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In quod qui dolorem, eligendi magni</p>
+              <span class="circle"></span>
+              <span class="date">Januari 2023</span>
+            </li>
+            <li>
+              <h4 class="title">Penutupan Pendaftaran</h4>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In quod qui dolorem, eligendi magni</p>
+              <span class="circle"></span>
+              <span class="date">Maret 2023</span>
+            </li>
+            <li>
+              <h4 class="title">Pengumuman Penerima Beasiswa</h4>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In quod qui dolorem, eligendi magni</p>
+              <span class="circle"></span>
+              <span class="date">April 2023</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
     <section id="tentang">
       <div class="container">
         <table class="table">
@@ -97,6 +165,7 @@
         </table>
       </div>
     </section>
+
   </div>
   <script src="<?= base_url(); ?>/assets/style/js/bootstrap.bundle.min.js"></script>
   <script src="<?= base_url(); ?>/assets/fontawesome/js/all.min.js"></script>

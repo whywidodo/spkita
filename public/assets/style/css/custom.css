@@ -10,10 +10,186 @@
     color: #FFFFFF;
 }
 
+/* style timeline start */
+
+.timeline {
+    width: 100%;
+    height: auto;
+    background-color: rgb(245, 245, 245);
+    padding: 50px;
+    display: grid;
+    place-items: center;
+}
+
+.timeline .heading {
+    font-size: 27px;
+    font-weight: 500;
+    color: rgb(106, 6, 236);
+    position: relative;
+    margin-bottom: 100px;
+}
+
+.heading::after {
+    position: absolute;
+    content: '';
+    width: 50%;
+    height: 5px;
+    left: 50%;
+    bottom: -5px;
+    background-image: linear-gradient(to right, rgb(106, 6, 236), rgb(220, 0, 240));
+    transform: translateX(-50%);
+}
+
+/* stytimeline CSS start */
+
+.stytimeline {
+    width: 80%;
+    height: auto;
+    position: relative;
+}
+
+/* .stytimeline::after {
+    position: absolute;
+    content: '';
+    width: 3px;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgb(106, 6, 236), rgb(220, 0, 240));
+
+} */
+
+.stytimeline ul {
+    list-style: none;
+}
+
+.stytimeline ul::after {
+    position: absolute;
+    content: ' ';
+    width: 3px;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgb(106, 6, 236), rgb(220, 0, 240));
+    /* left: 50%; */
+    top: 0;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.stytimeline ul li {
+    width: 50%;
+    height: auto;
+    padding: 15px 20px;
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 20px black;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    z-index: 99;
+    position: relative;
+}
+
+.stytimeline ul li:nth-child(odd) {
+    float: left;
+    clear: right;
+    transform: translateX(-30px);
+    text-align: right;
+}
+
+.stytimeline ul li:nth-child(even) {
+    float: right;
+    clear: left;
+    transform: translateX(30px);
+}
+
+.stytimeline ul li:nth-child(odd) .date {
+    right: 20px;
+}
+
+.stytimeline ul li:nth-child(4) {
+    margin-bottom: 0px;
+}
+
+.stytimeline ul li .title {
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(106, 6, 236);
+}
+
+ul li p {
+    font-size: 15px;
+    color: #444;
+    margin: 7px 0px;
+    line-height: 23px;
+}
+
+ul li .date {
+    position: absolute;
+    top: -35%;
+    width: 135px;
+    height: 35px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    background-image: linear-gradient(to right, rgb(106, 6, 236), rgb(220, 0, 240));
+    display: grid;
+    place-items: center;
+    font-size: 14px;
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.418);
+}
+
+.stytimeline ul li .circle {
+    width: 30px;
+    height: 30px;
+    background-color: rgba(220, 0, 240, 0.603);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+}
+
+.stytimeline ul li .circle::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: rgb(106, 6, 236);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.stytimeline ul li:nth-child(odd) .circle {
+    right: -30px;
+    transform: translate(50%, -50%);
+}
+
+.stytimeline ul li:nth-child(even) .circle {
+    left: -30px;
+    transform: translate(-50%, -50%);
+}
+
+
+/* style timeline end */
+
 
 /* style login-start */
 .bgLogin {
-    background-image: url('../../images/bgLogin.jpg');
+    background-image: -webkit-linear-gradient(left, #1a7ab9, #8928af);
+    /* background-image: url('../../images/bgLog.jpg'); */
+}
+
+.inputWithIcon {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.inputWithIcon input {
+    padding-left: 40px;
+}
+
+.inputWithIcon i {
+    position: absolute;
+    left: 0px;
+    top: 8px;
+    padding: 9px 8px;
+    color: #1a7ab9;
 }
 
 .card {
@@ -23,13 +199,13 @@
 .buttonlogin {
     width: 100%;
     border-radius: 5%;
-    margin-top: 15px;
+    margin-top: 10px;
     margin-bottom: 15px;
     background-image: -webkit-linear-gradient(right, #1a7ab9, #8928af);
 }
 
 .buttonlogin:hover {
-    box-shadow: 0 0 5pt 0.5pt white;
+    box-shadow: 0 0 5pt 0.5pt #8928af;
 }
 
 .inputlogin {
@@ -56,8 +232,46 @@
     font-weight: bold;
 }
 
-.txtLabel{
-    font-size: 14px;
+/* style login-end */
+
+@media screen and (max-width:1224px) {
+    .stytimeline {
+        width: 85%;
+    }
 }
 
-/* style login-end */
+@media screen and (max-width:933px) {
+    .stytimeline {
+        width: 80%;
+        transform: translateX(15px);
+    }
+
+    .stytimeline ul::after {
+        left: 0px;
+    }
+
+    .stytimeline ul li {
+        width: 100%;
+        float: none;
+        clear: none;
+        margin-bottom: 80px;
+    }
+
+    .stytimeline ul li:nth-child(odd) {
+        transform: translateX(0);
+        text-align: left;
+    }
+
+    .stytimeline ul li:nth-child(odd) .date {
+        left: 20px;
+    }
+
+    .stytimeline ul li:nth-child(odd) .circle {
+        left: -30px;
+        transform: translate(-50%, -50%);
+    }
+
+    .stytimeline ul li:nth-child(even) {
+        transform: translateX(0);
+    }
+}

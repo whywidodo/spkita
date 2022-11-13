@@ -28,21 +28,27 @@
 
                                 <form action="index.html" method="post">
                                     <div class="form-group">
-                                        <label class="txtLabel">Nama Lengkap</label>
-                                        <input type="text" name="username" autofocus
-                                            class="form-control form-control-user" placeholder="Masukan Nama Lengkap">
-
-                                        <label class="txtLabel">Username</label>
-                                        <input type="text" name="username" autofocus
-                                            class="form-control form-control-user" placeholder="Masukan Username">
-
+                                        <div class="inputWithIcon">
+                                            <input type="text" name="nama" autofocus
+                                                class="form-control form-control-user" placeholder="Masukan Nama">
+                                            <i class="fa fa-list fa-lg fa-fw" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="inputWithIcon">
+                                            <input type="text" name="username" autofocus
+                                                class="form-control form-control-user" placeholder="Masukan Username">
+                                            <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+                                        </div>
                                         <div class="form-group">
-                                            <label class="txtLabel">Password</label>
-                                            <input type="password" class="form-control form-control-user"
-                                                name="password" placeholder="Masukan Password">
-                                            <label class="txtLabel">Ulangi Password</label>
-                                            <input type="password" class="form-control form-control-user"
-                                                name="ul_password" placeholder="Ulangi Password">
+                                            <div class="inputWithIcon">
+                                                <input type="password" class="form-control form-control-user"
+                                                    name="password" placeholder="Masukan Password">
+                                                <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="inputWithIcon">
+                                                <input type="password" class="form-control form-control-user"
+                                                    name="repassword" placeholder="Masukan Password">
+                                                <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
+                                            </div>
 
                                             <button type="submit"
                                                 class="btn btn-light text-light buttonlogin">Register</button>

@@ -28,19 +28,21 @@
 
                                 <form action="index.html" method="post">
                                     <div class="form-group">
-                                        <label>Username</label>
-
-                                        <input type="text" name="username" autofocus
-                                            class="form-control form-control-user" placeholder="Masukan Username">
+                                        <div class="inputWithIcon">
+                                            <input type="text" name="username" autofocus
+                                                class="form-control form-control-user" placeholder="Masukan Username">
+                                            <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+                                        </div>
 
                                         <div class="form-group">
-                                            <label>Password</label>
-                                            <input type="password" class="form-control form-control-user"
-                                                name="password" placeholder="Masukan Password">
-
+                                            <div class="inputWithIcon">
+                                                <input type="password" name="passowrd" autofocus
+                                                    class="form-control form-control-user"
+                                                    placeholder="Masukan Passowrd">
+                                                <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
+                                            </div>
                                             <button type="submit"
                                                 class="btn btn-light text-light buttonlogin">Login</button>
-
                                             <div>
                                                 <label class="inforeg">Belum punya akun? <a
                                                         href="<?= base_url(); ?>/register">Registrasi
