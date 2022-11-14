@@ -10,6 +10,42 @@
     color: #FFFFFF;
 }
 
+:root {
+    scroll-behavior: smooth;
+  }
+
+/* Informasi CCS start */
+.informasi {
+    width: 100%;
+    height: auto;
+    background-color: rgb(245, 245, 245);
+    padding: 50px;
+    display: grid;
+    place-items: center;
+}
+
+.informasi .heading {
+    font-size: 27px;
+    font-weight: 500;
+    color: rgb(106, 6, 236);
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.informasi::after {
+    position: absolute;
+    content: '';
+    /* width: 50%; */
+    height: 5px;
+    left: 50%;
+    bottom: -5px;
+    background-image: linear-gradient(to right, rgb(106, 6, 236), rgb(220, 0, 240));
+    transform: translateX(-50%);
+}
+
+/* Informasi CCS end */
+
+
 /* style timeline start */
 
 .timeline {
@@ -47,15 +83,6 @@
     height: auto;
     position: relative;
 }
-
-/* .stytimeline::after {
-    position: absolute;
-    content: '';
-    width: 3px;
-    height: 100%;
-    background-image: linear-gradient(to bottom, rgb(106, 6, 236), rgb(220, 0, 240));
-
-} */
 
 .stytimeline ul {
     list-style: none;
@@ -167,6 +194,54 @@ ul li .date {
 
 /* style timeline end */
 
+/* faq CSS start */
+
+.faq .section-header {
+    width: 100%;
+    height: auto;
+    background-color: rgb(245, 245, 245);
+    padding: 50px;
+    display: grid;
+    place-items: center;
+}
+
+.faq .heading {
+    font-size: 27px;
+    font-weight: 500;
+    color: rgb(106, 6, 236);
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.faq .accordion-collapse {
+    border: 0;
+}
+
+.faq .accordion-button {
+    padding: 15px 15px 20px 0;
+    font-weight: 600;
+    border: 0;
+    font-size: 18px;
+    color: #444444;
+    text-align: left;
+}
+
+.faq .accordion-button:focus {
+    box-shadow: none;
+}
+
+.faq .accordion-button:not(.collapsed) {
+    background: none;
+    color: rgb(106, 6, 236);
+    border-bottom: 0;
+}
+
+.faq .accordion-body {
+    padding: 0 0 25px 0;
+    border: 0;
+}
+
+/* FAQ CSS end */
 
 /* style login-start */
 .bgLogin {

@@ -25,16 +25,19 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav ">
               <li class="nav-item ">
-                <a class="nav-link active" aria-current="page" href="#beranda">Beranda</a>
+                <a class="nav-link scrollto active" aria-current="page" href="#beranda">Beranda</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#informasi">Informasi</a>
+                <a class="nav-link scrollto" href="#informasi">Informasi</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#timeline">Timeline</a>
+                <a class="nav-link scrollto" href="#timeline">Timeline</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#tentang">Tentang</a>
+                <a class="nav-link scrollto" href="#faq">Panduan dan FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link scrollto" href="#kontak">Kontak Kami</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="<?= base_url(); ?>/login">Daftar</a>
@@ -43,8 +46,7 @@
           </div>
         </div>
       </nav>
-    </section>
-
+  </section>
 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -65,39 +67,30 @@
       </a>
     </div>
 
+    <!-- Informasi -->
     <section id="informasi">
-      <div class="container">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="informasi">
+        <h3 class="heading">Informasi Beasiswa 2023</h3>
+        <div class="card" style="width: 80rem;">
+          <div class="card-body">
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo quo exercitationem recusandae,
+              eligendi, officiis dolores voluptatibus corporis maxime saepe cumque amet omnis ex, perferendis voluptas
+              nemo eveniet neque voluptates ea?. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+              velit cum ducimus incidunt fugiat nostrum doloribus neque earum esse. Tempora eos, accusamus fuga id culpa
+              sed at mollitia deleniti incidunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo quo
+              exercitationem recusandae,
+              eligendi, officiis dolores voluptatibus corporis maxime saepe cumque amet omnis ex, perferendis voluptas
+              nemo eveniet neque voluptates ea?. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+              velit cum ducimus incidunt fugiat nostrum doloribus neque earum esse. Tempora eos, accusamus fuga id culpa
+              sed at mollitia deleniti incidunt.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
+    <!-- Informasi -->
+    <!-- Timeline -->
     <section id="timeline">
       <div class="timeline">
         <h3 class="heading">Timeline Beasiswa 2023</h3>
@@ -132,41 +125,148 @@
 
       </div>
     </section>
-    <section id="tentang">
-      <div class="container">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- Timeline -->
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h4 class="heading">Panduan dan FAQ</h4>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <!-- F.A.Q List 1-->
+            <div class="accordion accordion-flush" id="faqlist1">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq-content-1">
+                    Apa beasiswa SPKita gratis?
+                  </button>
+                </h2>
+                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                  <div class="accordion-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna
+                    aliqua. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Dui ut ornare
+                    lectus sit amet est
+                    placerat in egestas.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq-content-2">
+                    Siapa saja yang boleh mendaftar beasiswa?
+                  </button>
+                </h2>
+                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                  <div class="accordion-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna
+                    aliqua. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Dui ut ornare
+                    lectus sit amet est
+                    placerat in egestas.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq-content-3">
+                    Jika mendaftar beasiswa kemudian saya dikatakan tidak layak, apa yang akan terjadi?
+                  </button>
+                </h2>
+                <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                  <div class="accordion-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna
+                    aliqua. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Dui ut ornare
+                    lectus sit amet est
+                    placerat in egestas.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+
+            <!-- F.A.Q List 2-->
+            <div class="accordion accordion-flush" id="faqlist2">
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq2-content-1">
+                    Apakah ada test untuk pendaftaran beasiswa?
+                  </button>
+                </h2>
+                <div id="faq2-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
+                  <div class="accordion-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna
+                    aliqua. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Dui ut ornare
+                    lectus sit amet est
+                    placerat in egestas.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq2-content-2">
+                    Penerima beasiswa apakah tidak boleh menikah selama kuliah?
+                  </button>
+                </h2>
+                <div id="faq2-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
+                  <div class="accordion-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna
+                    aliqua. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Dui ut ornare
+                    lectus sit amet est
+                    placerat in egestas.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq2-content-3">
+                    Apakah penerima beasiswa dapat pindah prodi?
+                  </button>
+                </h2>
+                <div id="faq2-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
+                  <div class="accordion-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna
+                    aliqua. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Dui ut ornare
+                    lectus sit amet est
+                    placerat in egestas.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
       </div>
+
     </section>
+    <!-- FAQ -->
 
   </div>
+
   <script src="<?= base_url(); ?>/assets/style/js/bootstrap.bundle.min.js"></script>
   <script src="<?= base_url(); ?>/assets/fontawesome/js/all.min.js"></script>
   <script>
