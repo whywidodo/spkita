@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
 .bg-nav {
     background-image: -webkit-linear-gradient(left, #1a7ab9, #8928af);
 }
