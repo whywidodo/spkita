@@ -110,7 +110,7 @@ class RouteCollection implements RouteCollectionInterface
      *     verb => [
      *         routeName => [
      *             'route' => [
-     *                 routeKey => handler,
+     *                 routeKey(or from) => handler,
      *             ]
      *         ]
      *     ],
@@ -133,6 +133,14 @@ class RouteCollection implements RouteCollectionInterface
      * Array of routes options
      *
      * @var array
+     *
+     * [
+     *     verb => [
+     *         routeKey(or from) => [
+     *             key => value,
+     *         ]
+     *     ],
+     * ]
      */
     protected $routesOptions = [];
 
@@ -623,9 +631,9 @@ class RouteCollection implements RouteCollectionInterface
         $oldOptions = $this->currentOptions;
 
         // To register a route, we'll set a flag so that our router
-        // so it will see the group name.
+        // will see the group name.
         // If the group name is empty, we go on using the previously built group name.
-        $this->group = $name ? ltrim($oldGroup . '/' . $name, '/') : $oldGroup;
+        $this->group = $name ? trim($oldGroup . '/' . $name, '/') : $oldGroup;
 
         $callback = array_pop($params);
 
@@ -989,7 +997,8 @@ class RouteCollection implements RouteCollectionInterface
      *      // Equals 'path/$param1/$param2'
      *      reverseRoute('Controller::method', $param1, $param2);
      *
-     * @param mixed ...$params
+     * @param string     $search    Named route or Controller::method
+     * @param int|string ...$params One or more parameters to be passed to the route
      *
      * @return false|string
      */
@@ -1238,12 +1247,15 @@ class RouteCollection implements RouteCollectionInterface
 
         $name = $options['as'] ?? $from;
 
+        helper('array');
+
         // Don't overwrite any existing 'froms' so that auto-discovered routes
         // do not overwrite any app/Config/Routes settings. The app
         // routes should always be the "source of truth".
         // this works only because discovered routes are added just prior
         // to attempting to route the request.
-        if (isset($this->routes[$verb][$name]) && ! $overwrite) {
+        $fromExists = dot_array_search('*.route.' . $from, $this->routes[$verb] ?? []) !== null;
+        if ((isset($this->routes[$verb][$name]) || $fromExists) && ! $overwrite) {
             return;
         }
 

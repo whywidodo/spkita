@@ -149,7 +149,7 @@ if (! function_exists('entities_to_ascii')) {
         if ($all) {
             return str_replace(
                 ['&amp;', '&lt;', '&gt;', '&quot;', '&apos;', '&#45;'],
-                ['&', '<', '>', '"', "'",  '-'],
+                ['&', '<', '>', '"', "'", '-'],
                 $str
             );
         }
@@ -573,6 +573,12 @@ if (! function_exists('random_string')) {
                 return sha1(uniqid((string) mt_rand(), true));
 
             case 'crypto':
+                if ($len % 2 !== 0) {
+                    throw new InvalidArgumentException(
+                        'You must set an even number to the second parameter when you use `crypto`.'
+                    );
+                }
+
                 return bin2hex(random_bytes($len / 2));
         }
         // 'basic' type treated as default
@@ -592,7 +598,7 @@ if (! function_exists('increment_string')) {
     {
         preg_match('/(.+)' . preg_quote($separator, '/') . '([0-9]+)$/', $str, $match);
 
-        return isset($match[2]) ? $match[1] . $separator . ($match[2] + 1) : $str . $separator . $first;
+        return isset($match[2]) ? $match[1] . $separator . ((int) $match[2] + 1) : $str . $separator . $first;
     }
 }
 

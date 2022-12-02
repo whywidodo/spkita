@@ -44,16 +44,20 @@ class RedirectResponse extends Response
      * Sets the URI to redirect to but as a reverse-routed or named route
      * instead of a raw URI.
      *
-     * @throws HTTPException
+     * @param string $route Named route or Controller::method
      *
      * @return $this
+     *
+     * @throws HTTPException
      */
     public function route(string $route, array $params = [], int $code = 302, string $method = 'auto')
     {
+        $namedRoute = $route;
+
         $route = Services::routes()->reverseRoute($route, ...$params);
 
         if (! $route) {
-            throw HTTPException::forInvalidRedirectRoute($route);
+            throw HTTPException::forInvalidRedirectRoute($namedRoute);
         }
 
         return $this->redirect(site_url($route), $method, $code);

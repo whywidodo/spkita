@@ -110,6 +110,8 @@ class Forge
      * CREATE TABLE IF statement
      *
      * @var bool|string
+     *
+     * @deprecated This is no longer used.
      */
     protected $createTableIfStr = 'CREATE TABLE IF NOT EXISTS';
 
@@ -395,9 +397,9 @@ class Forge
      * @param string|string[] $fieldName
      * @param string|string[] $tableField
      *
-     * @throws DatabaseException
-     *
      * @return Forge
+     *
+     * @throws DatabaseException
      */
     public function addForeignKey($fieldName = '', string $tableName = '', $tableField = '', string $onUpdate = '', string $onDelete = '')
     {
@@ -431,9 +433,9 @@ class Forge
     /**
      * Drop Key
      *
-     * @throws DatabaseException
-     *
      * @return bool
+     *
+     * @throws DatabaseException
      */
     public function dropKey(string $table, string $keyName)
     {
@@ -455,9 +457,9 @@ class Forge
     }
 
     /**
-     * @throws DatabaseException
-     *
      * @return BaseResult|bool|false|mixed|Query
+     *
+     * @throws DatabaseException
      */
     public function dropForeignKey(string $table, string $foreignName)
     {
@@ -479,9 +481,9 @@ class Forge
     }
 
     /**
-     * @throws DatabaseException
-     *
      * @return mixed
+     *
+     * @throws DatabaseException
      */
     public function createTable(string $table, bool $ifNotExists = false, array $attributes = [])
     {
@@ -495,20 +497,14 @@ class Forge
             throw new RuntimeException('Field information is required.');
         }
 
-        $sql = $this->_createTable($table, $ifNotExists, $attributes);
-
-        if (is_bool($sql)) {
+        // If table exists lets stop here
+        if ($ifNotExists === true && $this->db->tableExists($table, false)) {
             $this->reset();
-            if ($sql === false) {
-                if ($this->db->DBDebug) {
-                    throw new DatabaseException('This feature is not available for the database you are using.');
-                }
-
-                return false;
-            }
 
             return true;
         }
+
+        $sql = $this->_createTable($table, false, $attributes);
 
         if (($result = $this->db->query($sql)) !== false) {
             if (isset($this->db->dataCache['table_names']) && ! in_array($table, $this->db->dataCache['table_names'], true)) {
@@ -529,22 +525,12 @@ class Forge
     }
 
     /**
-     * @return bool|string
+     * @return string
+     *
+     * @deprecated $ifNotExists is no longer used, and will be removed.
      */
     protected function _createTable(string $table, bool $ifNotExists, array $attributes)
     {
-        // For any platforms that don't support Create If Not Exists...
-        if ($ifNotExists === true && $this->createTableIfStr === false) {
-            if ($this->db->tableExists($table)) {
-                return true;
-            }
-
-            $ifNotExists = false;
-        }
-
-        $sql = ($ifNotExists) ? sprintf($this->createTableIfStr, $this->db->escapeIdentifiers($table))
-            : 'CREATE TABLE';
-
         $columns = $this->_processFields(true);
 
         for ($i = 0, $c = count($columns); $i < $c; $i++) {
@@ -566,7 +552,7 @@ class Forge
 
         return sprintf(
             $this->createTableStr . '%s',
-            $sql,
+            'CREATE TABLE',
             $this->db->escapeIdentifiers($table),
             $columns,
             $this->_createTableAttributes($attributes)
@@ -587,9 +573,9 @@ class Forge
     }
 
     /**
-     * @throws DatabaseException
-     *
      * @return mixed
+     *
+     * @throws DatabaseException
      */
     public function dropTable(string $tableName, bool $ifExists = false, bool $cascade = false)
     {
@@ -653,9 +639,9 @@ class Forge
     }
 
     /**
-     * @throws DatabaseException
-     *
      * @return mixed
+     *
+     * @throws DatabaseException
      */
     public function renameTable(string $tableName, string $newTableName)
     {
@@ -730,9 +716,9 @@ class Forge
     /**
      * @param array|string $columnName
      *
-     * @throws DatabaseException
-     *
      * @return mixed
+     *
+     * @throws DatabaseException
      */
     public function dropColumn(string $table, $columnName)
     {
@@ -778,7 +764,7 @@ class Forge
             return false;
         }
 
-        if ($sqls !== null) {
+        if (is_array($sqls)) {
             foreach ($sqls as $sql) {
                 if ($this->db->query($sql) === false) {
                     return false;
@@ -790,7 +776,7 @@ class Forge
     }
 
     /**
-     * @param mixed $fields
+     * @param array|string $fields
      *
      * @return false|string|string[]
      */

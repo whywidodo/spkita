@@ -86,9 +86,9 @@ class Builder extends BaseBuilder
     /**
      * Increments a numeric column by the specified value.
      *
-     * @throws DatabaseException
-     *
      * @return mixed
+     *
+     * @throws DatabaseException
      */
     public function increment(string $column, int $value = 1)
     {
@@ -96,15 +96,21 @@ class Builder extends BaseBuilder
 
         $sql = $this->_update($this->QBFrom[0], [$column => "to_number({$column}, '9999999') + {$value}"]);
 
-        return $this->db->query($sql, $this->binds, false);
+        if (! $this->testMode) {
+            $this->resetWrite();
+
+            return $this->db->query($sql, $this->binds, false);
+        }
+
+        return true;
     }
 
     /**
      * Decrements a numeric column by the specified value.
      *
-     * @throws DatabaseException
-     *
      * @return mixed
+     *
+     * @throws DatabaseException
      */
     public function decrement(string $column, int $value = 1)
     {
@@ -112,7 +118,13 @@ class Builder extends BaseBuilder
 
         $sql = $this->_update($this->QBFrom[0], [$column => "to_number({$column}, '9999999') - {$value}"]);
 
-        return $this->db->query($sql, $this->binds, false);
+        if (! $this->testMode) {
+            $this->resetWrite();
+
+            return $this->db->query($sql, $this->binds, false);
+        }
+
+        return true;
     }
 
     /**
@@ -123,9 +135,9 @@ class Builder extends BaseBuilder
      *
      * @param array|null $set An associative array of insert values
      *
-     * @throws DatabaseException
-     *
      * @return mixed
+     *
+     * @throws DatabaseException
      */
     public function replace(?array $set = null)
     {
@@ -167,6 +179,7 @@ class Builder extends BaseBuilder
 
         unset($builder);
         $this->resetWrite();
+        $this->binds = [];
 
         return $result;
     }
@@ -192,9 +205,9 @@ class Builder extends BaseBuilder
      *
      * @param mixed $where
      *
-     * @throws DatabaseException
-     *
      * @return mixed
+     *
+     * @throws DatabaseException
      */
     public function delete($where = '', ?int $limit = null, bool $resetData = true)
     {

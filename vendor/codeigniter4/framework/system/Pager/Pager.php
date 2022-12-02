@@ -122,7 +122,8 @@ class Pager implements PagerInterface
 
         $pager = new PagerRenderer($this->getDetails($group));
 
-        return $this->view->setVar('pager', $pager)->render($this->config->templates[$template]);
+        return $this->view->setVar('pager', $pager)
+            ->render($this->config->templates[$template], null, false);
     }
 
     /**
@@ -157,7 +158,7 @@ class Pager implements PagerInterface
     /**
      * Sets segment for a group.
      *
-     * @return mixed
+     * @return $this
      */
     public function setSegment(int $number, string $group = 'default')
     {
@@ -173,7 +174,7 @@ class Pager implements PagerInterface
     /**
      * Sets the path that an aliased group of links will use.
      *
-     * @return mixed
+     * @return $this
      */
     public function setPath(string $path, string $group = 'default')
     {
