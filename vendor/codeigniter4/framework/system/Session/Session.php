@@ -17,7 +17,6 @@ use Config\App;
 use Config\Cookie as CookieConfig;
 use Config\Services;
 use Psr\Log\LoggerAwareTrait;
-use Psr\Log\LoggerInterface;
 use SessionHandlerInterface;
 
 /**
@@ -25,6 +24,8 @@ use SessionHandlerInterface;
  *
  * Session configuration is done through session variables and cookie related
  * variables in app/config/App.php
+ *
+ * @property string $session_id
  */
 class Session implements SessionInterface
 {
@@ -155,13 +156,6 @@ class Session implements SessionInterface
     protected $sidRegexp;
 
     /**
-     * Logger instance to record error messages and warnings.
-     *
-     * @var LoggerInterface
-     */
-    protected $logger;
-
-    /**
      * Constructor.
      *
      * Extract configuration settings and save them here.
@@ -203,7 +197,7 @@ class Session implements SessionInterface
     /**
      * Initialize the session container and starts up the session.
      *
-     * @return mixed
+     * @return $this|void
      */
     public function start()
     {
@@ -411,6 +405,28 @@ class Session implements SessionInterface
     {
         $_SESSION['__ci_last_regenerate'] = time();
         session_regenerate_id($destroy);
+
+        $this->removeOldSessionCookie();
+    }
+
+    private function removeOldSessionCookie(): void
+    {
+        $response              = Services::response();
+        $cookieStoreInResponse = $response->getCookieStore();
+
+        if (! $cookieStoreInResponse->has($this->sessionCookieName)) {
+            return;
+        }
+
+        // CookieStore is immutable.
+        $newCookieStore = $cookieStoreInResponse->remove($this->sessionCookieName);
+
+        // But clear() method clears cookies in the object (not immutable).
+        $cookieStoreInResponse->clear();
+
+        foreach ($newCookieStore as $cookie) {
+            $response->setCookie($cookie);
+        }
     }
 
     /**
@@ -434,8 +450,8 @@ class Session implements SessionInterface
      * If $data is an array, it is expected to be an array of key/value pairs
      * to be set as session properties.
      *
-     * @param array|string $data  Property name or associative array of properties
-     * @param mixed        $value Property value if single key provided
+     * @param array|string                            $data  Property name or associative array of properties
+     * @param array|bool|float|int|object|string|null $value Property value if single key provided
      */
     public function set($data, $value = null)
     {
@@ -465,7 +481,7 @@ class Session implements SessionInterface
      *
      * @param string|null $key Identifier of the session property to retrieve
      *
-     * @return mixed The property value(s)
+     * @return array|bool|float|int|object|string|null The property value(s)
      */
     public function get(?string $key = null)
     {
@@ -596,8 +612,8 @@ class Session implements SessionInterface
      * Otherwise, it is interpreted as the identifier of a specific
      * flashdata property, with $value containing the property value.
      *
-     * @param array|string $data  Property identifier or associative array of properties
-     * @param array|string $value Property value if $data is a scalar
+     * @param array|string                            $data  Property identifier or associative array of properties
+     * @param array|bool|float|int|object|string|null $value Property value if $data is a scalar
      */
     public function setFlashdata($data, $value = null)
     {
@@ -679,7 +695,7 @@ class Session implements SessionInterface
     /**
      * Unmark data in the session as flashdata.
      *
-     * @param mixed $key Property identifier or array of them
+     * @param array|string $key Property identifier or array of them
      */
     public function unmarkFlashdata($key)
     {
@@ -728,9 +744,9 @@ class Session implements SessionInterface
      * Sets new data into the session, and marks it as temporary data
      * with a set lifespan.
      *
-     * @param array|string $data  Session data key or associative array of items
-     * @param null         $value Value to store
-     * @param int          $ttl   Time-to-live in seconds
+     * @param array|string                            $data  Session data key or associative array of items
+     * @param array|bool|float|int|object|string|null $value Value to store
+     * @param int                                     $ttl   Time-to-live in seconds
      */
     public function setTempdata($data, $value = null, int $ttl = 300)
     {
@@ -744,7 +760,7 @@ class Session implements SessionInterface
      *
      * @param string $key Session data key
      *
-     * @return mixed Session data value or null if not found.
+     * @return array|bool|float|int|object|string|null Session data value or null if not found.
      */
     public function getTempdata(?string $key = null)
     {

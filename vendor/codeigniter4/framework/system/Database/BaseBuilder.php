@@ -369,10 +369,6 @@ class BaseBuilder
      */
     public function select($select = '*', ?bool $escape = null)
     {
-        if (is_string($select)) {
-            $select = explode(',', $select);
-        }
-
         // If the escape value was not set, we will base it on the global setting
         if (! is_bool($escape)) {
             $escape = $this->db->protectIdentifiers;
@@ -382,6 +378,10 @@ class BaseBuilder
             $this->QBSelect[] = $select;
 
             return $this;
+        }
+
+        if (is_string($select)) {
+            $select = $escape === false ? [$select] : explode(',', $select);
         }
 
         foreach ($select as $val) {
@@ -476,10 +476,10 @@ class BaseBuilder
      * @used-by selectAvg()
      * @used-by selectSum()
      *
+     * @return $this
+     *
      * @throws DatabaseException
      * @throws DataException
-     *
-     * @return $this
      */
     protected function maxMinAvgSum(string $select = '', string $alias = '', string $type = 'MAX')
     {
@@ -577,7 +577,7 @@ class BaseBuilder
     {
         $table = $this->buildSubquery($from, true, $alias);
 
-        $this->trackAliases($table);
+        $this->db->addTableAlias($alias);
         $this->QBFrom[] = $table;
 
         return $this;
@@ -888,9 +888,9 @@ class BaseBuilder
      *
      * @param array|BaseBuilder|Closure|null $values The values searched on, or anonymous function with subquery
      *
-     * @throws InvalidArgumentException
-     *
      * @return $this
+     *
+     * @throws InvalidArgumentException
      */
     protected function _whereIn(?string $key = null, $values = null, bool $not = false, string $type = 'AND ', ?bool $escape = null, string $clause = 'QBWhere')
     {
@@ -1179,7 +1179,7 @@ class BaseBuilder
      */
     protected function addUnionStatement($union, bool $all = false)
     {
-        $this->QBUnion[] = "\n" . 'UNION '
+        $this->QBUnion[] = "\nUNION "
             . ($all ? 'ALL ' : '')
             . 'SELECT * FROM '
             . $this->buildSubquery($union, true, 'uwrp' . (count($this->QBUnion) + 1));
@@ -1730,9 +1730,9 @@ class BaseBuilder
     /**
      * Compiles batch insert strings and runs the queries
      *
-     * @throws DatabaseException
-     *
      * @return false|int|string[] Number of rows inserted or FALSE on failure, SQL array when testMode
+     *
+     * @throws DatabaseException
      */
     public function insertBatch(?array $set = null, ?bool $escape = null, int $batchSize = 100)
     {
@@ -1852,9 +1852,9 @@ class BaseBuilder
     /**
      * Compiles an insert query and returns the sql
      *
-     * @throws DatabaseException
-     *
      * @return bool|string
+     *
+     * @throws DatabaseException
      */
     public function getCompiledInsert(bool $reset = true)
     {
@@ -1863,7 +1863,12 @@ class BaseBuilder
         }
 
         $sql = $this->_insert(
-            $this->db->protectIdentifiers($this->QBFrom[0], true, null, false),
+            $this->db->protectIdentifiers(
+                $this->removeAlias($this->QBFrom[0]),
+                true,
+                null,
+                false
+            ),
             array_keys($this->QBSet),
             array_values($this->QBSet)
         );
@@ -1878,11 +1883,13 @@ class BaseBuilder
     /**
      * Compiles an insert string and runs the query
      *
-     * @throws DatabaseException
+     * @param array|object|null $set
      *
-     * @return bool|Query
+     * @return bool
+     *
+     * @throws DatabaseException
      */
-    public function insert(?array $set = null, ?bool $escape = null)
+    public function insert($set = null, ?bool $escape = null)
     {
         if ($set !== null) {
             $this->set($set, '', $escape);
@@ -1893,7 +1900,12 @@ class BaseBuilder
         }
 
         $sql = $this->_insert(
-            $this->db->protectIdentifiers($this->QBFrom[0], true, $escape, false),
+            $this->db->protectIdentifiers(
+                $this->removeAlias($this->QBFrom[0]),
+                true,
+                $escape,
+                false
+            ),
             array_keys($this->QBSet),
             array_values($this->QBSet)
         );
@@ -1910,6 +1922,26 @@ class BaseBuilder
         }
 
         return false;
+    }
+
+    /**
+     * @internal This is a temporary solution.
+     *
+     * @see https://github.com/codeigniter4/CodeIgniter4/pull/5376
+     *
+     * @TODO Fix a root cause, and this method should be removed.
+     */
+    protected function removeAlias(string $from): string
+    {
+        if (strpos($from, ' ') !== false) {
+            // if the alias is written with the AS keyword, remove it
+            $from = preg_replace('/\s+AS\s+/i', ' ', $from);
+
+            $parts = explode(' ', $from);
+            $from  = $parts[0];
+        }
+
+        return $from;
     }
 
     /**
@@ -1941,11 +1973,11 @@ class BaseBuilder
     }
 
     /**
-     * Compiles an replace into string and runs the query
-     *
-     * @throws DatabaseException
+     * Compiles a replace into string and runs the query
      *
      * @return BaseResult|false|Query|string
+     *
+     * @throws DatabaseException
      */
     public function replace(?array $set = null)
     {
@@ -2012,11 +2044,12 @@ class BaseBuilder
     /**
      * Compiles an update string and runs the query.
      *
-     * @param mixed $where
+     * @param array|object|null        $set
+     * @param array|RawSql|string|null $where
      *
      * @throws DatabaseException
      */
-    public function update(?array $set = null, $where = null, ?int $limit = null): bool
+    public function update($set = null, $where = null, ?int $limit = null): bool
     {
         if ($set !== null) {
             $this->set($set);
@@ -2098,9 +2131,9 @@ class BaseBuilder
     /**
      * Compiles an update string and runs the query
      *
-     * @throws DatabaseException
-     *
      * @return false|int|string[] Number of rows affected or FALSE on failure, SQL array when testMode
+     *
+     * @throws DatabaseException
      */
     public function updateBatch(?array $set = null, ?string $index = null, int $batchSize = 100)
     {
@@ -2209,9 +2242,9 @@ class BaseBuilder
      *
      * @param array|object $key
      *
-     * @throws DatabaseException
-     *
      * @return $this|null
+     *
+     * @throws DatabaseException
      */
     public function setUpdateBatch($key, string $index = '', ?bool $escape = null)
     {
@@ -2317,9 +2350,9 @@ class BaseBuilder
      *
      * @param mixed $where
      *
-     * @throws DatabaseException
+     * @return bool|string Returns a string if in test mode.
      *
-     * @return bool|string
+     * @throws DatabaseException
      */
     public function delete($where = '', ?int $limit = null, bool $resetData = true)
     {
@@ -2337,7 +2370,7 @@ class BaseBuilder
             return false; // @codeCoverageIgnore
         }
 
-        $sql = $this->_delete($table);
+        $sql = $this->_delete($this->removeAlias($table));
 
         if (! empty($limit)) {
             $this->QBLimit = $limit;
@@ -2369,7 +2402,13 @@ class BaseBuilder
 
         $sql = $this->_update($this->QBFrom[0], [$column => "{$column} + {$value}"]);
 
-        return $this->db->query($sql, $this->binds, false);
+        if (! $this->testMode) {
+            $this->resetWrite();
+
+            return $this->db->query($sql, $this->binds, false);
+        }
+
+        return true;
     }
 
     /**
@@ -2383,7 +2422,13 @@ class BaseBuilder
 
         $sql = $this->_update($this->QBFrom[0], [$column => "{$column}-{$value}"]);
 
-        return $this->db->query($sql, $this->binds, false);
+        if (! $this->testMode) {
+            $this->resetWrite();
+
+            return $this->db->query($sql, $this->binds, false);
+        }
+
+        return true;
     }
 
     /**
@@ -2661,8 +2706,7 @@ class BaseBuilder
         $array = [];
 
         foreach (get_object_vars($object) as $key => $val) {
-            // There are some built in keys we need to ignore for this conversion
-            if (! is_object($val) && ! is_array($val) && $key !== '_parent_name') {
+            if (! is_object($val) && ! is_array($val)) {
                 $array[$key] = $val;
             }
         }
@@ -2688,13 +2732,10 @@ class BaseBuilder
         $fields = array_keys($out);
 
         foreach ($fields as $val) {
-            // There are some built in keys we need to ignore for this conversion
-            if ($val !== '_parent_name') {
-                $i = 0;
+            $i = 0;
 
-                foreach ($out[$val] as $data) {
-                    $array[$i++][$val] = $data;
-                }
+            foreach ($out[$val] as $data) {
+                $array[$i++][$val] = $data;
             }
         }
 
@@ -2908,7 +2949,7 @@ class BaseBuilder
             throw new DatabaseException('The subquery cannot be the same object as the main query object.');
         }
 
-        $subquery = strtr($builder->getCompiledSelect(), "\n", ' ');
+        $subquery = strtr($builder->getCompiledSelect(false), "\n", ' ');
 
         if ($wrapped) {
             $subquery = '(' . $subquery . ')';

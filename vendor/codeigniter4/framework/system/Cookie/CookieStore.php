@@ -36,9 +36,9 @@ class CookieStore implements Countable, IteratorAggregate
      *
      * @param string[] $headers
      *
-     * @throws CookieException
-     *
      * @return static
+     *
+     * @throws CookieException
      */
     public static function fromCookieHeaders(array $headers, bool $raw = false)
     {
@@ -49,7 +49,7 @@ class CookieStore implements Countable, IteratorAggregate
             try {
                 return Cookie::fromHeaderString($header, $raw);
             } catch (CookieException $e) {
-                log_message('error', $e->getMessage());
+                log_message('error', (string) $e);
 
                 return false;
             }
