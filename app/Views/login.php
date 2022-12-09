@@ -36,9 +36,9 @@
 
                                         <div class="form-group">
                                             <div class="inputWithIcon">
-                                                <input type="password" name="passowrd" autofocus
+                                                <input type="password" name="password" autofocus
                                                     class="form-control form-control-user"
-                                                    placeholder="Masukan Passowrd">
+                                                    placeholder="Masukan Password">
                                                 <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
                                             </div>
                                             <button type="submit"
