@@ -38,10 +38,11 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/login', "Home::login");
 $routes->get('/register', "Home::register");
-$routes->group('admin', static function ($routes) {
+$routes->group('administrator', static function ($routes) {
     $routes->get('/', 'Admin\Dashboard::index');
     $routes->get('kriteria', 'Admin\Kriteria::index');
-    $routes->get('mahasiswa', 'Admin\Mahasiswa::index');
+    $routes->get('pendaftar', 'Admin\Pendaftar::index');
+    $routes->get('pengumuman', 'Admin\Pengumuman::index');
 });
 
 /*
