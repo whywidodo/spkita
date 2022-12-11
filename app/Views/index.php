@@ -17,8 +17,7 @@
       <div class="container">
         <a class="navbar-brand" href="#"><i class="fa-solid fa-graduation-cap"></i> SPKita Solusi
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -73,8 +72,7 @@
                   </div>
                   <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
                     <div class="home-img position-relative">
-                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider1.png" alt=""
-                        class="home-first-img">
+                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider1.png" alt="" class="home-first-img">
                     </div>
                   </div>
                 </div>
@@ -140,12 +138,12 @@
 
 
   <!-- FAQ -->
-  <section id="faq" class="faq">
+  <section id="faq" class="faq bg-hexa">
 
     <div class="container-fluid" data-aos="fade-up">
 
-      <header class="section-header">
-        <h4 class="heading">Panduan dan FAQ</h4>
+      <header class="section-header bg-transparent">
+        <h4 class="h4 text-white">Panduan dan FAQ</h4>
       </header>
 
       <div class="container">
@@ -155,8 +153,7 @@
             <div class="accordion accordion-flush" id="faqlist1">
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-1">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
                     Apa beasiswa SPKita gratis?
                   </button>
                 </h2>
@@ -175,8 +172,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
                     Siapa saja yang boleh mendaftar beasiswa?
                   </button>
                 </h2>
@@ -195,8 +191,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
                     Jika mendaftar beasiswa kemudian saya dikatakan tidak layak, apa yang akan terjadi?
                   </button>
                 </h2>
@@ -222,8 +217,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq2-content-1">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-1">
                     Apakah ada test untuk pendaftaran beasiswa?
                   </button>
                 </h2>
@@ -242,8 +236,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq2-content-2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-2">
                     Penerima beasiswa apakah tidak boleh menikah selama kuliah?
                   </button>
                 </h2>
@@ -262,8 +255,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq2-content-3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-3">
                     Apakah penerima beasiswa dapat pindah prodi?
                   </button>
                 </h2>
@@ -295,31 +287,26 @@
   <section id="kontak">
     <div class="informasi">
       <h3 class="heading">Kontak Kami</h3>
-      <div class="container">
+      <div class="container card">
         <div class="row">
-          <div class="card col-lg-12 col-md-6">
-            <div class="card-body">
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo quo exercitationem
-                recusandae,
-                eligendi, officiis dolores voluptatibus corporis maxime saepe cumque amet omnis ex,
-                perferendis voluptas
-                nemo eveniet neque voluptates ea?. Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Cupiditate
-                velit cum ducimus incidunt fugiat nostrum doloribus neque earum esse. Tempora eos,
-                accusamus fuga id culpa
-                sed at mollitia deleniti incidunt. Lorem ipsum dolor sit amet consectetur, adipisicing
-                elit. Explicabo quo
-                exercitationem recusandae,
-                eligendi, officiis dolores voluptatibus corporis maxime saepe cumque amet omnis ex,
-                perferendis voluptas
-                nemo eveniet neque voluptates ea?. Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Cupiditate
-                velit cum ducimus incidunt fugiat nostrum doloribus neque earum esse. Tempora eos,
-                accusamus fuga id culpa
-                sed at mollitia deleniti incidunt.
-              </p>
-            </div>
+          <div class="col-lg-6 col-md-6">
+            <p class="p-3">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo quo exercitationem
+              recusandae,
+              eligendi, officiis dolores voluptatibus corporis maxime saepe cumque amet omnis ex,
+              perferendis voluptas
+              nemo eveniet neque voluptates ea?. Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Cupiditate
+              velit cum ducimus incidunt fugiat nostrum doloribus neque earum esse. Tempora eos,
+              accusamus fuga id culpa
+              sed at mollitia deleniti incidunt. Lorem ipsum dolor sit amet consectetur, adipisicing
+              elit. Explicabo quo
+              exercitationem recusandae,
+            </p>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <iframe style="min-width: 100%; min-height: 100%;" src="https://maps.google.com/maps?q=Universitas%20Amikom%20Purwokerto&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+
           </div>
         </div>
       </div>
@@ -330,36 +317,13 @@
 
   <!-- Footer -->
   <section id="footer">
-    <div class="informasi">
-      <h3 class="heading">Kontak Kami</h3>
-      <div class="container">
-        <div class="row">
-          <div class="card col-lg-12 col-md-6">
-            <div class="card-body">
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo quo exercitationem
-                recusandae,
-                eligendi, officiis dolores voluptatibus corporis maxime saepe cumque amet omnis ex,
-                perferendis voluptas
-                nemo eveniet neque voluptates ea?. Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Cupiditate
-                velit cum ducimus incidunt fugiat nostrum doloribus neque earum esse. Tempora eos,
-                accusamus fuga id culpa
-                sed at mollitia deleniti incidunt. Lorem ipsum dolor sit amet consectetur, adipisicing
-                elit. Explicabo quo
-                exercitationem recusandae,
-                eligendi, officiis dolores voluptatibus corporis maxime saepe cumque amet omnis ex,
-                perferendis voluptas
-                nemo eveniet neque voluptates ea?. Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Cupiditate
-                velit cum ducimus incidunt fugiat nostrum doloribus neque earum esse. Tempora eos,
-                accusamus fuga id culpa
-                sed at mollitia deleniti incidunt.
-              </p>
-            </div>
-          </div>
+    <div class="container">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+          <span class="mb-1 mb-md-0 text-muted" style="font-size: 14px;">Copyright &copy; 2022 -
+            <strong>SPKita</strong> Solusi</span>
         </div>
-      </div>
+      </footer>
     </div>
   </section>
   <!-- Footer -->

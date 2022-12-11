@@ -35,6 +35,11 @@ body {
     /* background-image: url('../../images/bg-home.jpg'); */
     width: auto;
 }
+.bg-hexav {
+    background-image: -webkit-linear-gradient(top, #1a7ab9, #8928af);
+    /* background-image: url('../../images/bg-home.jpg'); */
+    width: auto;
+}
 
 article,
 aside,
