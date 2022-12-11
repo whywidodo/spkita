@@ -15,10 +15,9 @@
   <section id="beranda">
     <nav class="navbar navbar-expand-lg py-3 mb-4 fixed-top sticky sticky-dark nav-sticky bg-nav">
       <div class="container">
-        <a class="navbar-brand" href="#"><i class="fa-solid fa-graduation-cap"></i> SPKita Solusi
+        <a class="navbar-brand" href="<?= base_url(); ?>"><i class="fa-solid fa-graduation-cap"></i> SPKita Solusi
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -46,14 +45,9 @@
 
 
   <section class="bg-home bg-hexa" id="home">
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleControls" data-slide-to="0" class=""></li>
-        <li data-target="#carouselExampleControls" data-slide-to="1" class="active"></li>
-        <li data-target="#carouselExampleControls" data-slide-to="2" class="active"></li>
-      </ol>
+    <div id="sliderSPKita" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active carousel-item-left">
+        <div class="carousel-item active">
           <div class="home-center">
             <div class="home-desc-center">
               <div class="container">
@@ -73,21 +67,20 @@
                   </div>
                   <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
                     <div class="home-img position-relative">
-                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider1.png" alt=""
-                        class="home-first-img">
+                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider1.png" alt="" class="home-first-img">
                     </div>
                   </div>
                 </div>
                 <!-- end row -->
               </div>
-              <!-- end container-fluid -->
+              <!-- end container -->
             </div>
           </div>
         </div>
         <div class="carousel-item">
           <div class="home-center">
             <div class="home-desc-center">
-              <div class="container-fluid">
+              <div class="container">
                 <div class="row align-items-center">
                   <div class="col-lg-6">
                     <div class="home-title mo-mb-20 text-white">
@@ -104,26 +97,53 @@
                   </div>
                   <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
                     <div class="home-img position-relative">
-                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider2.png" alt=""
-                        class="home-first-img">
+                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider2.png" alt="" class="home-first-img">
                     </div>
                   </div>
                 </div>
                 <!-- end row -->
               </div>
-              <!-- end container-fluid -->
+              <!-- end container -->
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="home-center">
+            <div class="home-desc-center">
+              <div class="container">
+                <div class="row align-items-center">
+                  <div class="col-lg-6">
+                    <div class="home-title mo-mb-20 text-white">
+                      <h1 class="mb-4 text-white">
+                        SPKita Solusi 3</h1>
+                      <p class="text-white-50 home-desc">
+                      </p>
+                      <p>SPKita Solusi Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui velit culpa excepturi vel, repellendus, quasi aliquam dolorum fugiat repellat odio illum! Eligendi cupiditate ipsam itaque rerum asperiores accusamus eos dolorem.
+                      </p>
+                      <p></p>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
+                    <div class="home-img position-relative">
+                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider2.png" alt="" class="home-first-img">
+                    </div>
+                  </div>
+                </div>
+                <!-- end row -->
+              </div>
+              <!-- end container -->
             </div>
           </div>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <button class="carousel-control-prev" type="button" data-bs-target="#sliderSPKita" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#sliderSPKita" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </section>
 
@@ -186,8 +206,7 @@
             <div class="accordion accordion-flush" id="faqlist1">
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-1">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
                     Apa beasiswa SPKita gratis?
                   </button>
                 </h2>
@@ -206,8 +225,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
                     Siapa saja yang boleh mendaftar beasiswa?
                   </button>
                 </h2>
@@ -226,8 +244,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
                     Jika mendaftar beasiswa kemudian saya dikatakan tidak layak, apa yang akan terjadi?
                   </button>
                 </h2>
@@ -253,8 +270,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq2-content-1">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-1">
                     Apakah ada test untuk pendaftaran beasiswa?
                   </button>
                 </h2>
@@ -273,8 +289,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq2-content-2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-2">
                     Penerima beasiswa apakah tidak boleh menikah selama kuliah?
                   </button>
                 </h2>
@@ -293,8 +308,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq2-content-3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-3">
                     Apakah penerima beasiswa dapat pindah prodi?
                   </button>
                 </h2>
@@ -344,9 +358,7 @@
             </p>
           </div>
           <div class="col-lg-6 col-md-6">
-            <iframe style="min-width: 100%; min-height: 100%;"
-              src="https://maps.google.com/maps?q=Universitas%20Amikom%20Purwokerto&t=&z=13&ie=UTF8&iwloc=&output=embed"
-              frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            <iframe style="min-width: 100%; min-height: 100%;" src="https://maps.google.com/maps?q=Universitas%20Amikom%20Purwokerto&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 
           </div>
         </div>
