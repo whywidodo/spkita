@@ -43,6 +43,7 @@ $routes->group('administrator', static function ($routes) {
     $routes->get('kriteria', 'Admin\Kriteria::index');
     $routes->get('pendaftar', 'Admin\Pendaftar::index');
     $routes->get('pengumuman', 'Admin\Pengumuman::index');
+    $routes->get('pengaturan', 'Admin\Pengaturan::index');
 });
 
 /*
