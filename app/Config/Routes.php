@@ -48,6 +48,8 @@ $routes->group('administrator', static function ($routes) {
 $routes->group('users', static function ($routes) {
     $routes->get('/', 'Users\Profile::index');
     $routes->get('petunjuk', 'Users\Petunjuk::index');
+    $routes->get('pendaftaran', 'Users\Pendaftaran::index');
+    $routes->get('pengumuman', 'Users\Pengumuman::index');
 });
 
 /*

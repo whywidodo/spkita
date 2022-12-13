@@ -21,6 +21,18 @@
                   <p class="text" style="color: #FFFFFF;">Petunjuk</p>
                </a>
             </li>
+            <li class="nav-item">
+               <a href="<?= base_url(); ?>/users/pendaftaran" class="nav-link">
+                  <i class="nav-icon fa-solid fa-plus-square" style="color: #FFFFFF;"></i>
+                  <p class="text" style="color: #FFFFFF;">Pendaftaran</p>
+               </a>
+            </li>
+            <li class="nav-item">
+               <a href="<?= base_url(); ?>/users/pengumuman" class="nav-link">
+                  <i class="nav-icon fa-solid fa-bell" style="color: #FFFFFF;"></i>
+                  <p class="text" style="color: #FFFFFF;">Pengumuman</p>
+               </a>
+            </li>
    
       </nav>
       <!-- Menu Sidebar -->
