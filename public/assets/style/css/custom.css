@@ -4,6 +4,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+    background-color: rgb(245, 245, 245);
+}
+
 .bg-nav {
     background-image: -webkit-linear-gradient(left, #1a7ab9, #8928af);
 }
@@ -18,7 +22,65 @@
 
 :root {
     scroll-behavior: smooth;
-  }
+}
+
+.bg-home {
+    position: relative;
+    padding: 150px 0px 150px 0px;
+    margin-top: -10px;
+}
+
+.bg-hexa {
+    background-image: -webkit-linear-gradient(left, #1a7ab9, #8928af);
+    /* background-image: url('../../images/bg-home.jpg'); */
+    width: auto;
+}
+.bg-hexav {
+    background-image: -webkit-linear-gradient(top, #1a7ab9, #8928af);
+    /* background-image: url('../../images/bg-home.jpg'); */
+    width: auto;
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+    display: block;
+}
+
+section {
+    padding: 40px 0;
+}
+
+*,
+::after,
+::before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+section {
+    display: block;
+}
+
+/* Carousel Start */
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.home-title {
+    padding: 0 0 0 50px;
+}
+
+/* Carousel End */
 
 /* Informasi CCS start */
 .informasi {
@@ -111,7 +173,7 @@
     height: auto;
     padding: 15px 20px;
     background-color: #FFFFFF;
-    box-shadow: 1px 1px 20px black;
+    box-shadow: 1px 1px 10px rgb(194, 194, 194);
     border-radius: 10px;
     margin-bottom: 30px;
     z-index: 99;
@@ -202,10 +264,11 @@ ul li .date {
 
 /* faq CSS start */
 
-.faq .section-header {
+.faq,
+.section-header {
     width: 100%;
     height: auto;
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(237, 237, 237);
     padding: 50px;
     display: grid;
     place-items: center;
@@ -221,6 +284,10 @@ ul li .date {
 
 .faq .accordion-collapse {
     border: 0;
+}
+
+.faq .accordion-item {
+    padding: 5px 5px 5px 15px;
 }
 
 .faq .accordion-button {
@@ -245,6 +312,10 @@ ul li .date {
 .faq .accordion-body {
     padding: 0 0 25px 0;
     border: 0;
+}
+
+.faq-transparent {
+    background-color: transparent;
 }
 
 /* FAQ CSS end */
@@ -273,8 +344,8 @@ ul li .date {
     color: #1a7ab9;
 }
 
-.card {
-    box-shadow: 0 3px 20px black;
+.cardLog {
+    box-shadow: 0 3px 20px rgb(209, 209, 209);
 }
 
 .buttonlogin {
@@ -314,6 +385,8 @@ ul li .date {
 }
 
 /* style login-end */
+
+/* dimensi responsive timeline */
 
 @media screen and (max-width:1224px) {
     .stytimeline {
