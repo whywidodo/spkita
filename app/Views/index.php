@@ -217,7 +217,9 @@
               <tr>
                 <td>1</td>
                 <td>Pedoman Pendaftaran Beasiswa SPKita 2023.pdf</td>
-                <td><button type="button" class="btn btn-primary btn-sm"><i class="bi bi-download"></i></button></td>
+                <td><button type="submit" class="btn btn-primary btn-sm">
+                    <i class="bi bi-download"></i>
+                  </button></td>
               </tr>
 
             </table>
