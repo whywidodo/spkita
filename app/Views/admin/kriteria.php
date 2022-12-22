@@ -47,56 +47,34 @@
                         </tr>
                      </thead>
                      <tbody>
-                        <tr>
-                           <td>1</td>
-                           <td>KR001</td>
-                           <td>Penghasilan</td>
-                           <td>5</td>
-                           <td>Cost</td>
-                           <td class="text-center">
-                              <button type="submit" name="edit" class="btn btn-warning btn-sm text-white" style="width: 60px;">Edit</button>
-                              <button type="submit" name="hapus" class="btn btn-danger btn-sm text-white" style="width: 60px;">Hapus</button>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>2</td>
-                           <td>KR002</td>
-                           <td>Tanggungan</td>
-                           <td>4</td>
-                           <td>Benefit</td>
-                           <td class="text-center">
-                              <button type="submit" name="edit" class="btn btn-warning btn-sm text-white" style="width: 60px;">Edit</button>
-                              <button type="submit" name="hapus" class="btn btn-danger btn-sm text-white" style="width: 60px;">Hapus</button>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>3</td>
-                           <td>KR003</td>
-                           <td>Semester</td>
-                           <td>3</td>
-                           <td>Benefit</td>
-                           <td class="text-center">
-                              <button type="submit" name="edit" class="btn btn-warning btn-sm text-white" style="width: 60px;">Edit</button>
-                              <button type="submit" name="hapus" class="btn btn-danger btn-sm text-white" style="width: 60px;">Hapus</button>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>4</td>
-                           <td>KR004</td>
-                           <td>IPK</td>
-                           <td>2</td>
-                           <td>Benefit</td>
-                           <td class="text-center">
-                              <button type="submit" name="edit" class="btn btn-warning btn-sm text-white" style="width: 60px;">Edit</button>
-                              <button type="submit" name="hapus" class="btn btn-danger btn-sm text-white" style="width: 60px;">Hapus</button>
-                           </td>
-                        </tr>
+                        <?php
+                        $i = 1;
+                        foreach ($dataKriteria as $data) :
+                        ?>
+                           <tr>
+                              <td><?= $i++; ?></td>
+                              <td><?= $data['kode_kriteria']; ?></td>
+                              <td><?= $data['nama_kriteria']; ?></td>
+                              <td><?= $data['bobot_kriteria']; ?></td>
+                              <td><?= $data['jenis_kriteria']; ?></td>
+                              <td class="text-center">
+                                 <form action="/administrator/kriteria/edit/<?= $data['kode_kriteria']; ?>" method="POST" name="edit" class="d-inline-block">
+                                    <?= csrf_field(); ?>
+                                    <button type="submit" name="edit" class="btn btn-sm btn-primary shadow-sm px-2"><i class="fas fa-pencil fa-sm"></i>&nbsp;&nbsp;Edit</button>
+                                 </form>
+                                 <form action="/administrator/kriteria/hapus/<?= $data['kode_kriteria']; ?>" method="POST" name="hapus" class="d-inline-block">
+                                    <?= csrf_field(); ?>
+                                    <button type="submit" name="hapus" class="btn btn-sm btn-danger shadow-sm px-2" onclick="return confirm('Apakah anda yakin akan menghapus data ini?');"><i class=" fas fa-trash fa-sm"></i>&nbsp;&nbsp;Hapus</button>
+                                 </form>
+                              </td>
+                           </tr>
+                        <?php endforeach; ?>
                      </tbody>
                   </table>
                </div>
                <div class="col-lg-12">
 
-                  <!-- Modal -->
+                  <!-- Modal Tambah -->
                   <div class="modal fade" id="modalAdd" tabindex="-1" aria-labelledby="modalAddLabel" aria-hidden="true">
                      <div class="modal-dialog">
                         <div class="modal-content">
@@ -105,7 +83,7 @@
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                            </div>
                            <div class="modal-body">
-                              <form action="#" method="POST">
+                              <form action="/administrator/kriteria/tambah" method="POST">
                                  <div class="mb-3">
                                     <span>Kode kriteria:</span>
                                     <input type="text" class="form-control" id="kodekriteria" name="kodekriteria">
@@ -120,7 +98,10 @@
                                  </div>
                                  <div class="mb-3">
                                     <span>Jenis kriteria:</span>
-                                    <input type="text" class="form-control" id="jeniskriteria" name="jeniskriteria">
+                                    <select class="form-select" name="jeniskriteria">
+                                       <option value="benefit">Benefit</option>
+                                       <option value="cost">Cost</option>
+                                    </select>
                                  </div>
 
                                  <div class="modal-footer">

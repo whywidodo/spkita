@@ -29,33 +29,27 @@
                                 <form action="index.html" method="post">
                                     <div class="form-group">
                                         <div class="inputWithIcon">
-                                            <input type="text" name="nama" autofocus
-                                                class="form-control form-control-user" placeholder="Masukan Nama">
+                                            <input type="text" name="nama" autofocus autocomplete="off" class="form-control form-control-user" placeholder="Masukan Nama">
                                             <i class="fa fa-list fa-lg fa-fw" aria-hidden="true"></i>
                                         </div>
                                         <div class="inputWithIcon">
-                                            <input type="text" name="username" autofocus
-                                                class="form-control form-control-user" placeholder="Masukan Username">
+                                            <input type="text" name="username" autofocus autocomplete="off" class="form-control form-control-user" placeholder="Masukan Username">
                                             <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
                                         </div>
                                         <div class="form-group">
                                             <div class="inputWithIcon">
-                                                <input type="password" class="form-control form-control-user"
-                                                    name="password" placeholder="Masukan Password">
+                                                <input type="password" class="form-control form-control-user" name="password" placeholder="Masukan Password">
                                                 <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
                                             </div>
                                             <div class="inputWithIcon">
-                                                <input type="password" class="form-control form-control-user"
-                                                    name="repassword" placeholder="Masukan Password">
+                                                <input type="password" class="form-control form-control-user" name="repassword" placeholder="Masukan Password">
                                                 <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
                                             </div>
 
-                                            <button type="submit"
-                                                class="btn btn-light text-light buttonlogin">Register</button>
+                                            <button type="submit" class="btn btn-light text-light buttonlogin">Register</button>
 
                                             <div>
-                                                <label class="inforeg">Sudah punya akun? <a
-                                                        href="<?= base_url(); ?>/login">Login
+                                                <label class="inforeg">Sudah punya akun? <a href="<?= base_url(); ?>/login">Login
                                                         Sekarang</a></label>
                                             </div>
                                         </div>

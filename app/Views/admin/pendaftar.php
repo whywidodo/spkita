@@ -38,8 +38,8 @@
                      <thead>
                         <tr>
                            <th>No</th>
-                           <th>Nama</th>
                            <th>NISN</th>
+                           <th>Nama</th>
                            <th>Jenis Kelamin</th>
                            <th>Alamat</th>
                            <th>Nomor Telp</th>
@@ -47,74 +47,42 @@
                         </tr>
                      </thead>
                      <tbody>
-                        <tr>
-                           <td>1</td>
-                           <td>Fitroh</td>
-                           <td>12345</td>
-                           <td>Perempuan</td>
-                           <td>Tegal</td>
-                           <td>09882376439</td>
-                           <td class="text-center">
-                              <button type="submit" name="lihat" class="btn btn-primary btn-sm text-white"
-                                 style="width: 60px;"><i class="bi bi-eye-fill"></i></button>
-                              <button type="submit" name="edit" class="btn btn-warning btn-sm text-white"
-                                 style="width: 60px;" data-bs-toggle="modal" data-bs-target="#modalEdit"><i
-                                    class="bi bi-pencil-fill"></i></button>
-                              <button type="submit" name="hapus" class="btn btn-danger btn-sm text-white"
-                                 style="width: 60px;"><i class="bi bi-trash3-fill" data-bs-toggle="modal"
-                                    data-bs-target="#modalDelete"></i></button>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>2</td>
-                           <td>Fitroh</td>
-                           <td>12345</td>
-                           <td>Perempuan</td>
-                           <td>Tegal</td>
-                           <td>09882376439</td>
-                           <td class="text-center">
-                              <button type="submit" name="lihat" class="btn btn-primary btn-sm text-white"
-                                 style="width: 60px;"><i class="bi bi-eye-fill"></i></button>
-                              <button type="button" name="edit" class="btn btn-warning btn-sm text-white"
-                                 style="width: 60px;" data-bs-toggle="modal" data-bs-target="#modalEdit"><i
-                                    class="bi bi-pencil-fill"></i></button>
-                              <button type="submit" name="hapus" class="btn btn-danger btn-sm text-white"
-                                 style="width: 60px;"><i class="bi bi-trash3-fill" data-bs-toggle="modal"
-                                    data-bs-target="#modalDelete"></i></button>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>3</td>
-                           <td>Widodo</td>
-                           <td>12345</td>
-                           <td>Laki-laki</td>
-                           <td>Tegal</td>
-                           <td>09882376439</td>
-                           <td class="text-center">
-                              <button type="submit" name="lihat" class="btn btn-primary btn-sm text-white"
-                                 style="width: 60px;"><i class="bi bi-eye-fill"></i></button>
-                              <button type="submit" name="edit" class="btn btn-warning btn-sm text-white"
-                                 style="width: 60px;" data-bs-toggle="modal" data-bs-target="#modalEdit"><i
-                                    class="bi bi-pencil-fill"></i></button>
-                              <button type="submit" name="hapus" class="btn btn-danger btn-sm text-white"
-                                 style="width: 60px;"><i class="bi bi-trash3-fill" data-bs-toggle="modal"
-                                    data-bs-target="#modalDelete"></i></button>
-                           </td>
-                        </tr>
+                        <?php
+                        $i = 1;
+                        foreach ($dataPendaftar as $data) :
+                        ?>
+                           <tr>
+                              <td><?= $i++; ?></td>
+                              <td><?= $data['nisn_pendaftar']; ?></td>
+                              <td><?= $data['nama_pendaftar']; ?></td>
+                              <td><?= $data['jk_pendaftar']; ?></td>
+                              <td><?= $data['alamat_pendaftar']; ?></td>
+                              <td><?= $data['hp_pendaftar']; ?></td>
+                              <td class="text-center">
+                                 <form action="/administrator/pendaftar/edit/<?= $data['nisn_pendaftar']; ?>" method="POST" name="detail" class="d-inline-block">
+                                    <?= csrf_field(); ?>
+                                    <button type="submit" name="detail" class="btn btn-sm btn-success shadow-sm px-2"><i class="fas fa-eye fa-sm"></i>&nbsp;&nbsp;Detail</button>
+                                 </form>
+                                 <button type="submit" name="edit" class="btn btn-primary btn-sm text-white px-2" data-bs-toggle="modal" data-bs-target="#modalEdit"><i class="bi bi-pencil-fill"></i>&nbsp;&nbsp;Edit</button>
+                                 <form action="/administrator/pendaftar/hapus/<?= $data['nisn_pendaftar']; ?>" method="POST" name="hapus" class="d-inline-block">
+                                    <?= csrf_field(); ?>
+                                    <button type="submit" name="hapus" class="btn btn-sm btn-danger shadow-sm px-2" onclick="return confirm('Apakah anda yakin akan menghapus data ini?');"><i class=" fas fa-trash fa-sm"></i>&nbsp;&nbsp;Hapus</button>
+                                 </form>
+                              </td>
+                           </tr>
+                        <?php endforeach; ?>
                      </tbody>
                   </table>
                </div>
                <div class="col-lg-12">
 
                   <!-- Modal -->
-                  <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="modalAddLabel"
-                     aria-hidden="true">
+                  <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="modalAddLabel" aria-hidden="true">
                      <div class="modal-dialog">
                         <div class="modal-content">
                            <div class="modal-header">
                               <h1 class="modal-title fs-5" id="modalAdd">Edit Pendaftar</h1>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                 aria-label="Close"></button>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                            </div>
                            <div class="modal-body">
                               <form action="#" method="POST">
@@ -129,13 +97,11 @@
                                  <div class="mb-3">
                                     <span>Jenis Kelamin :</span><br>
                                     <div class="form-check form-check-inline mt-2">
-                                       <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pria"
-                                          value="Laki-laki">
+                                       <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pria" value="Laki-laki">
                                        <label class="form-check-label" for="pria">Laki-laki</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                       <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                          id="perempuan" value="Perempuan">
+                                       <input class="form-check-input" type="radio" name="inlineRadioOptions" id="perempuan" value="Perempuan">
                                        <label class="form-check-label" for="perepmuan">Perempuan</label>
                                     </div>
                                  </div>
@@ -149,8 +115,7 @@
                                  </div>
 
                                  <div class="modal-footer">
-                                    <button type="submit" name="simpanKriteria"
-                                       class="btn btn-success btn-sm">Simpan</button>
+                                    <button type="submit" name="simpanKriteria" class="btn btn-success btn-sm">Simpan</button>
                                  </div>
                               </form>
                            </div>
@@ -163,8 +128,7 @@
                         <div class="modal-content">
                            <div class="modal-header">
                               <h5 class="modal-title">Hapus Pendaftar</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                 aria-label="Close"></button>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                            </div>
                            <div class="modal-body">
                               <p>Apakah anda yakin akan menghapus item ini?</p>

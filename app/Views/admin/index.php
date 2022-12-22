@@ -1,3 +1,9 @@
+<?php
+if (!session()->get('logged_in')) {
+   header('Location: /login');
+   exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
