@@ -381,8 +381,13 @@
             <!-- <p class="px-3 pt-3">Hubungi Kami</p> -->
             <span class="row px-3 py-4">
               <i class="h5 bi bi-whatsapp px-3 pb-2"></i>
-              <i class="h5 bi bi-telephone px-3 pb-2"></i>
-              <i class="h5 bi bi-envelope px-3 pb-2"></i>
+            </span>
+            <span class="row px-3 py-4">
+            <i class="h5 bi bi-telephone px-3 pb-2"></i>
+             
+            </span>
+            <span class="row px-3 py-4">
+            <i class="h5 bi bi-envelope px-3 pb-2"></i>
             </span>
           </div>
           <div class="col-lg-6 col-md-6">
