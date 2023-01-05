@@ -161,29 +161,28 @@
         <ul>
           <li>
             <h4 class="title">Sosialisasi Beasiswa</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In quod qui dolorem, eligendi
-              magni</p>
+            <p>Sosialisasi merupakan tahap pengenalan mengenai program beasiswa SPKita yang diadakan sejak bulan
+              Desember 2022</p>
             <span class="circle"></span>
             <span class="date">Desember 2022</span>
           </li>
           <li>
             <h4 class="title">Pendaftaran Beasiswa</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In quod qui dolorem, eligendi
-              magni</p>
+            <p>Pendaftaran Beasiswa dapat dilakukan mulai bulan Januari 2023, namun pendaftaran akun dapat dilakukan
+              sebelum bulan tersebut</p>
             <span class="circle"></span>
             <span class="date">Januari 2023</span>
           </li>
           <li>
             <h4 class="title">Penutupan Pendaftaran</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In quod qui dolorem, eligendi
-              magni</p>
+            <p>Pendaftaran akan ditutup di bulan Maret 2023 untuk dilakukan proses penentuan penerima Beasiswa SPKita
+            </p>
             <span class="circle"></span>
             <span class="date">Maret 2023</span>
           </li>
           <li>
             <h4 class="title">Pengumuman Penerima Beasiswa</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In quod qui dolorem, eligendi
-              magni</p>
+            <p>Pengumuman penerima Beasiswa SPKita akan mendapat informasi penerimaan di akun masing-masing</p>
             <span class="circle"></span>
             <span class="date">April 2023</span>
           </li>
@@ -204,7 +203,7 @@
         <h4 class="h4 text-white">Panduan Beasiswa</h4>
       </header>
 
-      <div id="panduan">
+      <div id="panduan" class="mb-5">
         <div class="card mb-200">
           <div class="card-body">
             <h5 class="card-title">Unduh Panduan</h5>
@@ -226,7 +225,8 @@
           </div>
         </div>
       </div>
-      <h4 class="h4 text-white" style="text-align: center;"></br>Frequently Asked Questions</h4>
+
+      <h4 class="h4 text-white" style="text-align: center;">Frequently Asked Questions</h4>
       <p class="text-white" style="text-align: center;">Pertanyaan yang sering ditanyakan</p>
       <div class="container">
         <div class="row">
@@ -383,11 +383,11 @@
               <i class="h5 bi bi-whatsapp px-3 pb-2"></i>
             </span>
             <span class="row px-3 py-4">
-            <i class="h5 bi bi-telephone px-3 pb-2"></i>
-             
+              <i class="h5 bi bi-telephone px-3 pb-2"></i>
+
             </span>
             <span class="row px-3 py-4">
-            <i class="h5 bi bi-envelope px-3 pb-2"></i>
+              <i class="h5 bi bi-envelope px-3 pb-2"></i>
             </span>
           </div>
           <div class="col-lg-6 col-md-6">
@@ -408,7 +408,7 @@
     <div class="container">
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
-          <span class="mb-1 mb-md-0 text-muted" style="font-size: 14px;">Copyright &copy; 2022 -
+          <span class="mb-1 mb-md-0 text-muted" style="font-size: 14px;">Copyright &copy; <?= Date('Y'); ?>
             <strong>SPKita</strong> Solusi</span>
         </div>
       </footer>

@@ -29,20 +29,24 @@
                                 <form action="index.html" method="post">
                                     <div class="form-group">
                                         <div class="inputWithIcon">
-                                            <input type="text" name="nama" autofocus autocomplete="off" class="form-control form-control-user" placeholder="Masukan Nama">
+                                            <input type="text" name="nama" autofocus autocomplete="off" class="form-control form-control-user" placeholder="Nama Lengkap">
                                             <i class="fa fa-list fa-lg fa-fw" aria-hidden="true"></i>
                                         </div>
                                         <div class="inputWithIcon">
-                                            <input type="text" name="username" autofocus autocomplete="off" class="form-control form-control-user" placeholder="Masukan Username">
+                                            <input type="text" name="email" autofocus autocomplete="off" class="form-control form-control-user" placeholder="Email">
+                                            <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="inputWithIcon">
+                                            <input type="text" name="username" autofocus autocomplete="off" class="form-control form-control-user" placeholder="Username">
                                             <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
                                         </div>
                                         <div class="form-group">
                                             <div class="inputWithIcon">
-                                                <input type="password" class="form-control form-control-user" name="password" placeholder="Masukan Password">
+                                                <input type="password" class="form-control form-control-user" name="password" placeholder="Password">
                                                 <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
                                             </div>
                                             <div class="inputWithIcon">
-                                                <input type="password" class="form-control form-control-user" name="repassword" placeholder="Masukan Password">
+                                                <input type="password" class="form-control form-control-user" name="repassword" placeholder="Ulangi Password">
                                                 <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
                                             </div>
 
