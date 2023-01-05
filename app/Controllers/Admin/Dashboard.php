@@ -10,4 +10,11 @@ class Dashboard extends BaseController
    {
       return view('admin/index');
    }
+
+   public function logout()
+   {
+      session()->setFlashdata('flash', 'Logout');
+
+      return redirect()->to('/login');
+   }
 }

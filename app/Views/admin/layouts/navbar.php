@@ -10,14 +10,16 @@
      <!-- Navbar Kanan -->
      <ul class="navbar-nav ml-auto">
         <li class="nav-item d-none d-sm-inline-block">
-
-           <a href="#modalLogout" data-bs-toggle="modal" data-bs-target="#modalLogout" class="nav-link"><i class="fa-solid fa-door-open"></i>&nbsp;Logout</a>
+           <form action="<?= base_url('/login/logout'); ?>" method="POST">
+              <?= csrf_field(); ?>
+              <button type="submit" class="btn btn-sm shadow-sm tombol-logout text-white"><i class="fa-solid fa-door-open"></i>&nbsp;Logout</button>
+           </form>
         </li>
      </ul>
   </nav>
 
   <!-- Modal -->
-  <div class="modal fade" id="modalLogout" tabindex="-1" aria-labelledby="modalLogoutLabel" aria-hidden="true">
+  <div class=" modal fade" id="modalLogout" tabindex="-1" aria-labelledby="modalLogoutLabel" aria-hidden="true">
      <div class="modal-dialog">
         <div class="modal-content">
            <div class="modal-header">

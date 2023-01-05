@@ -31,14 +31,15 @@ class Pendaftar extends BaseController
          'hp_pendaftar' => $this->request->getPost('hppendaftar')
 
       ]);
-      return redirect()->to('/administrator/kriteria');
+      return redirect()->to('/administrator/pendaftar');
    }
 
    public function hapus($kode)
    {
       $this->pendaftarModel->where('nisn_pendaftar', $kode)->delete();
 
-      return redirect()->to('/administrator/kriteria');
+      session()->setFlashdata('flash', 'dihapus');
+      return redirect()->to('/administrator/pendaftar');
    }
 
    public function detail($nisn)
@@ -48,5 +49,11 @@ class Pendaftar extends BaseController
          'dataTambahan' => $this->pendaftarModel->getPendaftarTambahan($nisn),
       ];
       return view('admin/pendaftar-detail', $data);
+   }
+
+   public function edit($kode)
+   {
+
+      session()->setFlashdata('flash', 'dirubah');
    }
 }

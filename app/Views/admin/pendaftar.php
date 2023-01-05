@@ -6,20 +6,18 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>SPKita - Sistem Beasiswa Amikom</title>
-   <link rel="stylesheet" href="<?= base_url(); ?>/assets/style/css/bootstrap.css">
-   <link rel="stylesheet" href="<?= base_url(); ?>/assets/style/css/custom.css">
-   <link rel="stylesheet" href="<?= base_url(); ?>/assets/style/css/adminlte.min.css">
-   <link rel="stylesheet" href="<?= base_url(); ?>/assets/fontawesome/css/all.min.css">
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+   <!-- Pemanggilan header -->
+   <?= $this->include('admin/layouts/header'); ?>
 </head>
 
 <body>
    <div class="wrapper">
       <!-- Pemanggilan sidebar -->
-      <?= $this->include('admin/navbar'); ?>
+      <!-- Pemanggilan sidebar -->
+      <?= $this->include('admin/layouts/navbar'); ?>
 
       <!-- Pemanggilan sidebar -->
-      <?= $this->include('admin/sidebar'); ?>
+      <?= $this->include('admin/layouts/sidebar'); ?>
    </div>
 
    <div class="content-wrapper bg-white">
@@ -34,6 +32,7 @@
                         <span>Data berikut merupakan informasi yang berkaitan dengan siswa pendaftar beasiswa.</span>
                      </div>
                   </div>
+                  <div class="flash-data" data-flashdata="<?= session()->getFlashdata('flash'); ?>"></div>
                   <table class="table table-hover text-center">
                      <thead>
                         <tr>
@@ -63,10 +62,9 @@
                                     <?= csrf_field(); ?>
                                     <button type="submit" name="detail" class="btn btn-sm btn-success shadow-sm px-2"><i class="fas fa-eye fa-sm"></i>&nbsp;&nbsp;Detail</button>
                                  </form>
-                                 <button type="submit" name="edit" class="btn btn-primary btn-sm text-white px-2" data-bs-toggle="modal" data-bs-target="#modalEdit"><i class="bi bi-pencil-fill"></i>&nbsp;&nbsp;Edit</button>
                                  <form action="/administrator/pendaftar/hapus/<?= $data['nisn_pendaftar']; ?>" method="POST" name="hapus" class="d-inline-block">
                                     <?= csrf_field(); ?>
-                                    <button type="submit" name="hapus" class="btn btn-sm btn-danger shadow-sm px-2" onclick="return confirm('Apakah anda yakin akan menghapus data ini?');"><i class=" fas fa-trash fa-sm"></i>&nbsp;&nbsp;Hapus</button>
+                                    <button type="submit" name="hapus" class="btn btn-sm btn-danger shadow-sm px-2 tombol-hapus"><i class=" fas fa-trash fa-sm"></i>&nbsp;&nbsp;Hapus</button>
                                  </form>
                               </td>
                            </tr>
@@ -149,11 +147,8 @@
 
    </div>
 
-
-   <script src="<?= base_url(); ?>/assets/style/js/jquery-3.6.1.min.js"></script>
-   <script src="<?= base_url(); ?>/assets/style/js/bootstrap.bundle.min.js"></script>
-   <script src="<?= base_url(); ?>/assets/style/js/adminlte.min.js"></script>
-   <script src="<?= base_url(); ?>/assets/fontawesome/js/all.min.js"></script>
+   <!-- Pemanggilan footer -->
+   <?= $this->include('admin/layouts/footer'); ?>
 </body>
 
 </html>

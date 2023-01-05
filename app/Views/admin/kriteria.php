@@ -6,19 +6,17 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>SPKita - Sistem Beasiswa Amikom</title>
-   <link rel="stylesheet" href="<?= base_url(); ?>/assets/style/css/bootstrap.css">
-   <link rel="stylesheet" href="<?= base_url(); ?>/assets/style/css/custom.css">
-   <link rel="stylesheet" href="<?= base_url(); ?>/assets/style/css/adminlte.min.css">
-   <link rel="stylesheet" href="<?= base_url(); ?>/assets/fontawesome/css/all.min.css">
+   <!-- Pemanggilan header -->
+   <?= $this->include('admin/layouts/header'); ?>
 </head>
 
 <body>
    <div class="wrapper">
       <!-- Pemanggilan sidebar -->
-      <?= $this->include('admin/navbar'); ?>
+      <?= $this->include('admin/layouts/navbar'); ?>
 
       <!-- Pemanggilan sidebar -->
-      <?= $this->include('admin/sidebar'); ?>
+      <?= $this->include('admin/layouts/sidebar'); ?>
    </div>
    <div class="content-wrapper bg-white">
       <!-- Area Konten -->
@@ -29,7 +27,7 @@
                   <h1 class="h3">Kriteria</h1>
                   <div class="row py-3">
                      <div class="col-lg-8 col-md-auto col-sm-auto">
-                        <span>Data berikut merupakan informasi yang berkaitan dengan keriteris beasiswa.</span>
+                        <span>Data berikut merupakan informasi yang berkaitan dengan keriteria beasiswa.</span>
                      </div>
                      <div class="col-lg-4">
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modalAdd" class="btn btn-success btn-sm text-white float-end"><i class="fa-solid fa-plus"></i> Tambah Data</button>
@@ -42,6 +40,7 @@
                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
+                                       <div class="flash-data" data-flashdata="<?= session()->getFlashdata('flash'); ?>"></div>
                                        <form action="/administrator/kriteria/tambah" method="POST">
                                           <div class="mb-3">
                                              <span>Kode kriteria:</span>
@@ -97,14 +96,12 @@
                               <td><?= $data['bobot_kriteria']; ?></td>
                               <td><?= $data['jenis_kriteria']; ?></td>
                               <td class="text-center">
-                                 <!-- <form action="/administrator/kriteria/edit/<?= $data['kode_kriteria']; ?>" method="POST" name="edit" class="d-inline-block">
-                                    <?= csrf_field(); ?>
-                                    <button type="submit" name="edit" class="btn btn-sm btn-primary shadow-sm px-2"><i class="fas fa-pencil fa-sm"></i>&nbsp;&nbsp;Edit</button>
-                                 </form> -->
-                                 <button type="button" name="edit" class="btn btn-sm btn-primary shadow-sm px-2" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $data['kode_kriteria']; ?>"><i class="fas fa-pencil fa-sm"></i>&nbsp;&nbsp;Edit</button>
+                                 <button type="button" name="edit" class="btn btn-sm btn-primary shadow-sm px-2" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $data['kode_kriteria']; ?>">
+                                    <i class="fas fa-pencil fa-sm"></i>&nbsp;&nbsp;Edit
+                                 </button>
                                  <form action="/administrator/kriteria/hapus/<?= $data['kode_kriteria']; ?>" method="POST" name="hapus" class="d-inline-block">
                                     <?= csrf_field(); ?>
-                                    <button type="submit" name="hapus" class="btn btn-sm btn-danger shadow-sm px-2" onclick="return confirm('Apakah anda yakin akan menghapus data ini?');"><i class=" fas fa-trash fa-sm"></i>&nbsp;&nbsp;Hapus</button>
+                                    <button type="submit" name="hapus" class="btn btn-sm btn-danger shadow-sm px-2 tombol-hapus"><i class=" fas fa-trash fa-sm"></i>&nbsp;&nbsp;Hapus</button>
                                  </form>
                               </td>
                            </tr>
@@ -166,29 +163,8 @@
 
    </div>
 
-
-   <script>
-      var exampleModal = document.getElementById('exampleModal')
-      exampleModal.addEventListener('show.bs.modal', function(event) {
-         // Button that triggered the modal
-         var button = event.relatedTarget
-         // Extract info from data-bs-* attributes
-         var recipient = button.getAttribute('data-bs-whatever')
-         // If necessary, you could initiate an AJAX request here
-         // and then do the updating in a callback.
-         //
-         // Update the modal's content.
-         var modalTitle = exampleModal.querySelector('.modal-title')
-         var modalBodyInput = exampleModal.querySelector('.modal-body .kode')
-
-         modalTitle.textContent = 'New message to ' + recipient
-         modalBodyInput.value = recipient
-      })
-   </script>
-   <script src="<?= base_url(); ?>/assets/style/js/jquery-3.6.1.min.js"></script>
-   <script src="<?= base_url(); ?>/assets/style/js/bootstrap.bundle.min.js"></script>
-   <script src="<?= base_url(); ?>/assets/style/js/adminlte.min.js"></script>
-   <script src="<?= base_url(); ?>/assets/fontawesome/js/all.min.js"></script>
+   <!-- Pemanggilan footer -->
+   <?= $this->include('admin/layouts/footer'); ?>
 </body>
 
 </html>

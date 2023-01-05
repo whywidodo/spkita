@@ -12,7 +12,6 @@ if (session()->get('logged_in')) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplikasi SPKita</title>
-    <!-- <link rel="icon" href="Gambar/admin.png" type="image/x-icon"> -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/style/css/bootstrap.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/style/js/bootstrap.min.js">
@@ -31,7 +30,7 @@ if (session()->get('logged_in')) {
                                     <h1 class="h4 text-gray-900 mb-4">Login SPKita</h1>
                                     <hr>
                                 </div>
-
+                                <div class="flash-data" data-flashdata="<?= session()->getFlashdata('flash'); ?>"></div>
                                 <form action="<?= base_url('/login/auth'); ?>" method="post">
                                     <div class="form-group">
                                         <div class="inputWithIcon">
@@ -75,7 +74,10 @@ if (session()->get('logged_in')) {
 
     </div>
 
+    <script src="<?= base_url(); ?>/assets/style/js/jquery-3.6.1.min.js"></script>
     <script src="<?= base_url(); ?>/assets/style/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/sweetalert2/custom-alert.js"></script>
 </body>
 
 </html>

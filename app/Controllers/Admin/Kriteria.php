@@ -30,6 +30,7 @@ class Kriteria extends BaseController
          'jenis_kriteria' => $this->request->getPost('jeniskriteria')
 
       ]);
+      session()->setFlashdata('flash', 'ditambahkan');
       return redirect()->to('/administrator/kriteria');
    }
 
@@ -42,6 +43,7 @@ class Kriteria extends BaseController
          'jenis_kriteria' => $this->request->getPost('editJenis')
 
       ]);
+      session()->setFlashdata('flash', 'dirubah');
       return redirect()->to('/administrator/kriteria');
    }
 
@@ -49,6 +51,7 @@ class Kriteria extends BaseController
    {
       $this->kriteriaModel->where('kode_kriteria', $kode)->delete();
 
+      session()->setFlashdata('flash', 'dihapus');
       return redirect()->to('/administrator/kriteria');
    }
 }

@@ -33,11 +33,11 @@ class Login extends BaseController
             $session->set($sesiData);
             return redirect()->to('/administrator');
          } else {
-            $session->setFlashdata('pesanGagal', 'Gagal');
+            session()->setFlashdata('flash', 'gagal');
             return redirect()->to('/login');
          }
       } else {
-         $session->setFlashdata('pesanGagal', 'Gagal');
+         session()->setFlashdata('flash', 'gagal');
          return redirect()->to('/login');
       }
    }
@@ -47,5 +47,6 @@ class Login extends BaseController
       $session = session();
       $session->destroy();
       return redirect()->to('/login');
+      session()->setFlashdata('flash', 'logout');
    }
 }
