@@ -33,6 +33,7 @@
                      <ul class="nav nav-tabs nav-justified" role="tablist">
                         <div class="slider"></div>
                         <li class="nav-item">
+<<<<<<< HEAD
                            <a class="nav-link active" id="biodata-tab" data-toggle="tab" href="#biodata" role="tab"
                               aria-controls="biodata" aria-selected="true"><i class="fas fa-id-card"></i> Biodata</a>
                         </li>
@@ -57,22 +58,52 @@
                                  <div class="col-sm-9">
                                     <input type="text" class="form-control" name="nama" id="inputnama"
                                        placeholder="Nama Lengkap">
+=======
+                           <a class="nav-link active" id="biodata-tab" data-toggle="tab" href="#biodata" role="tab" aria-controls="biodata" aria-selected="true"><i class="fas fa-id-card"></i> Biodata</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fas fa-graduation-cap"></i> Sekolah</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-users "></i> Keluarga</a>
+                        </li>
+                     </ul>
+
+                     <!-- Tab panes -->
+                     <div class="tab-content">
+                        <div class="tab-pane fade show active" id="biodata" role="tabpanel" aria-labelledby="biodata-tab">
+                           <form action="post">
+                              <div class="form-group row">
+                                 <label for="inputNama" class="col-sm-3 col-form-label">Nama Lengkap</label>
+                                 <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="nama" id="inputnama" placeholder="Nama Lengkap">
+>>>>>>> 6f43b88d74e228d6e0e1c18df1d056ba1de70c96
                                  </div>
                               </div>
                               <div class="form-group row">
                                  <label for="inputAlamat" class="col-sm-3 col-form-label">Alamat</label>
                                  <div class="col-sm-9">
+<<<<<<< HEAD
                                     <textarea type="text" style="height:100px" class="form-control" name="alamat"
                                        id="inputAlamat" placeholder="Alamat"></textarea>
+=======
+                                    <textarea type="text" style="height:100px" class="form-control" name="alamat" id="inputAlamat" placeholder="Alamat"></textarea>
+>>>>>>> 6f43b88d74e228d6e0e1c18df1d056ba1de70c96
                                  </div>
                               </div>
                               <div class="form-group row">
                                  <label for="inputGender" class="col-sm-3 col-form-label">Gender</label>
+<<<<<<< HEAD
                                  <div class="col-sm-9 my-2">
                                     <input type="radio" name="gender" value="male" id="status_0"
                                        checked="checked" />Laki-laki
                                     <input class="mx-2" type="radio" name="gender" value="female"
                                        id="status_1" />Perempuan
+=======
+                                 <div class="col-sm-9">
+                                    <input type="radio" name="gender" value="Pria" id="status_0" checked="checked" />Pria
+                                    <input type="radio" name="gender" value="Wanita" id="status_1" />Wanita
+>>>>>>> 6f43b88d74e228d6e0e1c18df1d056ba1de70c96
                                  </div>
                               </div>
                               <div class="form-group row">
@@ -84,13 +115,18 @@
                               <div class="form-group row">
                                  <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
                                  <div class="col-sm-9">
+<<<<<<< HEAD
                                     <input type="text" class="form-control" name="email" id="inputEmail"
                                        placeholder="Email">
+=======
+                                    <input type="text" class="form-control" name="email" id="inputEmail" placeholder="Email">
+>>>>>>> 6f43b88d74e228d6e0e1c18df1d056ba1de70c96
                                  </div>
                               </div>
                               <div class="form-group row">
                                  <label for="inputNoTelp" class="col-sm-3 col-form-label">No Telpon</label>
                                  <div class="col-sm-9">
+<<<<<<< HEAD
                                     <input type="text" class="form-control" name="notelp" id="inputNoTelp"
                                        placeholder="No Telpon">
                                  </div>
@@ -98,6 +134,17 @@
                               <div class="form-group row justify-content-end mt-5">
                                  <div class="col-sm-4"></div>
                                  <div class="col-sm-2">
+=======
+                                    <input type="text" class="form-control" name="notelp" id="inputNoTelp" placeholder="No Telpon">
+                                 </div>
+                              </div>
+                              <div class="form-group row">
+                                 <div class="col-sm-4"></div>
+                                 <div class="col-sm-2">
+                                    <button type="button" class="btn btn-primary btn-block">Previous</button>
+                                 </div>
+                                 <div class="col-sm-2">
+>>>>>>> 6f43b88d74e228d6e0e1c18df1d056ba1de70c96
                                     <button type="button" class="btn btn-primary btn-block">Clear</button>
                                  </div>
                                  <div class="col-sm-2">
@@ -106,6 +153,7 @@
                               </div>
                            </form>
                         </div>
+<<<<<<< HEAD
 
                         <!-- Asal Sekolah -->
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -122,11 +170,26 @@
                                  <div class="col-sm-9">
                                     <input type="text" class="form-control" name="nisn" id="inputNISN"
                                        placeholder="NISN">
+=======
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                           <form action="post">
+                              <div class="form-group row">
+                                 <label for="inputSekolah" class="col-sm-3 col-form-label">Asal Sekolah</label>
+                                 <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="sekolah" id="inputSekolah" placeholder="Asal Sekolah">
+                                 </div>
+                              </div>
+                              <div class="form-group row">
+                                 <label for="inputNISN" class="col-sm-3 col-form-label">NISN</label>
+                                 <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="nisn" id="inputNISN" placeholder="NISN">
+>>>>>>> 6f43b88d74e228d6e0e1c18df1d056ba1de70c96
                                  </div>
                               </div>
                               <div class="form-group row">
                                  <label for="inputLulus" class="col-sm-3 col-form-label">Tahun Lulus</label>
                                  <div class="col-sm-9">
+<<<<<<< HEAD
                                     <input type="text" class="form-control" name="lulus" id="inputLulus"
                                        placeholder="Tahun Lulus">
                                  </div>
@@ -139,6 +202,18 @@
                                  </div>
                               </div>
                               <div class="form-group row justify-content-end mt-5">
+=======
+                                    <input type="text" class="form-control" name="lulus" id="inputLulus" placeholder="Tahun Lulus">
+                                 </div>
+                              </div>
+                              <div class="form-group row">
+                                 <label for="inputRaport" class="col-sm-3 col-form-label">Nilai Raport Smt 1-5</label>
+                                 <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="report" id="inputRaport" placeholder="Nilai Raport">
+                                 </div>
+                              </div>
+                              <div class="form-group row">
+>>>>>>> 6f43b88d74e228d6e0e1c18df1d056ba1de70c96
                                  <div class="col-sm-4"></div>
                                  <div class="col-sm-2">
                                     <button type="button" class="btn btn-primary btn-block">Previous</button>
@@ -155,10 +230,16 @@
                         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                            <form action="post">
                               <div class="form-group row">
+<<<<<<< HEAD
                                  <label for="inputSekolah" class="col-sm-3 col-form-label">Nama Wali</label>
                                  <div class="col-sm-9">
                                     <input type="text" class="form-control" name="keluarga" id="inputKeluarga"
                                        placeholder="Nama wali">
+=======
+                                 <label for="inputSekolah" class="col-sm-3 col-form-label">Asal Sekolah</label>
+                                 <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="sekolah" id="inputSekolah" placeholder="Asal Sekolah">
+>>>>>>> 6f43b88d74e228d6e0e1c18df1d056ba1de70c96
                                  </div>
                               </div>
                               <div class="form-group row">
@@ -174,15 +255,23 @@
                               <div class="form-group row">
                                  <label for="inputPekerjaan" class="col-sm-3 col-form-label">Pekerjan Wali</label>
                                  <div class="col-sm-9">
+<<<<<<< HEAD
                                     <input type="text" class="form-control" name="pekerjaan" id="inputPekerjaan"
                                        placeholder="Pekerjaan Wali">
+=======
+                                    <input type="text" class="form-control" name="pekerjaan" id="inputPekerjaan" placeholder="Pekerjaan Wali">
+>>>>>>> 6f43b88d74e228d6e0e1c18df1d056ba1de70c96
                                  </div>
                               </div>
                               <div class="form-group row">
                                  <label for="inputPenghasilan" class="col-sm-3 col-form-label">Penghasilan Wali</label>
                                  <div class="col-sm-9">
+<<<<<<< HEAD
                                     <input type="text" class="form-control" name="penghasilan" id="inputPenghasilan"
                                        placeholder="Penghasilan Dalam 1 Bulan">
+=======
+                                    <input type="text" class="form-control" name="penghasilan" id="inputPenghasilan" placeholder="Penghasilan Wali">
+>>>>>>> 6f43b88d74e228d6e0e1c18df1d056ba1de70c96
                                  </div>
                               </div>
                               <div class="form-group row">
@@ -196,7 +285,11 @@
                                     </select>
                                  </div>
                               </div>
+<<<<<<< HEAD
                               <div class="form-group row justify-content-end mt-5">
+=======
+                              <div class="form-group row">
+>>>>>>> 6f43b88d74e228d6e0e1c18df1d056ba1de70c96
                                  <div class="col-sm-4"></div>
                                  <div class="col-sm-2">
                                     <button type="button" class="btn btn-primary btn-block">Previous</button>
@@ -205,7 +298,11 @@
                                     <button type="button" class="btn btn-primary btn-block">Clear</button>
                                  </div>
                                  <div class="col-sm-2">
+<<<<<<< HEAD
                                     <button onclick="sukses()" type="button" class="btn btn-primary btn-block">Daftar</button>
+=======
+                                    <button type="button" class="btn btn-primary btn-block">Next</button>
+>>>>>>> 6f43b88d74e228d6e0e1c18df1d056ba1de70c96
                                  </div>
                               </div>
                            </form>
@@ -216,6 +313,7 @@
                   <!-- partial -->
                   <!-- jQuery JS -->
                   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<<<<<<< HEAD
                   <!-- sweetAlert -->
                   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                   <!-- Bootstrap JS -->
@@ -226,6 +324,14 @@
                      $(document).ready(function () {
 
                         $("#tile-1 .nav-tabs a").click(function () {
+=======
+                  <!-- Bootstrap JS -->
+                  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js'></script>
+                  <script>
+                     $(document).ready(function() {
+
+                        $("#tile-1 .nav-tabs a").click(function() {
+>>>>>>> 6f43b88d74e228d6e0e1c18df1d056ba1de70c96
 
                            var position = $(this).parent().position();
 
@@ -247,6 +353,7 @@
                         });
 
                      });
+<<<<<<< HEAD
 
                      function sukses() {
                         Swal.fire({
@@ -256,6 +363,8 @@
                            
                         })
                      }
+=======
+>>>>>>> 6f43b88d74e228d6e0e1c18df1d056ba1de70c96
                   </script>
                   <!-- END DEMO -->
 

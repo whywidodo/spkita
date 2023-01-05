@@ -30,7 +30,7 @@
                <div class="col-lg-12 col-md-auto col-sm-auto" style="font-size: 14px;">
                   <h1 class="h3">Pendaftar</h1>
                   <div class="row py-3">
-                     <div class="col-lg-8 col-md-auto col-sm-auto">
+                     <div class="col-lg-12 col-md-auto col-sm-auto">
                         <span>Data berikut merupakan informasi yang berkaitan dengan siswa pendaftar beasiswa.</span>
                      </div>
                   </div>
@@ -59,7 +59,7 @@
                               <td><?= $data['alamat_pendaftar']; ?></td>
                               <td><?= $data['hp_pendaftar']; ?></td>
                               <td class="text-center">
-                                 <form action="/administrator/pendaftar/edit/<?= $data['nisn_pendaftar']; ?>" method="POST" name="detail" class="d-inline-block">
+                                 <form action="/administrator/pendaftar/detail/<?= $data['nisn_pendaftar']; ?>" method="POST" name="detail" class="d-inline-block">
                                     <?= csrf_field(); ?>
                                     <button type="submit" name="detail" class="btn btn-sm btn-success shadow-sm px-2"><i class="fas fa-eye fa-sm"></i>&nbsp;&nbsp;Detail</button>
                                  </form>

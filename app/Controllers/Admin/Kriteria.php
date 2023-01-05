@@ -33,6 +33,18 @@ class Kriteria extends BaseController
       return redirect()->to('/administrator/kriteria');
    }
 
+   public function edit($id)
+   {
+      $this->kriteriaModel->update($id, [
+         'kode_kriteria' => $this->request->getPost('editKode'),
+         'nama_kriteria' => $this->request->getPost('editNama'),
+         'bobot_kriteria' => $this->request->getPost('editBobot'),
+         'jenis_kriteria' => $this->request->getPost('editJenis')
+
+      ]);
+      return redirect()->to('/administrator/kriteria');
+   }
+
    public function hapus($kode)
    {
       $this->kriteriaModel->where('kode_kriteria', $kode)->delete();

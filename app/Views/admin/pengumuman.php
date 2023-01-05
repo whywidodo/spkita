@@ -26,11 +26,46 @@
          <div class="container text-start">
             <div class="row">
                <div class="col-lg-auto col-md-auto col-sm-auto" style="font-size: 14px;">
-                  <h1>Pengumuman</h1>
-                  <span>
-                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed natus eos, molestias error asperiores doloribus, totam ex libero soluta neque nulla tempora quasi. Consectetur, saepe culpa. Aliquam ducimus veritatis reiciendis.
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo unde quasi rerum tempora incidunt tempore amet aliquam atque optio necessitatibus eum, quas error accusantium pariatur illo distinctio modi quam quos.
-                  </span>
+                  <h1 class="h3">Pengumuman</h1>
+                  <div class="row py-3">
+                     <div class="col-lg-12 col-md-auto col-sm-auto">
+                        <span>Data berikut merupakan informasi yang berkaitan dengan siswa pendaftar beasiswa.</span>
+                     </div>
+                  </div>
+                  <table class="table table-hover text-center">
+                     <thead>
+                        <tr>
+                           <th>No</th>
+                           <th>NISN</th>
+                           <th>Email</th>
+                           <th>Nilai</th>
+                           <th>Penghasilan</th>
+                           <th>Tanggungan</th>
+                           <th>Hasil Akhir</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <?php
+                        $i = 1;
+                        foreach ($dataPengumuman as $data) :
+                           $normNilai = $data['nilai_rata'] / $dataNilai;
+                           $normPenghasilan = $dataPenghasilan / $data['penghasilan_ortu'];
+                           $normTanggungan = $data['tanggungan_ortu'] / $dataTanggungan;
+
+                           $hasil = ($bobotNilai * $normNilai) + ($bobotPenghasilan * $normPenghasilan) + ($bobotTanggungan * $normTanggungan);
+                        ?>
+                           <tr>
+                              <td><?= $i++; ?></td>
+                              <td><?= $data['nisn']; ?></td>
+                              <td><?= $data['email']; ?></td>
+                              <td><?= $normNilai; ?></td>
+                              <td><?= $normPenghasilan; ?></td>
+                              <td><?= $normTanggungan; ?></td>
+                              <td><?= $hasil; ?></td>
+                           </tr>
+                        <?php endforeach; ?>
+                     </tbody>
+                  </table>
                </div>
             </div>
          </div>

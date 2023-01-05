@@ -51,8 +51,9 @@ $routes->group('administrator', static function ($routes) {
     $routes->post('kriteria/hapus/(:any)', 'Admin\Kriteria::hapus/$1');
 
     $routes->get('pendaftar', 'Admin\Pendaftar::index');
+    $routes->post('pendaftar/detail/(:any)', 'Admin\Pendaftar::detail/$1');
     $routes->get('pengumuman', 'Admin\Pengumuman::index');
-    $routes->get('pengaturan', 'Admin\Pengaturan::index'); 
+    $routes->get('pengaturan', 'Admin\Pengaturan::index');
 });
 $routes->group('users', static function ($routes) {
     $routes->get('/', 'Users\Profile::index');

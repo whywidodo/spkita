@@ -20,4 +20,17 @@ class PendaftarModel extends Model
          return $this->where(['nisn_pendaftar' => $slug])->first();
       }
    }
+   public function getPendaftarTambahan($slug = false)
+   {
+      $db      = \Config\Database::connect();
+      if ($slug == false) {
+         $builder = $db->table('tbl_hitung');
+         $query = $builder->get();
+         return $query->getResultArray();
+      } else {
+         $builder = $db->table('tbl_hitung')->where('nisn', $slug);
+         $query = $builder->get();
+         return $query->getResultArray();
+      }
+   }
 }
