@@ -43,6 +43,10 @@ $routes->group('login', static function ($routes) {
 });
 $routes->get('/login', "Home::login");
 $routes->get('/register', "Home::register");
+$routes->group('register', static function ($routes) {
+    $routes->get('/', 'Register::index');
+    $routes->post('auth', 'Register::auth');
+});
 $routes->group('administrator', static function ($routes) {
     $routes->get('/', 'Admin\Dashboard::index');
     $routes->get('kriteria', 'Admin\Kriteria::index');
