@@ -31,7 +31,11 @@ class Login extends BaseController
                'logged_in'     => TRUE
             ];
             $session->set($sesiData);
-            return redirect()->to('/administrator');
+            if ($data['akses'] == 'admin') {
+               return redirect()->to('/administrator');
+            } else {
+               return redirect()->to('/users');
+            }
          } else {
             session()->setFlashdata('flash', 'gagal');
             return redirect()->to('/login');
