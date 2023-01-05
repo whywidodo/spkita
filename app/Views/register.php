@@ -29,11 +29,7 @@
                                 <form action="<?= base_url('/register/auth'); ?>" method="post">
                                     <div class="form-group">
                                         <div class="inputWithIcon">
-<<<<<<< HEAD
                                             <input type="text" name="nama_lengkap" autofocus autocomplete="off" class="form-control form-control-user" placeholder="Masukan Nama">
-=======
-                                            <input type="text" name="nama" autofocus autocomplete="off" class="form-control form-control-user" placeholder="Nama Lengkap">
->>>>>>> b4209ccc1e0874e9997d309ba3a12aa8586f78d6
                                             <i class="fa fa-list fa-lg fa-fw" aria-hidden="true"></i>
                                         </div>
                                         <div class="inputWithIcon">
@@ -46,19 +42,11 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="inputWithIcon">
-<<<<<<< HEAD
                                                 <input type="password" name="password" class="form-control form-control-user" name="password" placeholder="Masukan Password">
                                                 <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
                                             </div>
                                             <div class="inputWithIcon">
-                                                <input type="password" name="confirm_password" class="form-control form-control-user" name="repassword" placeholder="Masukan Password">
-=======
-                                                <input type="password" class="form-control form-control-user" name="password" placeholder="Password">
-                                                <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
-                                            </div>
-                                            <div class="inputWithIcon">
                                                 <input type="password" class="form-control form-control-user" name="repassword" placeholder="Ulangi Password">
->>>>>>> b4209ccc1e0874e9997d309ba3a12aa8586f78d6
                                                 <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
                                             </div>
 
