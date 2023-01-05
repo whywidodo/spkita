@@ -40,4 +40,13 @@ class Pendaftar extends BaseController
 
       return redirect()->to('/administrator/kriteria');
    }
+
+   public function detail($nisn)
+   {
+      $data = [
+         'dataPribadi' => $this->pendaftarModel->getPendaftar($nisn),
+         'dataTambahan' => $this->pendaftarModel->getPendaftarTambahan($nisn),
+      ];
+      return view('admin/pendaftar-detail', $data);
+   }
 }
