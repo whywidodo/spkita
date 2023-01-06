@@ -56,21 +56,20 @@
                                  <label for="inputNama" class="col-sm-3 col-form-label">Nama Lengkap</label>
                                  <div class="col-sm-9">
                                     <input type="text" class="form-control" name="nama" id="inputnama"
-                                       placeholder="Nama Lengkap">
+                                       placeholder="Nama Lengkap" required>
                                  </div>
                               </div>
                               <div class="form-group row">
                                  <label for="inputAlamat" class="col-sm-3 col-form-label">Alamat</label>
                                  <div class="col-sm-9">
                                     <textarea type="text" style="height:100px" class="form-control" name="alamat"
-                                       id="inputAlamat" placeholder="Alamat"></textarea>
+                                       id="inputAlamat" placeholder="Alamat" required></textarea>
                                  </div>
                               </div>
                               <div class="form-group row">
                                  <label for="inputGender" class="col-sm-3 col-form-label">Gender</label>
                                  <div class="col-sm-9 my-2">
-                                    <input type="radio" name="gender" value="male" id="status_0"
-                                       checked="checked" />Laki-laki
+                                    <input type="radio" name="gender" value="male" id="status_0" />Laki-laki
                                     <input class="mx-2" type="radio" name="gender" value="female"
                                        id="status_1" />Perempuan
                                  </div>
@@ -78,21 +77,22 @@
                               <div class="form-group row">
                                  <label for="inputTanggal" class="col-sm-3 col-form-label">Tanggal Lahir</label>
                                  <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="tanggal" placeholder="Tanggal Lahir">
+                                    <input type="date" class="form-control" id="tanggal" placeholder="Tanggal Lahir"
+                                       required>
                                  </div>
                               </div>
                               <div class="form-group row">
                                  <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
                                  <div class="col-sm-9">
                                     <input type="text" class="form-control" name="email" id="inputEmail"
-                                       placeholder="Email">
+                                       placeholder="Email" required>
                                  </div>
                               </div>
                               <div class="form-group row">
                                  <label for="inputNoTelp" class="col-sm-3 col-form-label">No Telpon</label>
                                  <div class="col-sm-9">
                                     <input type="text" class="form-control" name="notelp" id="inputNoTelp"
-                                       placeholder="No Telpon">
+                                       placeholder="No Telpon" required>
                                  </div>
                               </div>
                               <div class="form-group row justify-content-end mt-5">
@@ -114,28 +114,28 @@
                                  <label for="inputSekolah" class="col-sm-3 col-form-label">Asal Sekolah</label>
                                  <div class="col-sm-9">
                                     <input type="text" class="form-control" name="sekolah" id="inputSekolah"
-                                       placeholder="Asal Sekolah">
+                                       placeholder="Asal Sekolah" required>
                                  </div>
                               </div>
                               <div class="form-group row mt-3">
                                  <label for="inputNISN" class="col-sm-3 col-form-label">NISN</label>
                                  <div class="col-sm-9">
                                     <input type="text" class="form-control" name="nisn" id="inputNISN"
-                                       placeholder="NISN">
+                                       placeholder="NISN" required>
                                  </div>
                               </div>
                               <div class="form-group row">
                                  <label for="inputLulus" class="col-sm-3 col-form-label">Tahun Lulus</label>
                                  <div class="col-sm-9">
                                     <input type="text" class="form-control" name="lulus" id="inputLulus"
-                                       placeholder="Tahun Lulus">
+                                       placeholder="Tahun Lulus" required>
                                  </div>
                               </div>
                               <div class="form-group row">
                                  <label for="inputRaport" class="col-sm-3 col-form-label">Rata-rata Nilai Raport</label>
                                  <div class="col-sm-9">
                                     <input type="text" class="form-control" name="report" id="inputRaport"
-                                       placeholder="Rata-rata Nilai Raport Semester 1-5">
+                                       placeholder="Rata-rata Nilai Raport Semester 1-5" required>
                                  </div>
                               </div>
                               <div class="form-group row justify-content-end mt-5">
@@ -158,7 +158,7 @@
                                  <label for="inputSekolah" class="col-sm-3 col-form-label">Nama Wali</label>
                                  <div class="col-sm-9">
                                     <input type="text" class="form-control" name="keluarga" id="inputKeluarga"
-                                       placeholder="Nama wali">
+                                       placeholder="Nama wali" required>
                                  </div>
                               </div>
                               <div class="form-group row">
@@ -175,14 +175,14 @@
                                  <label for="inputPekerjaan" class="col-sm-3 col-form-label">Pekerjan Wali</label>
                                  <div class="col-sm-9">
                                     <input type="text" class="form-control" name="pekerjaan" id="inputPekerjaan"
-                                       placeholder="Pekerjaan Wali">
+                                       placeholder="Pekerjaan Wali" required>
                                  </div>
                               </div>
                               <div class="form-group row">
                                  <label for="inputPenghasilan" class="col-sm-3 col-form-label">Penghasilan Wali</label>
                                  <div class="col-sm-9">
                                     <input type="text" class="form-control" name="penghasilan" id="inputPenghasilan"
-                                       placeholder="Penghasilan Dalam 1 Bulan">
+                                       placeholder="Penghasilan Dalam 1 Bulan" required>
                                  </div>
                               </div>
                               <div class="form-group row">
@@ -193,6 +193,7 @@
                                        <option>2 Orang</option>
                                        <option>3 Orang</option>
                                        <option>4 Orang</option>
+                                       <option>> 4 Orang</option>
                                     </select>
                                  </div>
                               </div>
@@ -205,7 +206,7 @@
                                     <button type="button" class="btn btn-primary btn-block">Clear</button>
                                  </div>
                                  <div class="col-sm-2">
-                                    <button onclick="sukses()" type="button" class="btn btn-primary btn-block">Daftar</button>
+                                    <button type="button" class="btn btn-primary btn-block">Daftar</button>
                                  </div>
                               </div>
                            </form>
@@ -247,15 +248,6 @@
                         });
 
                      });
-
-                     function sukses() {
-                        Swal.fire({
-                           icon: 'success',
-                           title: 'Pendaftaran Berhasil',
-                           showConfirmButton: true,
-                           
-                        })
-                     }
                   </script>
                   <!-- END DEMO -->
 
@@ -268,6 +260,8 @@
    <script src="<?= base_url(); ?>/assets/style/js/bootstrap.bundle.min.js"></script>
    <script src="<?= base_url(); ?>/assets/style/js/adminlte.min.js"></script>
    <script src="<?= base_url(); ?>/assets/fontawesome/js/all.min.js"></script>
+   <script src="<?= base_url(); ?>/assets/sweetalert2/sweetalert2.all.min.js"></script>
+   <script src="<?= base_url(); ?>/assets/sweetalert2/custom-alert.js"></script>
 </body>
 
 </html>

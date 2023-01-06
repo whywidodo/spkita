@@ -12,18 +12,10 @@
    <!-- Navbar Kanan -->
    <ul class="navbar-nav ml-auto">
       <li class="nav-item d-none d-sm-inline-block">
-         <a href="#" onclick="popLog()" class="nav-link"><i class="fa-solid fa-door-open"></i>&nbsp;Logout</a>
-         <script>
-            function popLog(){
-               Swal.fire({
-               title: 'Are you sure to logout?',
-               icon: 'question',
-               showCancelButton: true,
-               confirmButtonColor: '#3085d6',
-               cancelButtonColor: '#d33',
-               confirmButtonText: 'Logout'
-            })}
-         </script>
+      <form action="<?= base_url('/login/logout'); ?>" method="POST">
+              <?= csrf_field(); ?>
+              <button type="submit" class="btn btn-sm shadow-sm tombol-logout text-white"><i class="fa-solid fa-door-open"></i>&nbsp;Logout</button>
+           </form>
       </li>
    </ul>
 </nav>

@@ -27,8 +27,9 @@ class Login extends BaseController
                'kodeUser'       => $data['kode_user'],
                'namaLengkap'    => $data['nama_lengkap'],
                'email'          => $data['email'],
+               'username'       => $data['username'],
                'akses'          => $data['akses'],
-               'logged_in'     => TRUE
+               'logged_in'      => TRUE
             ];
             $session->set($sesiData);
             if ($data['akses'] == 'admin') {

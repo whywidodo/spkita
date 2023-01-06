@@ -242,13 +242,8 @@
                 </h2>
                 <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
                   <div class="accordion-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore
-                    et dolore magna
-                    aliqua. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Dui
-                    ut ornare
-                    lectus sit amet est
-                    placerat in egestas.
+                    Beasiswa SPKita sepenuhnya gratis, kecuali apabila nantinya terdapat kegiatan tambahan selama masa
+                    kuliah.
                   </div>
                 </div>
               </div>
@@ -262,13 +257,9 @@
                 </h2>
                 <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
                   <div class="accordion-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore
-                    et dolore magna
-                    aliqua. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Dui
-                    ut ornare
-                    lectus sit amet est
-                    placerat in egestas.
+                    Siapa saja boleh mendaftar beasiswa SPKita, namun kriteria penerima ditentukan berdasarkan kondisi
+                    ekonomi dan nilai semasa sekolah. Untuk pendaftar Gap Year kami hanya menerima pendaftar mulai dari
+                    lulusan 2019.
                   </div>
                 </div>
               </div>
@@ -282,13 +273,11 @@
                 </h2>
                 <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
                   <div class="accordion-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore
-                    et dolore magna
-                    aliqua. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Dui
-                    ut ornare
-                    lectus sit amet est
-                    placerat in egestas.
+                    SPKita Beasiswa ditujukan secara eksklusif hanya untuk yang tidak mampu secara ekonomi. Siswa yang
+                    secara
+                    akademik unggul tapi mampu secara ekonomi tidak diperkenankan mendaftar. Namun jika anda mendaftar
+                    dan dikatakan tidak layak kemungkinan anda akan ditetapkan sebagai mahasiswa reguler bukan penerima
+                    Beasiswa SPKita.
                   </div>
                 </div>
               </div>
@@ -309,13 +298,8 @@
                 </h2>
                 <div id="faq2-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
                   <div class="accordion-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore
-                    et dolore magna
-                    aliqua. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Dui
-                    ut ornare
-                    lectus sit amet est
-                    placerat in egestas.
+                    Tidak ada test secara tertulis maupun lisan, namun diharapkan bagi pendaftar menginputkan nilai
+                    dengan sejujur-jujurnya.
                   </div>
                 </div>
               </div>
@@ -329,13 +313,10 @@
                 </h2>
                 <div id="faq2-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
                   <div class="accordion-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore
-                    et dolore magna
-                    aliqua. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Dui
-                    ut ornare
-                    lectus sit amet est
-                    placerat in egestas.
+                    Jika sudah menjadi mahasiswa kemudian
+                    menikah maka Beasiswa SPKita tidak dapat disalurkan lagi, hal ini dikarenakan tanggung jawab
+                    penerima
+                    beasiswa sudah sepenuhnya ditanggung oleh pasangan masing-masing.
                   </div>
                 </div>
               </div>
@@ -349,13 +330,8 @@
                 </h2>
                 <div id="faq2-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
                   <div class="accordion-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore
-                    et dolore magna
-                    aliqua. Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Dui
-                    ut ornare
-                    lectus sit amet est
-                    placerat in egestas.
+                    Penerima Beasiswa SPKita tidak diperkenankan pindah prodi maupun fakultas, hal ini akan mempersulit
+                    proses administrasi dan menghambat lamanya waktu kuliah sampai dengan lulus.
                   </div>
                 </div>
               </div>

@@ -26,10 +26,14 @@
          <div class="container text-start">
             <div class="row">
                <div class="col-lg-auto col-md-auto col-sm-auto" style="font-size: 14px;">
-                  <h1>Pengumuman</h1>
+                  <h3>Pengumuman</h3>
                   <span>
-                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed natus eos, molestias error asperiores doloribus, totam ex libero soluta neque nulla tempora quasi. Consectetur, saepe culpa. Aliquam ducimus veritatis reiciendis.
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo unde quasi rerum tempora incidunt tempore amet aliquam atque optio necessitatibus eum, quas error accusantium pariatur illo distinctio modi quam quos.
+                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed natus eos, molestias error asperiores
+                     doloribus, totam ex libero soluta neque nulla tempora quasi. Consectetur, saepe culpa. Aliquam
+                     ducimus veritatis reiciendis.
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo unde quasi rerum tempora incidunt
+                     tempore amet aliquam atque optio necessitatibus eum, quas error accusantium pariatur illo
+                     distinctio modi quam quos.
                   </span>
                </div>
             </div>
@@ -43,6 +47,8 @@
    <script src="<?= base_url(); ?>/assets/style/js/bootstrap.bundle.min.js"></script>
    <script src="<?= base_url(); ?>/assets/style/js/adminlte.min.js"></script>
    <script src="<?= base_url(); ?>/assets/fontawesome/js/all.min.js"></script>
+   <script src="<?= base_url(); ?>/assets/sweetalert2/sweetalert2.all.min.js"></script>
+   <script src="<?= base_url(); ?>/assets/sweetalert2/custom-alert.js"></script>
 </body>
 
 </html>

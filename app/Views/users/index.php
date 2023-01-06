@@ -1,3 +1,9 @@
+<?php 
+$nama = session()->get('namaLengkap');
+$username = session()->get('username');
+$email = session()->get('email');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,16 +40,23 @@
                   </span>
                   <h4 class="mt-5 mb-3">Pengaturan Akun</h4>
                   <form action="post">
+                  <div class="flash-data" data-flashdata="<?= session()->getFlashdata('flash'); ?>"></div>
                      <div class="form-group row">
                         <label for="inputNama" class="col-sm-2 col-form-label">Nama Lengkap</label>
                         <div class="col-sm-10">
-                           <input type="text" class="form-control" id="inputnama" placeholder="Nama Lengkap">
+                           <input type="text" class="form-control" id="inputnama" placeholder="Nama Lengkap" value="<?= $nama ?>">
                         </div>
                      </div>
                      <div class="form-group row">
                         <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
                         <div class="col-sm-10">
-                           <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+                           <input type="text" class="form-control" id="inputUsername" placeholder="Username" value="<?= $username ?>">
+                        </div>
+                     </div>
+                     <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                           <input type="text" class="form-control" id="inputEmail" placeholder="Email" value="<?= $email ?>">
                         </div>
                      </div>
                      <p style="color:red">
@@ -63,7 +76,7 @@
                         </div>
                      </div>
                      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button onclick="update()" type="update" class="btn btn-primary">Update</button>
+                        <button type="update" class="btn btn-primary">Update</button>
                      </div>
 
                   </form>
@@ -77,21 +90,12 @@
    <!-- sweetAlert -->
    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-   <script>
-      function update() {
-         Swal.fire({
-            icon: 'success',
-            title: 'Perubahan anda telah disimpan',
-            showConfirmButton: true,
-            timer: 1500
-         })
-      }
-   </script>
-
    <script src="<?= base_url(); ?>/assets/style/js/jquery-3.6.1.min.js"></script>
    <script src="<?= base_url(); ?>/assets/style/js/bootstrap.bundle.min.js"></script>
    <script src="<?= base_url(); ?>/assets/style/js/adminlte.min.js"></script>
    <script src="<?= base_url(); ?>/assets/fontawesome/js/all.min.js"></script>
+   <script src="<?= base_url(); ?>/assets/sweetalert2/sweetalert2.all.min.js"></script>
+   <script src="<?= base_url(); ?>/assets/sweetalert2/custom-alert.js"></script>
 </body>
 
 </html>

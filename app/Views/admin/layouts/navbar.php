@@ -17,25 +17,3 @@
         </li>
      </ul>
   </nav>
-
-  <!-- Modal -->
-  <div class=" modal fade" id="modalLogout" tabindex="-1" aria-labelledby="modalLogoutLabel" aria-hidden="true">
-     <div class="modal-dialog">
-        <div class="modal-content">
-           <div class="modal-header">
-              <h1 class="modal-title fs-5" id="modalLogout">Konfirmasi Logout</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-           </div>
-           <div class="modal-body">
-              <form action="<?= base_url('/login/logout'); ?>" method="POST">
-                 <div class="mb-3">
-                    <span>Logout dari aplikasi SPKita?</span>
-                 </div>
-                 <div class="modal-footer">
-                    <button type="submit" name="simpanKriteria" class="btn btn-primary btn-sm">Ya</button>
-                 </div>
-              </form>
-           </div>
-        </div>
-     </div>
-  </div>
