@@ -56,6 +56,8 @@ $routes->group('administrator', static function ($routes) {
 
     $routes->get('pendaftar', 'Admin\Pendaftar::index');
     $routes->post('pendaftar/detail/(:any)', 'Admin\Pendaftar::detail/$1');
+    $routes->post('pendaftar/edit/(:any)', 'Admin\Pendaftar::edit/$1');
+
     $routes->get('pengumuman', 'Admin\Pengumuman::index');
     $routes->get('pengaturan', 'Admin\Pengaturan::index');
 });

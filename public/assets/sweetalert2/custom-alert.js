@@ -18,6 +18,18 @@ if (flashData == "ditambahkan" || flashData == "dirubah" || flashData == "dihapu
     text: "Anda berhasil logout.",
     icon: "success",
   });
+}else if(flashData == "register"){
+  Swal.fire({
+    title: "Sukses",
+    text: "Registrasi berhasil dilakukan.",
+    icon: "success",
+  });
+}else if(flashData == "confirm"){
+  Swal.fire({
+    title: "Error",
+    text: "Ulangi password yang sama.",
+    icon: "error",
+  });
 }
 
 //Tombol Logout
