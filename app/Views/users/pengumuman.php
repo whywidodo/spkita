@@ -1,3 +1,4 @@
+<?= $this->include('users/layouts/session'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,19 +7,17 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>SPKita - Sistem Beasiswa Amikom</title>
-   <link rel="stylesheet" href="<?= base_url(); ?>/assets/style/css/bootstrap.css">
-   <link rel="stylesheet" href="<?= base_url(); ?>/assets/style/css/custom.css">
-   <link rel="stylesheet" href="<?= base_url(); ?>/assets/style/css/adminlte.min.css">
-   <link rel="stylesheet" href="<?= base_url(); ?>/assets/fontawesome/css/all.min.css">
+   <!-- Pemanggilan header -->
+   <?= $this->include('users/layouts/header'); ?>
 </head>
 
 <body>
    <div class="wrapper">
       <!-- Pemanggilan sidebar -->
-      <?= $this->include('users/navbar'); ?>
+      <?= $this->include('users/layouts/navbar'); ?>
 
       <!-- Pemanggilan sidebar -->
-      <?= $this->include('users/sidebar'); ?>
+      <?= $this->include('users/layouts/sidebar'); ?>
    </div>
    <div class="content-wrapper bg-white">
       <!-- Area Konten -->
@@ -41,14 +40,8 @@
       </div>
 
    </div>
-
-
-   <script src="<?= base_url(); ?>/assets/style/js/jquery-3.6.1.min.js"></script>
-   <script src="<?= base_url(); ?>/assets/style/js/bootstrap.bundle.min.js"></script>
-   <script src="<?= base_url(); ?>/assets/style/js/adminlte.min.js"></script>
-   <script src="<?= base_url(); ?>/assets/fontawesome/js/all.min.js"></script>
-   <script src="<?= base_url(); ?>/assets/sweetalert2/sweetalert2.all.min.js"></script>
-   <script src="<?= base_url(); ?>/assets/sweetalert2/custom-alert.js"></script>
+   <!-- Pemanggilan footer -->
+   <?= $this->include('users/layouts/footer'); ?>
 </body>
 
 </html>

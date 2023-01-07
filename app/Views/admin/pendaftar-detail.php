@@ -13,7 +13,7 @@
 
 <body>
    <div class="wrapper">
-      <!-- Pemanggilan sidebar -->
+      <!-- Pemanggilan navbar -->
       <?= $this->include('admin/layouts/navbar'); ?>
 
       <!-- Pemanggilan sidebar -->
