@@ -26,30 +26,33 @@
             <div class="col-lg-12 col-md-auto col-sm-auto px-3" style="font-size: 14px;">
                <h1 class="h3">Detail Pendaftar</h1>
             </div>
-            <div class="col-md-3 border-right">
-               <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                  <img class="rounded-circle mt-5" width="150px" src="<?= base_url(); ?>/assets/images/user-detail.png">
-                  <span class="font-weight-bold"><?= $dataPribadi['nama_pendaftar']; ?></span>
-                  <span class="text-black-50"><?= $dataPribadi['email_pendaftar']; ?></span>
-               </div>
-            </div>
+         </div>
 
-            <form action="<?= base_url('/administrator/pendaftar/edit'); ?>" method="post">
+         <form action="/administrator/pendaftar/edit/<?= $dataPribadi['nisn_pendaftar']; ?>" method="post">
+            <div class="row">
+               <div class="col-md-3 border-right">
+                  <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                     <img class="rounded-circle mt-5" width="150px" src="<?= base_url(); ?>/assets/images/user-detail.png">
+                     <span class="font-weight-bold"><?= $dataPribadi['nama_pendaftar']; ?></span>
+                     <span class="text-black-50"><?= $dataPribadi['email_pendaftar']; ?></span>
+                  </div>
+               </div>
+
                <div class="col-md-5">
                   <div class="p-2">
                      <div class="row mt-2">
                         <div class="col-md-12 py-1">
                            <label for="wali">Data pribadi</label><br>
+                           <span>Email</span>
+                           <input type="email" name="email" class="form-control" placeholder="e-mail" value="<?= $dataPribadi['email_pendaftar']; ?>" readonly>
+                        </div>
+                        <div class="col-md-5 py-1">
                            <span>NISN</span>
-                           <input type="text" name="nisn" class="form-control" placeholder="nisn" value="<?= $dataPribadi['nisn_pendaftar']; ?>">
+                           <input type="text" name="nisn" class="form-control" placeholder="nisn" value="<?= $dataPribadi['nisn_pendaftar']; ?>" readonly>
                         </div>
                         <div class="col-md-12 py-1">
                            <span>Nama Lengkap</span>
                            <input type="text" name="nama" class="form-control" placeholder="nama lengkap" value="<?= $dataPribadi['nama_pendaftar']; ?>">
-                        </div>
-                        <div class="col-md-12 py-1">
-                           <span>Email</span>
-                           <input type="email" name="email" class="form-control" placeholder="e-mail" value="<?= $dataPribadi['email_pendaftar']; ?>">
                         </div>
                         <div class="col-md-12 py-1">
                            <span>Jenis Kelamin</span>
@@ -144,11 +147,11 @@
                </div>
 
                <div class="mt-2 text-center">
-                  <button class="btn btn-primary profile-button" type="button">Perbarui</button>
+                  <button class="btn btn-primary profile-button" type="submit">Perbarui</button>
                </div>
-            </form>
-         </div>
+         </form>
       </div>
+   </div>
    </div>
    </div>
 

@@ -4,23 +4,23 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PendaftarModel extends Model
+class HitungModel extends Model
 {
-   protected $table = 'tbl_pendaftar';
-   protected $primaryKey = 'nisn_pendaftar';
-   protected $allowedFields = ['nisn_pendaftar', 'nama_pendaftar', 'email_pendaftar', 'jk_pendaftar', 'tgl_pendaftar', 'alamat_pendaftar', 'hp_pendaftar', 'status_beasiswa'];
+   protected $table = 'tbl_hitung';
+   protected $primaryKey = 'nisn';
+   protected $allowedFields = ['nisn', 'asal_sekolah', 'tahun_lulus', 'nilai_rata', 'nama_ortu', 'status_ortu', 'pekerjaan_ortu', 'penghasilan_ortu', 'tanggungan_ortu'];
    protected $returnType       = 'array';
    protected $useTimestamps    = false;
 
-   public function getPendaftar($slug = false)
+   public function getHitung($slug = false)
    {
       if ($slug == false) {
          return $this->findAll();
       } else {
-         return $this->where(['nisn_pendaftar' => $slug])->first();
+         return $this->where(['nisn' => $slug])->first();
       }
    }
-   public function getPendaftarTambahan($slug = false)
+   public function getHitungTambahan($slug = false)
    {
       $db      = \Config\Database::connect();
       if ($slug == false) {
