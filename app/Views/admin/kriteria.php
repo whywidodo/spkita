@@ -1,3 +1,4 @@
+<?= $this->include('admin/layouts/session'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +41,7 @@
                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                       <div class="flash-data" data-flashdata="<?= session()->getFlashdata('flash','dirubah'); ?>"></div>
+                                       <div class="flash-data" data-flashdata="<?= session()->getFlashdata('flash', 'dirubah'); ?>"></div>
                                        <form action="/administrator/kriteria/tambah" method="POST">
                                           <div class="mb-3">
                                              <span>Kode kriteria:</span>

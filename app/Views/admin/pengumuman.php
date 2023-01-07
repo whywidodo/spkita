@@ -1,3 +1,4 @@
+<?= $this->include('admin/layouts/session'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
