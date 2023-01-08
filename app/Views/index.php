@@ -18,8 +18,7 @@
       <div class="container">
         <a class="navbar-brand" href="<?= base_url(); ?>"><i class="fa-solid fa-graduation-cap"></i> SPKita Solusi
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -69,8 +68,7 @@
                   </div>
                   <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
                     <div class="home-img position-relative">
-                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider1.png" alt=""
-                        class="home-first-img">
+                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider1.png" alt="" class="home-first-img">
                     </div>
                   </div>
                 </div>
@@ -99,8 +97,7 @@
                   </div>
                   <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
                     <div class="home-img position-relative">
-                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider2.png" alt=""
-                        class="home-first-img">
+                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider2.png" alt="" class="home-first-img">
                     </div>
                   </div>
                 </div>
@@ -129,8 +126,7 @@
                   </div>
                   <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
                     <div class="home-img position-relative">
-                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider3.png" alt=""
-                        class="home-first-img">
+                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider3.png" alt="" class="home-first-img">
                     </div>
                   </div>
                 </div>
@@ -216,9 +212,13 @@
               <tr>
                 <td>1</td>
                 <td>Pedoman Pendaftaran Beasiswa SPKita 2023.pdf</td>
-                <td><button type="submit" class="btn btn-primary btn-sm">
-                    <i class="bi bi-download"></i>
-                  </button></td>
+                <td>
+                  <form action="<?= base_url('/assets/documents/panduan.pdf'); ?>" method="post">
+                    <button type="submit" class="btn btn-primary btn-sm">
+                      <i class="bi bi-download"></i>
+                    </button>
+                  </form>
+                </td>
               </tr>
 
             </table>
@@ -235,8 +235,7 @@
             <div class="accordion accordion-flush" id="faqlist1">
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-1">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
                     Apa beasiswa SPKita gratis?
                   </button>
                 </h2>
@@ -250,8 +249,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
                     Siapa saja yang boleh mendaftar beasiswa?
                   </button>
                 </h2>
@@ -266,8 +264,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
                     Jika mendaftar beasiswa kemudian saya dikatakan tidak layak, apa yang akan terjadi?
                   </button>
                 </h2>
@@ -291,8 +288,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq2-content-1">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-1">
                     Apakah ada test untuk pendaftaran beasiswa?
                   </button>
                 </h2>
@@ -306,8 +302,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq2-content-2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-2">
                     Penerima beasiswa apakah tidak boleh menikah selama kuliah?
                   </button>
                 </h2>
@@ -323,8 +318,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq2-content-3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-3">
                     Apakah penerima beasiswa dapat pindah prodi?
                   </button>
                 </h2>
@@ -351,25 +345,22 @@
   <section id="kontak">
     <div class="informasi">
       <h3 class="heading">Kontak Kami</h3>
-      <div class="container card">
+      <div class="container card" style="height: 350px;">
         <div class="row">
-          <div class="col-lg-6 col-md-6">
-            <!-- <p class="px-3 pt-3">Hubungi Kami</p> -->
-            <span class="row px-3 py-4">
-              <i class="h5 bi bi-whatsapp px-3 pb-2"></i>
-            </span>
-            <span class="row px-3 py-4">
-              <i class="h5 bi bi-telephone px-3 pb-2"></i>
-
-            </span>
-            <span class="row px-3 py-4">
-              <i class="h5 bi bi-envelope px-3 pb-2"></i>
-            </span>
+          <div class="col-lg-6 col-md-6 py-3">
+            <p class="px-3 pt-3">Apabila ada pertanyaan atau kendala mengenai proses beasiswa, silahkan bisa menghubungi kami melalui kontak yang tertera berikut ini : </p>
+            <div class="px-3">
+              <i class="h5 bi bi-whatsapp px-2 py-2"></i>&nbsp; 0811-1111-xxxx
+            </div>
+            <div class="px-3">
+              <i class="h5 bi bi-telephone px-2 py-2"></i>&nbsp; 0281-000-xxx
+            </div>
+            <div class="px-3">
+              <i class="h5 bi bi-envelope px-2 py-2"></i>&nbsp; admin@spkita.my.id
+            </div>
           </div>
           <div class="col-lg-6 col-md-6">
-            <iframe style="min-width: 100%; min-height: 100%;"
-              src="https://maps.google.com/maps?q=Universitas%20Amikom%20Purwokerto&t=&z=13&ie=UTF8&iwloc=&output=embed"
-              frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            <iframe style="min-width: 100%; min-height: 350px;" src="https://maps.google.com/maps?q=Universitas%20Amikom%20Purwokerto&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 
           </div>
         </div>
