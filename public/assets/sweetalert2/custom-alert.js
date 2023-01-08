@@ -12,6 +12,12 @@ if (flashData == "ditambahkan" || flashData == "dirubah" || flashData == "dihapu
     text: "Login gagal dilakukan!",
     icon: "error",
   });
+}else if(flashData == "gagalrubah"){
+  Swal.fire({
+    title: "Error",
+    text: "Data gagal dirubah!",
+    icon: "error",
+  });
 }else if(flashData == "logout"){
   Swal.fire({
     title: "Sukses",

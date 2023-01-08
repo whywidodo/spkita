@@ -63,6 +63,7 @@ $routes->group('administrator', static function ($routes) {
 });
 $routes->group('users', static function ($routes) {
     $routes->get('/', 'Users\Profile::index');
+    $routes->post('akun/(:any)', 'Users\Profile::akun/$1');
     $routes->get('petunjuk', 'Users\Petunjuk::index');
     $routes->get('pendaftaran', 'Users\Pendaftaran::index');
     $routes->get('pengumuman', 'Users\Pengumuman::index');

@@ -37,24 +37,24 @@ $email = session()->get('email');
                      utama. Anda dapat mengatur password dan username akun anda di halaman ini.
                   </span>
                   <h4 class="mt-5 mb-3">Pengaturan Akun</h4>
-                  <form action="post">
+                  <form action="/users/akun/<?= $email; ?>" method="post">
                      <div class="flash-data" data-flashdata="<?= session()->getFlashdata('flash'); ?>"></div>
                      <div class="form-group row">
                         <label for="inputNama" class="col-sm-2 col-form-label">Nama Lengkap</label>
                         <div class="col-sm-10">
-                           <input type="text" class="form-control" id="inputnama" placeholder="Nama Lengkap" value="<?= $nama ?>">
+                           <input type="text" name="nama" class="form-control" id="inputnama" placeholder="Nama Lengkap" value="<?= $nama ?>">
                         </div>
                      </div>
                      <div class="form-group row">
                         <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
                         <div class="col-sm-10">
-                           <input type="text" class="form-control" id="inputUsername" placeholder="Username" value="<?= $username ?>">
+                           <input type="text" name="username" class="form-control" id="inputUsername" placeholder="Username" value="<?= $username ?>">
                         </div>
                      </div>
                      <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                           <input type="text" class="form-control" id="inputEmail" placeholder="Email" value="<?= $email ?>">
+                           <input type="text" name="email" class="form-control" id="inputEmail" placeholder="Email" value="<?= $email ?>">
                         </div>
                      </div>
                      <p style="color:red">
@@ -63,17 +63,17 @@ $email = session()->get('email');
                      <div class="form-group row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                         <div class="col-sm-10">
-                           <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                           <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
                         </div>
                      </div>
                      <div class="form-group row">
                         <label for="inputUlangiPassword" class="col-sm-2 col-form-label">Ulangi Password</label>
                         <div class="col-sm-10">
-                           <input type="password" class="form-control" id="inputUlangiPassword" placeholder="Ulangi Password">
+                           <input type="password" name="ulangipassword" class="form-control" id="inputUlangiPassword" placeholder="Ulangi Password">
                         </div>
                      </div>
                      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button type="update" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                      </div>
 
                   </form>
