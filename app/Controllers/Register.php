@@ -2,11 +2,26 @@
 
 namespace App\Controllers;
 
+use App\Models\HitungModel;
+use App\Models\HitungUpModel;
+use App\Models\PendaftarModel;
+use App\Models\PendaftarUpModel;
 use App\Models\UserModel;
 
 class Register extends BaseController
 {
    protected $model;
+   protected $pendaftarModel;
+   protected $pendaftarUpModel;
+   protected $hitungModel;
+   protected $hitungUpModel;
+   public function __construct()
+   {
+      $this->pendaftarModel = new PendaftarModel();
+      $this->pendaftarUpModel = new PendaftarUpModel();
+      $this->hitungModel = new HitungModel();
+      $this->hitungUpModel = new HitungUpModel();
+   }
 
    public function index()
    {
@@ -20,20 +35,25 @@ class Register extends BaseController
       $model = new UserModel();
       $nama = $this->request->getPost('nama');
       $email = $this->request->getPost('email');
-      $username = $this->request->getPost('username');
+      // $username = $this->request->getPost('username');
       $password = $this->request->getPost('password');
       $confirm_password = $this->request->getPost('repassword');
 
       if ($password == $confirm_password) {
          $data = [
             'nama_lengkap' => $nama,
-            'username' => $username,
             'email' => $email,
             'password' => md5($password),
             'akses' => "users"
          ];
          $model->insert($data);
          if ($data) {
+            $this->pendaftarModel->save([
+               'email_pendaftar' => $email,
+            ]);
+            $this->hitungModel->save([
+               'email' => $email,
+            ]);
             session()->setFlashdata('flash', 'register');
             return redirect()->to(base_url('login'));
          } else {

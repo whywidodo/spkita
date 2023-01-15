@@ -29,15 +29,11 @@
                                     <div class="form-group">
                                         <div class="inputWithIcon">
                                             <input type="text" name="nama" autofocus autocomplete="off" class="form-control form-control-user" placeholder="Nama Lengkap" required>
-                                            <i class="fa fa-list fa-lg fa-fw" aria-hidden="true"></i>
+                                            <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
                                         </div>
                                         <div class="inputWithIcon">
                                             <input type="text" name="email" autofocus autocomplete="off" class="form-control form-control-user" placeholder="Email" required>
                                             <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="inputWithIcon">
-                                            <input type="text" name="username" autofocus autocomplete="off" class="form-control form-control-user" placeholder="Username" required>
-                                            <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
                                         </div>
                                         <div class="form-group">
                                             <div class="inputWithIcon">

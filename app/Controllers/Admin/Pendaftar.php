@@ -5,15 +5,21 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\PendaftarModel;
 use App\Models\HitungModel;
+use App\Models\HitungUpModel;
+use App\Models\PendaftarUpModel;
 
 class Pendaftar extends BaseController
 {
    protected $pendaftarModel;
    protected $hitungModel;
+   protected $pendaftarUpModel;
+   protected $hitungUpModel;
    public function __construct()
    {
       $this->pendaftarModel = new PendaftarModel();
       $this->hitungModel = new HitungModel();
+      $this->pendaftarUpModel = new PendaftarUpModel();
+      $this->hitungUpModel = new HitungUpModel();
    }
 
    public function index()
@@ -48,7 +54,7 @@ class Pendaftar extends BaseController
    public function detail($nisn)
    {
       $data = [
-         'dataPribadi' => $this->pendaftarModel->getPendaftar($nisn),
+         'dataPribadi' => $this->pendaftarModel->getPendaftarNISN($nisn),
          'dataTambahan' => $this->pendaftarModel->getPendaftarTambahan($nisn),
       ];
       return view('admin/pendaftar-detail', $data);
@@ -58,11 +64,11 @@ class Pendaftar extends BaseController
    {
       $jk = $this->request->getPost('jenkel');
       $jenkel = $jk == "Laki-laki" ? "Laki-laki" : "Perempuan";
+      $email = $this->request->getPost('email');
       // Edit tbl_pendaftar
-      $this->pendaftarModel->update($id, [
+      $this->pendaftarUpModel->update($email, [
          'nisn_pendaftar' => $this->request->getPost('nisn'),
          'nama_pendaftar' => $this->request->getPost('nama'),
-         'email_pendaftar' => $this->request->getPost('email'),
          'jk_pendaftar' => $jenkel,
          'tgl_pendaftar' => $this->request->getPost('ttl'),
          'alamat_pendaftar' => $this->request->getPost('alamat'),
@@ -71,7 +77,7 @@ class Pendaftar extends BaseController
 
       ]);
       // Edit tbl_hitung
-      $this->hitungModel->update($id, [
+      $this->hitungUpModel->update($email, [
          'nisn' => $this->request->getPost('nisn'),
          'asal_sekolah' => $this->request->getPost('sekolah'),
          'tahun_lulus' => $this->request->getPost('lulus'),

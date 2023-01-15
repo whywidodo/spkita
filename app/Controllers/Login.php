@@ -16,18 +16,16 @@ class Login extends BaseController
    {
       $session = session();
       $model = new UserModel();
-      $username = $this->request->getPost('username');
+      $email = $this->request->getPost('email');
       $password = $this->request->getPost('password');
-      $data = $model->where('username', $username)->first();
+      $data = $model->where('email', $email)->first();
       if ($data) {
          $pass = $data['password'];
          $verifyPassword = md5($password);
          if ($verifyPassword == $pass) {
             $sesiData = [
-               'kodeUser'       => $data['kode_user'],
                'namaLengkap'    => $data['nama_lengkap'],
                'email'          => $data['email'],
-               'username'       => $data['username'],
                'akses'          => $data['akses'],
                'logged_in'      => TRUE
             ];

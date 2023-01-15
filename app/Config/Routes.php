@@ -66,6 +66,9 @@ $routes->group('users', static function ($routes) {
     $routes->post('akun/(:any)', 'Users\Profile::akun/$1');
     $routes->get('petunjuk', 'Users\Petunjuk::index');
     $routes->get('pendaftaran', 'Users\Pendaftaran::index');
+    $routes->post('pendaftaran/biodata', 'Users\Pendaftaran::biodata');
+    $routes->post('pendaftaran/sekolah', 'Users\Pendaftaran::sekolah');
+    $routes->post('pendaftaran/keluarga', 'Users\Pendaftaran::keluarga');
     $routes->get('pengumuman', 'Users\Pengumuman::index');
 });
 

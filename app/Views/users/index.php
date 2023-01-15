@@ -46,12 +46,6 @@ $email = session()->get('email');
                         </div>
                      </div>
                      <div class="form-group row">
-                        <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
-                        <div class="col-sm-10">
-                           <input type="text" name="username" class="form-control" id="inputUsername" placeholder="Username" value="<?= $username ?>">
-                        </div>
-                     </div>
-                     <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
                            <input type="text" name="email" class="form-control" id="inputEmail" placeholder="Email" value="<?= $email ?>">

@@ -36,7 +36,7 @@
               <a class="nav-link scrollto" href="#kontak">Kontak Kami</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?= base_url(); ?>/login">Daftar</a>
+              <a class="nav-link" href="<?= base_url(); ?>/login">Masuk</a>
             </li>
           </ul>
         </div>

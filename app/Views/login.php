@@ -34,8 +34,8 @@ if (session()->get('logged_in')) {
                                 <form action="<?= base_url('/login/auth'); ?>" method="post">
                                     <div class="form-group">
                                         <div class="inputWithIcon">
-                                            <input type="text" name="username" autofocus autocomplete="off" class="form-control form-control-user" placeholder="Masukan Username">
-                                            <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+                                            <input type="text" name="email" autofocus autocomplete="off" class="form-control form-control-user" placeholder="Masukan email">
+                                            <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
                                         </div>
 
                                         <div class="form-group">

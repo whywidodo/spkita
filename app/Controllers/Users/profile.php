@@ -4,13 +4,16 @@ namespace App\Controllers\Users;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
+use App\Models\UserUpModel;
 
 class Profile extends BaseController
 {
    protected $userModel;
+   protected $userUpModel;
    public function __construct()
    {
       $this->userModel = new UserModel();
+      $this->userUpModel = new UserUpModel();
    }
 
    public function index()
@@ -23,7 +26,7 @@ class Profile extends BaseController
       $password = $this->request->getPost('password');
       $ulangiPass = $this->request->getPost('ulangipassword');
       if ($password == "") {
-         $this->userModel->update($email, [
+         $this->userUpModel->update($email, [
             'nama_lengkap' => $this->request->getPost('nama'),
             'email' => $this->request->getPost('email'),
             'username' => $this->request->getPost('username')
@@ -31,7 +34,7 @@ class Profile extends BaseController
          session()->setFlashdata('flash', 'dirubah');
       } else {
          if ($password == $ulangiPass) {
-            $this->userModel->update($email, [
+            $this->userUpModel->update($email, [
                'nama_lengkap' => $this->request->getPost('nama'),
                'email' => $this->request->getPost('email'),
                'username' => $this->request->getPost('username'),

@@ -7,17 +7,18 @@ use CodeIgniter\Model;
 class HitungModel extends Model
 {
    protected $table = 'tbl_hitung';
-   protected $primaryKey = 'nisn';
-   protected $allowedFields = ['nisn', 'asal_sekolah', 'tahun_lulus', 'nilai_rata', 'nama_ortu', 'status_ortu', 'pekerjaan_ortu', 'penghasilan_ortu', 'tanggungan_ortu'];
+   protected $primaryKey = 'id_hitung';
+   protected $allowedFields = ['email', 'nisn', 'asal_sekolah', 'tahun_lulus', 'nilai_rata', 'nama_ortu', 'status_ortu', 'pekerjaan_ortu', 'penghasilan_ortu', 'tanggungan_ortu'];
    protected $returnType       = 'array';
    protected $useTimestamps    = false;
 
-   public function getHitung($slug = false)
+   public function getHitung()
    {
-      if ($slug == false) {
+      $email = session()->get('email');
+      if ($email == false) {
          return $this->findAll();
       } else {
-         return $this->where(['nisn' => $slug])->first();
+         return $this->where(['email' => $email])->first();
       }
    }
    public function getHitungTambahan($slug = false)
