@@ -27,12 +27,7 @@
                <div class="col-lg-auto col-md-auto col-sm-auto" style="font-size: 14px;">
                   <h3>Petunjuk</h3>
                   <span>
-                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed natus eos, molestias error asperiores
-                     doloribus, totam ex libero soluta neque nulla tempora quasi. Consectetur, saepe culpa. Aliquam
-                     ducimus veritatis reiciendis.
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo unde quasi rerum tempora incidunt
-                     tempore amet aliquam atque optio necessitatibus eum, quas error accusantium pariatur illo
-                     distinctio modi quam quos.
+                     <img style="width:100%; height:80%;" src="<?= base_url('/assets/images/timeline.jpg'); ?>" alt="" >
                   </span>
                </div>
             </div>
