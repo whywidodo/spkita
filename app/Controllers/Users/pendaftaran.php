@@ -47,6 +47,7 @@ class Pendaftaran extends BaseController
 
       ]);
 
+      session()->setFlashdata('flash', 'ditambahkan');
       return redirect()->to('/users/pendaftaran');
    }
 
@@ -68,6 +69,8 @@ class Pendaftaran extends BaseController
       $this->pendaftarUpModel->update($email, [
          'nisn_pendaftar' => $this->request->getPost('nisn'),
       ]);
+      
+      session()->setFlashdata('flash', 'ditambahkan');
       return redirect()->to('/users/pendaftaran');
    }
 
@@ -82,6 +85,8 @@ class Pendaftaran extends BaseController
          'tanggungan_ortu' => $this->request->getPost('tanggunganwali')
 
       ]);
+      
+      session()->setFlashdata('flash', 'ditambahkan');
       return redirect()->to('/users/pendaftaran');
    }
 }

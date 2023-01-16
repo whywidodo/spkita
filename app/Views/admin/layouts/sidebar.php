@@ -33,12 +33,12 @@
                   <p class="text" style="color: #FFFFFF;">Pengumuman</p>
                </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                <a href="<?= base_url(); ?>/administrator/pengaturan" class="nav-link">
                   <i class="nav-icon fa-solid fa-cog" style="color: #FFFFFF;"></i>
                   <p class="text" style="color: #FFFFFF;">Pengaturan</p>
                </a>
-            </li>
+            </li> -->
          </ul>
 
       </nav>

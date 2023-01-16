@@ -33,6 +33,7 @@ $email = session()->get('email');
                   <!-- START DEMO -->
                   <div class="tile" id="tile-1">
 
+                  <div class="flash-data" data-flashdata="<?= session()->getFlashdata('flash'); ?>"></div>
                      <!-- Nav tabs -->
                      <ul class="nav nav-tabs nav-justified" role="tablist">
                         <div class="slider"></div>
