@@ -34,9 +34,7 @@
             </div>
 
             <div class="row mt-3">
-
-               <!-- Earnings (Monthly) Card Example -->
-               
+               <div class="col-lg-6 col-md-12 mb-4">
                   <div class="card border-left-primary shadow h-100 py-2">
                      <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -53,8 +51,7 @@
                   </div>
                </div>
 
-               <!-- Earnings (Annual) Card Example -->
-               <div class="col-xl-3 col-md-6 mb-4">
+               <div class="col-lg-3 col-md-6 mb-4">
                   <div class="card border-left-success shadow h-100 py-2">
                      <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -70,8 +67,8 @@
                      </div>
                   </div>
                </div>
-               <!-- Pending Requests Card Example -->
-               <div class="col-xl-3 col-md-6 mb-4">
+
+               <div class="col-lg-3 col-md-6 mb-4">
                   <div class="card border-left-warning shadow h-100 py-2">
                      <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -90,7 +87,8 @@
             </div>
          </div>
       </div>
-      <!-- Area konten -->
+   </div>
+   <!-- Area konten -->
    </div>
 
    <!-- Pemanggilan footer -->

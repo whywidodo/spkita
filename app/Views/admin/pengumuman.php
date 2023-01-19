@@ -47,8 +47,12 @@
                         <?php
                         $i = 1;
                         foreach ($dataPengumuman as $data) :
+                           if ($data['penghasilan_ortu'] == 0) {
+                              $normPenghasilan = 0;
+                           } else {
+                              $normPenghasilan = $dataPenghasilan / $data['penghasilan_ortu'];
+                           }
                            $normNilai = $data['nilai_rata'] / $dataNilai;
-                           $normPenghasilan = $dataPenghasilan / $data['penghasilan_ortu'];
                            $normTanggungan = $data['tanggungan_ortu'] / $dataTanggungan;
 
                            $hasil = ($bobotNilai * $normNilai) + ($bobotPenghasilan * $normPenghasilan) + ($bobotTanggungan * $normTanggungan);

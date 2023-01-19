@@ -57,6 +57,7 @@ class Pendaftar extends BaseController
          'dataPribadi' => $this->pendaftarModel->getPendaftarNISN($nisn),
          'dataTambahan' => $this->pendaftarModel->getPendaftarTambahan($nisn),
       ];
+      // dd($data);
       return view('admin/pendaftar-detail', $data);
    }
 

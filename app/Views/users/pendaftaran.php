@@ -33,7 +33,7 @@ $email = session()->get('email');
                   <!-- START DEMO -->
                   <div class="tile" id="tile-1">
 
-                  <div class="flash-data" data-flashdata="<?= session()->getFlashdata('flash'); ?>"></div>
+                     <div class="flash-data" data-flashdata="<?= session()->getFlashdata('flash'); ?>"></div>
                      <!-- Nav tabs -->
                      <ul class="nav nav-tabs nav-justified" role="tablist">
                         <div class="slider"></div>
@@ -114,7 +114,7 @@ $email = session()->get('email');
 
                         <!-- Asal Sekolah -->
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                           <form action="<?= base_url('/users/pendaftaran/sekolah'); ?>" method="post">
+                           <form action="<?= base_url('/users/pendaftaran/sekolah'); ?>" method="post" enctype="multipart/form-data">
                               <div class="form-group row mt-3">
                                  <input type="text" class="form-control" name="email" value="<?= $email; ?>" hidden>
                                  <label for="inputSekolah" class="col-sm-3 col-form-label">Asal Sekolah</label>
@@ -135,9 +135,15 @@ $email = session()->get('email');
                                  </div>
                               </div>
                               <div class="form-group row">
-                                 <label for="inputRaport" class="col-sm-3 col-form-label">Rata-rata Nilai Raport</label>
-                                 <div class="col-sm-9">
-                                    <input type="text" value="<?= $dataHitung['nilai_rata']; ?>" class="form-control" name="rata" id="inputRaport" placeholder="Rata-rata Nilai Raport Semester 1-5" required>
+                                 <div class="row">
+                                    <label for="inputRaport" class="col-sm-3 col-form-label">Rata-rata Nilai Raport</label>
+                                    <div class="col-sm-2">
+                                       <input type="text" value="<?= $dataHitung['nilai_rata']; ?>" class="form-control" name="rata" id="inputRaport" placeholder="Rata-rata Nilai Raport Semester 1-5" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                       <input type="file" class="form-control" name="userfile" size="20">
+                                       <span><?= $dataHitung['bukti_nilai']; ?></span>
+                                    </div>
                                  </div>
                               </div>
                               <div class="form-group row justify-content-end mt-5">

@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Users;
 
+use CodeIgniter\Files\File;
 use App\Controllers\BaseController;
 use App\Models\PendaftarModel;
 use App\Models\HitungModel;
@@ -46,19 +47,63 @@ class Pendaftaran extends BaseController
          'status_beasiswa' => 'null'
 
       ]);
+      $data = [
+         'dataBiodata' => $this->pendaftarModel->getAllPendaftar(),
+         'dataHitung' => $this->hitungModel->getHitung()
+      ];
 
       session()->setFlashdata('flash', 'ditambahkan');
-      return redirect()->to('/users/pendaftaran');
+      return view('/users/pendaftaran', $data);
    }
 
    public function sekolah()
    {
+      // Ambil Gambar Dari Device
+      $img = $this->request->getFile('userfile');
+
+
+
+      // Upload Gambar
+      $validationRule = [
+         'userfile' => [
+            'label' => 'Image File',
+            'rules' => [
+               'uploaded[userfile]',
+               'is_image[userfile]',
+               'mime_in[userfile,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
+               'max_size[userfile,100]',
+               'max_dims[userfile,1024,768]',
+            ],
+         ],
+      ];
+      if (!$this->validate($validationRule)) {
+         $data = ['errors' => $this->validator->getErrors()];
+
+         return view('/users/pendaftaran', $data);
+      }
+
+
+      $namaFile = "";
+      if (!$img->hasMoved()) {
+         $namaFile = $img->getRandomName();
+         $filepath = $img->move(ROOTPATH . 'public/assets/images/berkas_nilai/', $namaFile);
+         $data = [
+            'uploaded_fileinfo' => new File($filepath),
+            'dataBiodata' => $this->pendaftarModel->getAllPendaftar(),
+            'dataHitung' => $this->hitungModel->getHitung(),
+            'namaFileNilai' => $namaFile
+         ];
+      }
+
+
+
       $email = session()->get('email');
       $this->hitungUpModel->update($email, [
          'nisn' => $this->request->getPost('nisn'),
          'asal_sekolah' => $this->request->getPost('sekolah'),
          'tahun_lulus' => $this->request->getPost('lulus'),
          'nilai_rata' => $this->request->getPost('rata'),
+         'bukti_nilai' => $namaFile,
          'nama_ortu' => '',
          'status_ortu' => '',
          'pekerjaan_ortu' => '',
@@ -69,9 +114,10 @@ class Pendaftaran extends BaseController
       $this->pendaftarUpModel->update($email, [
          'nisn_pendaftar' => $this->request->getPost('nisn'),
       ]);
-      
+
+
       session()->setFlashdata('flash', 'ditambahkan');
-      return redirect()->to('/users/pendaftaran');
+      return view('/users/pendaftaran', $data);
    }
 
    public function keluarga()
@@ -85,7 +131,7 @@ class Pendaftaran extends BaseController
          'tanggungan_ortu' => $this->request->getPost('tanggunganwali')
 
       ]);
-      
+
       session()->setFlashdata('flash', 'ditambahkan');
       return redirect()->to('/users/pendaftaran');
    }

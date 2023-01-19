@@ -114,13 +114,17 @@
                            <span>Asal Sekolah</span>
                            <input type="text" name="sekolah" class="form-control" placeholder="asal sekolah" value="<?= $dataTambahan[0]['asal_sekolah']; ?>">
                         </div>
-                        <div class="col-md-6 py-1">
+                        <div class="col-md-4 py-1">
                            <span>Tahun Lulus</span>
                            <input type="text" name="lulus" class="form-control" placeholder="tahun lulus" value="<?= $dataTambahan[0]['tahun_lulus']; ?>">
                         </div>
                         <div class="col-md-6 py-1">
-                           <span>Nilai Rata-rata</span>
+                           <span>Nilai Rata</span>
                            <input type="text" name="rata" class="form-control" placeholder="nilai" value="<?= $dataTambahan[0]['nilai_rata']; ?>">
+                        </div>
+                        <div class="col-md-2 py-1">
+                           <label>Bukti</label>
+                           <button type="button" data-bs-toggle="modal" data-bs-target="#modalBukti" class="btn btn-success btn-sm text-white float-end"><i class="fa-solid fa-eye"></i></button>
                         </div>
                         <div class="col-md-12 py-1">
                            <label for="wali">Orangtua / Wali siswa</label><br>
@@ -146,11 +150,25 @@
                      </div>
                   </div>
                </div>
-
                <div class="mt-2 text-center">
                   <button class="btn btn-primary profile-button" type="submit">Perbarui</button>
                </div>
          </form>
+         <div class="col-lg-12">
+            <div class="modal fade" id="modalBukti" tabindex="-1" aria-labelledby="modalAddLabel" aria-hidden="true">
+               <div class="modal-dialog">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalBukti">Bukti Nilai</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body">
+                        <img src="<?= base_url() . "/assets/images/berkas_nilai/" . $dataTambahan[0]['bukti_nilai']; ?>" alt="" srcset="">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
    </div>
    </div>

@@ -8,7 +8,7 @@ class HitungModel extends Model
 {
    protected $table = 'tbl_hitung';
    protected $primaryKey = 'id_hitung';
-   protected $allowedFields = ['email', 'nisn', 'asal_sekolah', 'tahun_lulus', 'nilai_rata', 'nama_ortu', 'status_ortu', 'pekerjaan_ortu', 'penghasilan_ortu', 'tanggungan_ortu'];
+   protected $allowedFields = ['email', 'nisn', 'asal_sekolah', 'tahun_lulus', 'nilai_rata', 'bukti_nilai', 'nama_ortu', 'status_ortu', 'pekerjaan_ortu', 'penghasilan_ortu', 'tanggungan_ortu'];
    protected $returnType       = 'array';
    protected $useTimestamps    = false;
 
