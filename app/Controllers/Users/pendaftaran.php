@@ -15,20 +15,25 @@ class Pendaftaran extends BaseController
    protected $pendaftarUpModel;
    protected $hitungModel;
    protected $hitungUpModel;
+   protected $data = [];
    public function __construct()
    {
       $this->pendaftarModel = new PendaftarModel();
       $this->pendaftarUpModel = new PendaftarUpModel();
       $this->hitungModel = new HitungModel();
       $this->hitungUpModel = new HitungUpModel();
-   }
-
-   public function index()
-   {
       $data = [
          'dataBiodata' => $this->pendaftarModel->getAllPendaftar(),
          'dataHitung' => $this->hitungModel->getHitung()
       ];
+   }
+
+   public function index()
+   {
+      // $data = [
+      //    'dataBiodata' => $this->pendaftarModel->getAllPendaftar(),
+      //    'dataHitung' => $this->hitungModel->getHitung()
+      // ];
       return view('users/pendaftaran', $data);
    }
 

@@ -18,8 +18,7 @@
       <div class="container">
         <a class="navbar-brand" href="<?= base_url(); ?>"><i class="fa-solid fa-graduation-cap"></i> SPKita Solusi
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -37,7 +36,7 @@
               <a class="nav-link scrollto" href="#kontak">Kontak Kami</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?= base_url(); ?>/login">Daftar</a>
+              <a class="nav-link" href="<?= base_url(); ?>/login">Masuk</a>
             </li>
           </ul>
         </div>
@@ -69,8 +68,7 @@
                   </div>
                   <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
                     <div class="home-img position-relative">
-                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider1.png" alt=""
-                        class="home-first-img">
+                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider1.png" alt="" class="home-first-img">
                     </div>
                   </div>
                 </div>
@@ -99,8 +97,7 @@
                   </div>
                   <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
                     <div class="home-img position-relative">
-                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider2.png" alt=""
-                        class="home-first-img">
+                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider2.png" alt="" class="home-first-img">
                     </div>
                   </div>
                 </div>
@@ -130,8 +127,7 @@
                   </div>
                   <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
                     <div class="home-img position-relative">
-                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider4.png" alt=""
-                        class="home-first-img">
+                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider4.png" alt="" class="home-first-img">
                     </div>
                   </div>
                 </div>
@@ -160,8 +156,7 @@
                   </div>
                   <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 order-first-" style="margin: 0 auto;">
                     <div class="home-img position-relative">
-                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider3.png" alt=""
-                        class="home-first-img">
+                      <img class="d-block w-100" src="<?php base_url(); ?>/assets/images/slider3.png" alt="" class="home-first-img">
                     </div>
                   </div>
                 </div>
@@ -270,8 +265,7 @@
             <div class="accordion accordion-flush" id="faqlist1">
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-1">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
                     Apa beasiswa SPKita gratis?
                   </button>
                 </h2>
@@ -285,8 +279,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
                     Siapa saja yang boleh mendaftar beasiswa?
                   </button>
                 </h2>
@@ -301,8 +294,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
                     Jika mendaftar beasiswa kemudian saya dikatakan tidak layak, apa yang akan terjadi?
                   </button>
                 </h2>
@@ -326,8 +318,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq2-content-1">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-1">
                     Apakah ada test untuk pendaftaran beasiswa?
                   </button>
                 </h2>
@@ -341,8 +332,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq2-content-2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-2">
                     Penerima beasiswa apakah tidak boleh menikah selama kuliah?
                   </button>
                 </h2>
@@ -358,8 +348,7 @@
 
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq2-content-3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-3">
                     Apakah penerima beasiswa dapat pindah prodi?
                   </button>
                 </h2>
@@ -402,9 +391,7 @@
             </div>
           </div>
           <div class="col-lg-6 col-md-6">
-            <iframe style="min-width: 100%; min-height: 350px;"
-              src="https://maps.google.com/maps?q=Universitas%20Amikom%20Purwokerto&t=&z=13&ie=UTF8&iwloc=&output=embed"
-              frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            <iframe style="min-width: 100%; min-height: 350px;" src="https://maps.google.com/maps?q=Universitas%20Amikom%20Purwokerto&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 
           </div>
         </div>
