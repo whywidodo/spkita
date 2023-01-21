@@ -45,7 +45,6 @@ if (session()->get('logged_in')) {
                                             </div>
                                             <button type="submit" class="btn btn-light text-light buttonlogin">Login</button>
                                             <div>
-                                                <label class="inforeg">Tidak bisa login? <a href="<?= base_url(); ?>/forgot">Forgot password</a></label>
                                                 <label class="inforeg">Belum punya akun? <a href="<?= base_url(); ?>/register">Registrasi
                                                         Sekarang</a></label>
                                             </div>

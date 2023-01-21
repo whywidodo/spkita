@@ -28,7 +28,7 @@
                   <h1 class="h3">Pengumuman</h1>
                   <div class="row py-3">
                      <div class="col-lg-12 col-md-auto col-sm-auto">
-                        <span>Data berikut merupakan informasi yang berkaitan dengan siswa pendaftar beasiswa.</span>
+                        <span>Berikut ini merupakan hasil perhitungan beasiswa dengan menerapkan metode SAW. Data diurutkan berdasarkan hasil akhir yang diperoleh.</span>
                      </div>
                   </div>
                   <table class="table table-hover text-center">
